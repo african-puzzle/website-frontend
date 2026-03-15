@@ -1,0 +1,46 @@
+---
+// VideoModal — lightweight video popup using native <dialog>
+// Triggered by any element with a data-video-url attribute
+---
+
+<dialog id="video-modal" class="backdrop:bg-black/70 bg-transparent p-0 max-w-4xl w-full mx-auto my-auto rounded-2xl">
+  <div class="relative">
+    <button id="video-modal-close" class="absolute -top-10 right-0 text-white text-3xl cursor-pointer hover:text-white/70 transition-colors">&times;</button>
+    <div class="aspect-video bg-black rounded-2xl overflow-hidden">
+      <iframe id="video-modal-iframe" class="w-full h-full" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const triggers = document.querySelectorAll('[data-video-url]');
+  const dialog = document.getElementById('video-modal') as HTMLDialogElement;
+  const iframe = document.getElementById('video-modal-iframe') as HTMLIFrameElement;
+  const closeBtn = document.getElementById('video-modal-close');
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const url = trigger.getAttribute('data-video-url');
+      if (url && dialog) {
+        iframe.src = url;
+        dialog.showModal();
+      }
+    });
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    dialog?.close();
+    iframe.src = '';
+  });
+
+  dialog?.addEventListener('close', () => {
+    iframe.src = '';
+  });
+
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+      iframe.src = '';
+    }
+  });
+</script>

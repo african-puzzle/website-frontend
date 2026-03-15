@@ -8,40 +8,72 @@ interface Props {
 const { lang } = Astro.props;
 
 const team = [
-  { name: 'Bams Betga', role: { fr: 'Fondateur & CEO', en: 'Founder & CEO', pcm: 'Founder & CEO' }, linkedin: 'https://linkedin.com/in/bams-betga' },
-  { name: 'Benjamin Mbiandjeu', role: { fr: 'Co-Fondateur, Risques', en: 'Co-Founder, Risk', pcm: 'Co-Founder, Risk' }, linkedin: 'https://linkedin.com/in/benjamin-mbiandjeu' },
-  { name: 'Jerome Ebella', role: { fr: 'Co-Fondateur, Directeur Commercial', en: 'Co-Founder, Business Manager', pcm: 'Co-Founder, Business Manager' }, linkedin: 'https://linkedin.com/in/jerome-ebella' },
-  { name: 'Alain Titty Dimbeng', role: { fr: 'Co-Fondateur, Stratégie', en: 'Co-Founder, Strategy', pcm: 'Co-Founder, Strategy' }, linkedin: '' },
+  { name: 'Bams Betga', role: { fr: 'Fondatrice, CEO', en: 'Founder, CEO', pcm: 'Founder, CEO' }, linkedin: 'https://www.linkedin.com/in/bams-b-282454b/', photo: '/images/team/bams-betga.png' },
+  { name: 'Benjamin Mbiandjeu', role: { fr: 'Co-Fondateur, Risk', en: 'Co-Founder, Risk', pcm: 'Co-Founder, Risk' }, linkedin: 'https://www.linkedin.com/in/benjamin-mbiandjeu-0b707b1/', photo: '' },
+  { name: 'Jérôme Ebella', role: { fr: 'Co-Fondateur', en: 'Co-Founder', pcm: 'Co-Founder' }, linkedin: '', photo: '/images/team/jerome-ebella.png' },
+  { name: 'Alain Titty Dimbeng', role: { fr: 'Co-Fondateur', en: 'Co-Founder', pcm: 'Co-Founder' }, linkedin: 'http://fr.viadeo.com/fr/profile/alain.titty-dimbeng', photo: '' },
+  { name: 'David Fala', role: { fr: '', en: '', pcm: '' }, linkedin: 'https://www.linkedin.com/in/davidfala/', photo: '/images/team/david-fala.png' },
+  { name: "Qa'id Jacobs", role: { fr: 'UX Designer / PO', en: 'UX Designer / PO', pcm: 'UX Designer / PO' }, linkedin: 'https://www.linkedin.com/in/qaidjacobs/', photo: '/images/team/qaid-jacobs.png' },
+  { name: 'Mathieu Gbetro', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: 'https://www.linkedin.com/in/mathieu-gbetro/', photo: '/images/team/mathieu-gbetro.jpg' },
+  { name: 'David Juillard', role: { fr: '', en: '', pcm: '' }, linkedin: 'https://www.linkedin.com/in/david-juillard-8666839/', photo: '/images/team/david-juillard.png' },
+  { name: 'Michèle Onga', role: { fr: 'R&D - Design Thinking', en: 'R&D - Design Thinking', pcm: 'R&D - Design Thinking' }, linkedin: 'https://www.linkedin.com/in/michele-onga-bb3a4b7', photo: '/images/team/michele-onga.png' },
+  { name: 'Saran Diakité Kaba', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/saran-diakite-kaba.png' },
+  { name: 'Fodé Touré', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/fode-toure.png' },
+  { name: 'Pierre Medina', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/pierre-medina.jpg' },
 ];
 ---
 
-<section class="pt-32 pb-20 lg:pb-28">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-brand-purple-600 font-semibold text-sm uppercase tracking-wider">
-        {t(lang, 'about.label')}
-      </span>
-      <h1 class="mt-3 text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">
-        {t(lang, 'about.title')}
-      </h1>
-      <p class="mt-6 text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-        {t(lang, 'about.subtitle')}
-      </p>
+<section class="pb-20 lg:pb-28 bg-about-tan">
+  <!-- Full-bleed hero -->
+  <div class="relative w-full h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
+    <img
+      src="/images/about-hero.png"
+      alt="African Puzzle"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16">
+        <img
+          src="/images/logo-white-full.svg"
+          alt="African Puzzle — Find Africa everywhere"
+          class="w-40 sm:w-56 md:w-72 lg:w-[360px] drop-shadow-lg"
+        />
+      </div>
     </div>
+  </div>
 
-    <!-- Mission -->
-    <div class="max-w-3xl mx-auto mb-20">
-      <div class="bg-gradient-to-br from-brand-purple-50 to-blue-50 dark:from-brand-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8 lg:p-12 border border-brand-purple-100 dark:border-brand-purple-800/30">
-        <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-          {t(lang, 'about.mission')}
-        </p>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+
+    <!-- Purple Banner with Phone -->
+    <div class="bg-brand-purple-600 rounded-2xl overflow-visible relative mb-20">
+      <div class="flex flex-col lg:flex-row items-center">
+        <!-- Text side -->
+        <div class="flex-1 px-6 py-4 lg:py-5 lg:px-12 text-white">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-display uppercase leading-tight mb-4 whitespace-nowrap">
+            {t(lang, 'about.title')}
+          </h1>
+          <p class="text-lg leading-relaxed opacity-90 mb-4">
+            {t(lang, 'about.innovation')}
+          </p>
+          <p class="text-lg leading-relaxed" set:html={t(lang, 'about.creative_statement')} />
+        </div>
+
+        <!-- Phone mockup — protrudes above and below -->
+        <div class="relative flex-shrink-0 px-8 lg:px-12 my-4 lg:my-0">
+          <div class="lg:my-[-4rem]">
+            <img
+              src="/images/app-screenshot-programmes.png"
+              alt="African Puzzle WORKS app"
+              class="w-56 md:w-64 lg:w-72 drop-shadow-2xl"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Team -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-slate-900 dark:text-white">
+      <h2 class="text-3xl font-bold font-display text-[#340975]">
         {t(lang, 'about.team_title')}
       </h2>
     </div>
@@ -49,21 +81,29 @@ const team = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {team.map((member) => (
         <div class="text-center group">
-          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-brand-purple-400 to-brand-blue-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-            {member.name.split(' ').map(n => n[0]).join('')}
+          <div class="relative w-40 h-40 lg:w-[260px] lg:h-[260px] mx-auto mb-4 rounded-full bg-white flex items-center justify-center text-[#340975] text-3xl lg:text-5xl font-bold overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+            <span>{member.name.split(' ').map(n => n[0]).join('')}</span>
+            <img
+              src={member.photo}
+              alt={member.name}
+              class="absolute inset-0 w-full h-full object-cover"
+              onerror="this.style.display='none'"
+            />
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-lg">
+          <h3 class="font-bold text-[#340975] text-lg">
             {member.name}
           </h3>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            {member.role[lang]}
-          </p>
+          {member.role[lang] && (
+            <p class="text-sm text-[#a5a29b] mt-1">
+              {member.role[lang]}
+            </p>
+          )}
           {member.linkedin && (
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1 mt-3 text-sm text-brand-purple-600 hover:text-brand-purple-700 transition-colors"
+              class="inline-flex items-center gap-1 mt-3 text-sm text-[#340975] hover:text-[#340975]/70 transition-colors"
             >
               LinkedIn
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

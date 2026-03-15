@@ -15,6 +15,10 @@
   "hero.cta": "Download for Google Play",
   "hero.learn_more": "Learn more",
 
+  "intro.title": "African Puzzle works",
+  "intro.subtitle": "Di personal assistant wey dey change how people organize",
+  "intro.audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS",
+
   "features.label": "Wetin E Fit Do",
   "features.title": "Everything wey you need",
   "features.subtitle": "African Puzzle WORKS go help you manage your projects, clients and appointments for one place",
@@ -40,21 +44,25 @@
   "reach.title": "E dey available for 70 countries",
   "reach.subtitle": "African Puzzle WORKS dey support creative people around the world",
 
-  "cta.title": "You ready to organize?",
-  "cta.subtitle": "Download African Puzzle WORKS free and start today",
-  "cta.button": "Download now",
+  "cta.title": "Join di test version",
+  "cta.subtitle": "Download am to test di first version of African Puzzle works.",
+  "cta.button": "Download to test di app",
 
   "about.label": "About Us",
   "about.title": "Wealth for everybody",
   "about.subtitle": "Africa get plenty creativity and creative people don get their own personal assistant!",
+  "about.innovation": "African Puzzle dey innovate with dis simple tool wey easy to use and e dey help plenty people to grow.",
+  "about.creative_statement": "<strong>Africa get creativity and creative people don get their own personal assistant!</strong>",
   "about.mission": "African Puzzle WORKS na mobile app wey dem design to help tailors, artisans, creative people and entrepreneurs organize their daily work beta.",
   "about.team_title": "Our team",
 
   "contact.label": "Contact",
-  "contact.title": "Make we dey in touch",
+  "contact.title": "Contact African Puzzle",
   "contact.subtitle": "No fear to contact us if you get question or suggestion",
   "contact.address_label": "Address",
-  "contact.address": "African Puzzle, Inc., 21 boulevard Haussmann, 75 009 Paris, France",
+  "contact.address_company": "African Puzzle, Inc.",
+  "contact.address_street": "21 boulevard Haussmann",
+  "contact.address_city": "75 009 Paris - France",
   "contact.email_label": "Email",
   "contact.social_label": "Social networks",
 
@@ -62,9 +70,15 @@
   "media.title": "For di press",
   "media.subtitle": "See wetin media people dey talk about us",
   "media.press_article": "Press article",
+  "media.filter_all": "All",
+  "media.filter_press_release": "Press Release",
+  "media.filter_videos": "Videos",
+  "media.load_more": "More",
 
   "privacy.title": "Privacy Policy",
   "privacy.effective": "E start from May 1, 2021",
+
+  "download_banner.title": "Download to test di African Puzzle works app",
 
   "footer.rights": "All rights reserved",
   "footer.privacy": "Privacy Policy",

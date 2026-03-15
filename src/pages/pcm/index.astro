@@ -1,10 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/sections/Hero.astro';
+import Intro from '../../components/sections/Intro.astro';
 import Features from '../../components/sections/Features.astro';
 import Benefits from '../../components/sections/Benefits.astro';
 import Reach from '../../components/sections/Reach.astro';
 import CTA from '../../components/sections/CTA.astro';
+import DownloadBanner from '../../components/sections/DownloadBanner.astro';
 
 const lang = 'pcm';
 ---
@@ -15,8 +17,10 @@ const lang = 'pcm';
   lang={lang}
 >
   <Hero lang={lang} />
+  <Intro lang={lang} />
   <Features lang={lang} />
   <Benefits lang={lang} />
-  <Reach lang={lang} />
   <CTA lang={lang} />
+  <Reach lang={lang} />
+  <DownloadBanner lang={lang} />
 </Layout>

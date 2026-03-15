@@ -17,18 +17,13 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-slate-900 text-slate-400">
+<footer class="text-slate-300" style="background-color: #2D1B4E;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand -->
       <div>
-        <a href={paths.home} class="flex items-center gap-2 font-bold text-xl text-white mb-4">
-          <svg class="w-8 h-8 text-brand-purple-400" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="currentColor" />
-            <path d="M8 16l4-8 4 8-4 8z" fill="white" opacity="0.9" />
-            <path d="M16 16l4-8 4 8-4 8z" fill="white" opacity="0.6" />
-          </svg>
-          <span>African Puzzle</span>
+        <a href={paths.home} class="inline-block mb-4">
+          <img src="/images/logo-footer.svg" alt="African Puzzle WORKS" class="h-24 w-auto" />
         </a>
         <p class="text-sm leading-relaxed">
           {t(lang, 'about.mission')}
@@ -55,7 +50,7 @@ const socialLinks = [
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-brand-purple-600 text-slate-400 hover:text-white transition-all duration-300"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-brand-purple-600 text-slate-300 hover:text-white transition-all duration-300"
               aria-label={social.name}
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -67,9 +62,8 @@ const socialLinks = [
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+    <div class="mt-12 pt-8 border-t border-white/10 flex items-center justify-center text-sm">
       <p>&copy; {year} African Puzzle. {t(lang, 'footer.rights')}.</p>
-      <p>{t(lang, 'footer.made_with')} &#9829; {t(lang, 'footer.in')}</p>
     </div>
   </div>
 </footer>

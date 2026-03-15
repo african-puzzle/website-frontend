@@ -23,10 +23,21 @@ export default {
             600: '#1F5BFF',
           },
         },
+        feature: {
+          projects: '#fff1c2',
+          clients: '#c5bed1',
+          album: '#ffba42',
+          appointments: '#aad3fa',
+        },
+        about: {
+          tan: '#eae0ab',
+          name: '#340975',
+          role: '#a5a29b',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Cal Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        display: ['Nunito', 'system-ui', 'sans-serif'],
       },
     },
   },

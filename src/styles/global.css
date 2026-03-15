@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @theme {
   --color-brand-purple-50: #f3e8ff;
@@ -14,8 +15,16 @@
   --color-brand-blue-500: #3b82f6;
   --color-brand-blue-600: #1F5BFF;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Cal Sans', 'Inter', system-ui, sans-serif;
+  --color-feature-projects: #fff1c2;
+  --color-feature-clients: #c5bed1;
+  --color-feature-album: #ffba42;
+  --color-feature-appointments: #aad3fa;
+  --color-about-tan: #eae0ab;
+  --color-about-name: #340975;
+  --color-about-role: #a5a29b;
+
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-display: 'Nunito', system-ui, sans-serif;
 }
 
 @layer base {
@@ -24,7 +33,7 @@
   }
 
   body {
-    @apply bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 antialiased;
+    @apply bg-white text-slate-700 antialiased;
   }
 
   ::selection {

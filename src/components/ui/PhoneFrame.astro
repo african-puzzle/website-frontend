@@ -1,0 +1,40 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = '' } = Astro.props;
+---
+
+<div class:list={['phone-frame', className]}>
+  <img src={src} alt={alt} class="phone-screen" loading="lazy" />
+  <img src="/images/phone-frame.svg" alt="" class="phone-bezel" aria-hidden="true" />
+</div>
+
+<style>
+  .phone-frame {
+    position: relative;
+    width: 220px;
+    aspect-ratio: 409 / 855;
+  }
+
+  .phone-screen {
+    position: absolute;
+    top: 6.55%;
+    left: 6.6%;
+    width: 87.8%;
+    height: 86.4%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+  }
+
+  .phone-bezel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+</style>
