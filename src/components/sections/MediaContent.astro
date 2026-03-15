@@ -40,7 +40,7 @@ const mediaItems = Array.from({ length: 9 }, (_, i) => ({
           <div class="p-6">
             <h3 class="font-bold text-slate-900 dark:text-white">{item.title}</h3>
             <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              {lang === 'fr' ? 'Article de presse' : 'Press article'}
+              {t(lang, 'media.press_article')}
             </p>
           </div>
         </div>
