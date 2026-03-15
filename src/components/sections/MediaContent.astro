@@ -7,44 +7,500 @@ interface Props {
 
 const { lang } = Astro.props;
 
-// Placeholder media items — these would come from content collections in production
-const mediaItems = Array.from({ length: 9 }, (_, i) => ({
-  id: i + 1,
-  title: `Media ${i + 1}`,
-  color: ['from-purple-400 to-purple-600', 'from-blue-400 to-blue-600', 'from-emerald-400 to-emerald-600', 'from-amber-400 to-amber-600', 'from-rose-400 to-rose-600', 'from-cyan-400 to-cyan-600'][i % 6],
-}));
+const categories = [
+  { key: 'radio', label: 'Radio & Podcasts' },
+  { key: 'press-release', label: lang === 'fr' ? 'Communiqué de presse' : 'Press Release' },
+  { key: 'articles', label: 'Articles' },
+  { key: 'videos', label: lang === 'fr' ? 'Vidéos' : 'Videos' },
+  { key: 'social', label: 'Social Mention' },
+];
+
+const mediaItems = [
+  {
+    title: "African Puzzle WORKS, un bijou en or pour les artisans africains",
+    description: "La plateforme Medi 1, N° 1 du podcast au Maroc interview Bams BETGA, fondatrice d'African Puzzle sur l'application mobile de productivité qui veut embarquer tous les artisans africains dans le train du digital.",
+    date: "2023-04-20",
+    category: "radio",
+    image: "/images/media/medi1-podcast.webp",
+    link: "https://medi1podcast.com/fr/episode/737/203643/-African-Puzzle-WORKS--un-bijou-en-or-pour-les-artisans-africains",
+  },
+  {
+    title: "African Puzzle, pitch à l'émission Les Pionniers de Fred Mazzella sur BFM Business TV",
+    description: "La Fondatrice d'African Puzzle, Bams a participé, vendredi 14 Avril dernier, à l'émission Les Pionniers avec Frédéric Mazzella sur BFM Business TV pour expliquer les bénéfices de l'application mobile de productivité.",
+    date: "2023-04-20",
+    category: "videos",
+    image: "/images/media/bfm-pionniers.webp",
+    link: "https://youtu.be/cgJcjVhSQNs",
+  },
+  {
+    title: "African Puzzle présente à la 8ème édition de la cérémonie de clôture des Blue Ocean Awards",
+    description: "African Puzzle a participé à la 8ème édition des Blue Ocean Awards Jeudi 13 Avril à l'INSEAD à Fontainebleau ! African Puzzle a reçu un Blue Ocean Award dans la catégorie \"Baby\" pour ses activités au Sénégal.",
+    date: "2023-04-19",
+    category: "videos",
+    image: "/images/media/blue-ocean-awards.webp",
+    link: "https://youtu.be/oH2uECdlIzE",
+  },
+  {
+    title: "African Puzzle la start-up qui se veut inclusive et se consacre à l'autonomisation des microentreprises en Afrique",
+    description: "La rédaction du magazine Ocean's News vous invite à découvrir la start-up African Puzzle dirigée par Bams BETGA et Renée CLÉMENT.",
+    date: "2023-04-14",
+    category: "articles",
+    image: "/images/media/oceans-news.webp",
+    link: "https://oceans-news.com/african-puzzle-works-lapplication-mobile-tout-en-un/",
+  },
+  {
+    title: "Renée CLÉMENT, cofondatrice d'African Puzzle nous dit tout sur la start up qui monte!",
+    description: "African Puzzle, c'est tout simplement l'application pour s'organiser facilement et se souvenir de tout. Un assistant personnel qui révolutionne l'organisation des artisans, couturiers, créatifs etc. en Afrique et dans le monde!",
+    date: "2023-04-04",
+    category: "radio",
+    image: "/images/media/renee-clement.webp",
+    link: "https://www.youtube.com/watch?v=9CFEWBbXpeU",
+  },
+  {
+    title: "African Puzzle Works: l'application mobile \"tout en un\"",
+    description: "C'est une solution qui intègre la gestion de projets, l'élaboration de fiches clients, le suivi de la trésorerie, l'organisation d'un agenda intelligent avec un catalogue digital à la clé.",
+    date: "2023-03-08",
+    category: "articles",
+    image: "/images/media/founders-app.webp",
+    link: "https://oceans-news.com/african-puzzle-works-lapplication-mobile-tout-en-un/",
+  },
+  {
+    title: "African Puzzle WORKS, la start up qui développe le nouvel assistant mobile adapté aux artisans africains",
+    description: "La start up a développé une application : un assistant personnel qui facilite l'organisation des entrepreneurs des secteurs de l'artisanat.",
+    date: "2023-03-06",
+    category: "articles",
+    image: "/images/media/founders-bureau.webp",
+    link: "https://damaadvisory.com/2023/02/27/african-puzzle-works-la-start-up-qui-developpe-le-nouvel-assistant-mobile-adapte-aux-artisans-africains/",
+  },
+  {
+    title: "Quand African Puzzle pense aux petits entrepreneurs oubliés",
+    description: "Bams BETGA et Renée CLEMENT nous livrent leur vision de l'inclusion digitale et décrivent l'application mobile audio et photo pour s'organiser sans avoir à lire ni à écrire!",
+    date: "2023-02-06",
+    category: "articles",
+    image: "/images/media/bams-renee-interview.webp",
+    link: "https://letechobservateur.sn/inclusion-digitale-quand-bams-betga-et-renee-clement-pensent-aux-petits-entrepreneurs-oublies/",
+  },
+  {
+    title: "Présentation de African Puzzle par les fondatrices - Bams & Renée",
+    description: "Bams fondatrice et Présidente, Renée CLEMENT Co fondatrice et DG, présentent les bénéfices de l'application Audio et photo pour organiser son travail sans avoir besoin ni de lire ni d'écrire. Bienvenue chez African Puzzle!",
+    date: "2023-01-10",
+    category: "videos",
+    image: "/images/media/presentation-video.jpg",
+    link: "https://africanpuzzle.com/tpost/y2lp7crr31-prsentation-de-african-puzzle-par-les-fo",
+  },
+  {
+    title: "African Puzzle WORKS, l'application mobile audio et photo d'organisation récompensé à Dakar par l'organisation Blue Ocean Awards",
+    description: "African Puzzle WORKS, l'outil de productivité audio et photo, qui ne nécessite ni d'avoir à écrire, ni à lire, a été récompensé à Dakar, lundi 19 décembre 2022, dans la catégorie \"baby\" par l'organisation des Blue Ocean Awards.",
+    date: "2023-01-05",
+    category: "articles",
+    image: "/images/media/blue-ocean-dakar.webp",
+    link: "https://africanpuzzle.com/tpost/obap48m6i1-african-puzzle-works-lapplication-mobile",
+  },
+  {
+    title: "African Puzzle WORKS - Press Release ENG",
+    description: "The audio and photo mobile application to organize your work without having to read or write.",
+    date: "2023-01-05",
+    category: "press-release",
+    image: "/images/media/press-release-eng.webp",
+    link: "https://africanpuzzle.com/tpost/1pgmlmprt1-african-puzzle-works-press-release-eng",
+  },
+  {
+    title: "L'organisation Blue Ocean Awards récompense African Puzzle WORKS",
+    description: "African Puzzle WORKS, été récompensé du prix Blue Ocean Awards à Dakar Lundi 19 décembre 2022 dans la catégorie \"Baby\". C'est l'outil de productivité pour le plus grand nombre y inclus les exclus du digital.",
+    date: "2023-01-05",
+    category: "articles",
+    image: "/images/media/blue-ocean-ibrahima.webp",
+    link: "https://reussirbusiness.com/les-blue-ocean-awards-recompensent-4-startups-senegalaises/",
+  },
+  {
+    title: "African Puzzle WORKS - Communiqué de Presse FR",
+    description: "L'application audio et photo pour organiser son travail sans avoir besoin ni de lire ni d'écrire.",
+    date: "2023-01-02",
+    category: "press-release",
+    image: "/images/media/press-release-fr.jpg",
+    link: "https://africanpuzzle.com/tpost/27v4orkst1-african-puzzle-works-communiqu-de-presse",
+  },
+  {
+    title: "Dédiés à l'entrepreneuriat innovant, les Blue Ocean Awards ont récompensé leurs premiers lauréats sénégalais",
+    description: "African Puzzle a été récompensé lors de la première édition des Blue Ocean Awards à Dakar, lundi 19 décembre, une cérémonie prestigieuse récompensant les solutions innovantes à la conquête de nouveaux marchés.",
+    date: "2022-12-23",
+    category: "articles",
+    image: "/images/media/forbes-blue-ocean.jpg",
+    link: "https://forbesafrique.com/dedies-a-lentrepreneuriat-innovant-les-blue-ocean-awards-ont-recompense-leurs-premiers-laureats-senegalais/",
+  },
+  {
+    title: "1ers Blue Ocean Awards : les startups sénégalaises à l'honneur",
+    description: "African Puzzle a été récompensé pour sa solution innovante dans la catégorie Baby, lundi 19 décembre à Dakar, à la remise des 1ers Blue Ocean Awards du Sénégal. Son représentant sur place M. Ibrahima Camara a reçu le prestigieux Award.",
+    date: "2022-12-23",
+    category: "articles",
+    image: "/images/media/keur-massa-blue-ocean.jpg",
+    link: "https://keurmassaractu.com/1ers-blue-ocean-awards-les-startups-senegalais-a-lhonneur",
+  },
+  {
+    title: "Démonstration d'un couturier dakarois qui utilise l'application",
+    description: "Un couturier dakarois montre à ses pairs comment il utilise l'application mobile, et comment il enregistre les mesures de ses clients.",
+    date: "2022-10-19",
+    category: "videos",
+    image: "/images/media/couturier-dakar.jpg",
+    link: "https://africanpuzzle.com/tpost/7c0t2njdz1-dmonstration-dun-couturier-dakarois-qui",
+  },
+  {
+    title: "Nous devons laisser en héritage une solution numérique utile aux générations à venir",
+    description: "African Puzzle WORKS, est une application mobile dont la plus value est la digitalisation de la gestion de la relation client et des commandes des entrepreneurs africains.",
+    date: "2022-09-11",
+    category: "articles",
+    image: "/images/media/duo-wax.jpg",
+    link: "https://inspireafrika.com/african-puzzle-nous-devons-laisser-en-heritage-une-solution-numerique-utile-aux-generations-a-venir/",
+  },
+  {
+    title: "Témoignage d'un couturier du Togo qui explique comment il utilise African Puzzle WORKS",
+    description: "Chaque artisan s'approprie cette solution digitale très simple pour enregistrer les mesures de son client, ou encore créer son catalogue digital.",
+    date: "2022-06-22",
+    category: "videos",
+    image: "/images/media/couturier-togo.jpg",
+    link: "https://youtu.be/aLEnnYbyYhQ",
+  },
+  {
+    title: "Témoignage d'un couturier ivoirien qui explique les bénéfices de la version test d'African Puzzle WORKS",
+    description: "Un talentueux couturier ivoirien explique comment il enregistre les mesures de ces clients dans l'application mobile et à quel point il gagne en efficacité.",
+    date: "2022-05-03",
+    category: "videos",
+    image: "/images/media/couturier-ivoirien.jpg",
+    link: "https://www.youtube.com/watch?v=kr-6M3yNy2g",
+  },
+  {
+    title: "Le président de l'institution AFABCI livre son témoignage sur African Puzzle WORKS",
+    description: "Le président de l'association des Fiers Artisans et Bijoutiers de Côte d'Ivoire souligne les bienfaits d'African Puzzle WORKS qui transforme la manière de travailler des artisans.",
+    date: "2022-03-15",
+    category: "videos",
+    image: "/images/media/afabci-president.jpg",
+    link: "https://youtu.be/wnme5c587Sc",
+  },
+  {
+    title: "C'Chic Magazine rencontre African Puzzle",
+    description: "African Puzzle WORKS, l'application mobile qui organise les tâches des Entrepreneurs Africains.",
+    date: "2022-03-01",
+    category: "articles",
+    image: "/images/media/cchic-magazine.png",
+    link: "https://africanpuzzle.com/tpost/7gknk8gcn1-cchic-magazine-rencontre-african-puzzle",
+  },
+  {
+    title: "African Puzzle WORKS, l'application mobile qui simplifie la gestion des clients des entrepreneurs",
+    description: "Bams et Renée Clément, fondatrices de African Puzzle WORKS évoquent la version test de cet assistant digital inclusif, le partenaire business des professionnels désireux de gagner en efficacité!",
+    date: "2021-12-17",
+    category: "articles",
+    image: "/images/media/bams-app-gestion.jpg",
+    link: "https://africanpuzzle.com/tpost/8ful0vnge1-african-puzzle-works-lapplication-mobile",
+  },
+  {
+    title: "African Puzzle WORKS: L'application 5 En 1 Qui Facilite Le Travail Des Métiers Créatifs",
+    description: "African Puzzle WORKS est la solution digitale qui permet de se souvenir de toutes les informations clients qui vont des commandes, des projets aux moindres détails des exigences des clients.",
+    date: "2021-12-13",
+    category: "articles",
+    image: "/images/media/matinlibre-5en1.png",
+    link: "https://matinlibre.com/2021/12/10/african-puzzle-works-lapplication-5-en-1-qui-qui-facilite-le-travail-des-metiers-creatifs/",
+  },
+  {
+    title: "African Puzzle WORKS, l'application mobile Tout en Un",
+    description: "African Puzzle WORKS est l'application mobile des artisans, entrepreneurs qui souhaitent mieux gérer leurs commandes clients et leurs projets. Elle révolutionne la manière de travailler des acteurs de l'économie informelle.",
+    date: "2021-12-09",
+    category: "articles",
+    image: "/images/media/ap-works-tout-en-un.jpg",
+    link: "https://africanpuzzle.com/tpost/7t87jkify1-african-puzzle-works-lapplication-mobile",
+  },
+  {
+    title: "African Puzzle WORKS, la solution digitale d'organisation du travail",
+    description: "Focus Infos fait le point sur African Puzzle WORKS, l'application mobile qui permet aux petits entrepreneurs de gérer facilement leurs commandes et informations clients.",
+    date: "2021-12-08",
+    category: "articles",
+    image: "/images/media/focus-infos.jpg",
+    link: "https://africanpuzzle.com/tpost/5k9hpbdxf1-african-puzzle-works-la-solution-digital",
+  },
+  {
+    title: "Panorama Africa by Ghislain Coulibaly",
+    description: "Station: Radio de la Paix — Emission: Panorama Africa by Ghislain Coulibaly — Country: Ivory Coast",
+    date: "2021-11-26",
+    category: "radio",
+    image: "/images/media/radio-paix.png",
+    link: "https://www.youtube.com/watch?v=eTDLxcM7als",
+  },
+  {
+    title: "Bams and Renée Clément introduce African Puzzle WORKS mobile app",
+    description: "African Puzzle WORKS mobile app is described by Bams and Renée Clément, the founders of the African Puzzle company.",
+    date: "2021-11-11",
+    category: "videos",
+    image: "/images/media/bams-renee-intro-eng.jpg",
+    link: "https://www.youtube.com/watch?v=HWH9KpcMSgQ",
+  },
+  {
+    title: "AfricAngels on LinkedIn",
+    description: "Du 27 au 29 octobre s'est déroulé le lancement d'Africa Entrepreneurs Summit à Paris et dans 5+ capitales africaines avec l'objectif de préparer #AES2022 #innovation #Afrique #Entrepreneurs",
+    date: "2021-11-03",
+    category: "social",
+    image: "/images/media/africangels-linkedin.png",
+    link: "https://www.linkedin.com/posts/africangels_aes2022-innovation-afrique-activity-6861707564506251264-wwAr/",
+  },
+  {
+    title: "Week End Africain Reçoit Renée Clément",
+    description: "Pour l'heure, la mise au point de cette application est à sa première étape qui consiste à des tests bêta. Celle-ci prendra fin en décembre, date officielle de la mise à disposition.",
+    date: "2021-10-29",
+    category: "radio",
+    image: "/images/media/weekend-africain.png",
+    link: "https://www.monparisfm.com/podcasts/weekend-africain-149/renee-clement-810",
+  },
+  {
+    title: "Devenir riches en Afrique reçoit BAMS (Frank Kengne)",
+    description: "African Puzzle WORKS | L'application qui va révolutionner l'économie informelle",
+    date: "2021-10-21",
+    category: "videos",
+    image: "/images/media/devenir-riches.png",
+    link: "https://www.youtube.com/watch?v=AhGaP2nTbhw",
+  },
+  {
+    title: "Economie informelle: Une application pour faciliter l'organisation du travail, disponible",
+    description: "« African Puzzle WORKS », a été conçue pour faciliter l'organisation du travail des entrepreneurs de l'économie informelle.",
+    date: "2021-10-20",
+    category: "articles",
+    image: "/images/media/leral-economie.png",
+    link: "https://www.leral.net/Economie-informelle-Une-application-pour-faciliter-l-organisation-du-travail-disponible_a317331.html",
+  },
+  {
+    title: "APPLICATION MOBILE : « African Puzzle WORKS » à la conquête du marché…",
+    description: "\u201CAfrican Puzzle WORKS\u201D est une application mobile conçue pour faciliter l'organisation du travail des entrepreneurs de l'économie informelle : artisans, couturiers, freelances, créatifs… Un assistant digital incontournable.",
+    date: "2021-10-20",
+    category: "articles",
+    image: "/images/media/abenatv.png",
+    link: "https://abenatv.com/application-mobile-african-puzzle-works-a-la-conquete-du-marche/",
+  },
+  {
+    title: "African Puzzle WORKS, une appli mobile pour mieux organiser son business",
+    description: "Développée par la startup \u201CAfrican Puzzle\u201D, \u201CAfrican Puzzle WORKS\u201D est une plateforme mobile. C'est un outil conçu pour faciliter l'organisation du travail des entrepreneurs de l'économie informelle.",
+    date: "2021-10-07",
+    category: "articles",
+    image: "/images/media/actujeune.png",
+    link: "https://actujeune.com/2021/10/07/african-puzzle-works-une-appli-mobile-pour-mieux-organiser-son-business/",
+  },
+  {
+    title: "African Puzzle WORKS - Press Release",
+    description: "The 5-in-1 application that facilitates the work of creative professions and small businesses.",
+    date: "2021-10-01",
+    category: "press-release",
+    image: "/images/media/press-release-en.png",
+    link: "https://africanpuzzle.com/tpost/5bvhxeka81-african-puzzle-works-press-release",
+  },
+  {
+    title: "Aïssa Maïga on Instagram",
+    description: "Heureuse et fière d'accompagner l'équipe de African puzzle @africanpuzzle ! Merci pour cette application qui va aider les entrepreneurs créatifs et super busy.",
+    date: "2021-09-29",
+    category: "social",
+    image: "/images/media/aissa-maiga.png",
+    link: "https://www.instagram.com/p/CUaEHAaoVi7/",
+  },
+  {
+    title: "« African Puzzle WORKS », L'application Qui Révolutionne L'organisation Des Entrepreneurs De L'économie Informelle",
+    description: "",
+    date: "2021-06-30",
+    category: "articles",
+    image: "/images/media/jewanda.png",
+    link: "https://www.jewanda.com/2021/06/african-puzzle-works-lapplication-qui-revolutionne-lorganisation-des-entrepreneurs-de-leconomie-informelle/",
+  },
+  {
+    title: "Fashionomics Africa on LinkedIn",
+    description: "\u201CThe app to get organized easily and remember everything\u201D. Creative people, how does it sound to you? The new mobile app African Puzzle can be very helpful when running your business!",
+    date: "2021-05-19",
+    category: "social",
+    image: "/images/media/fashionomics.png",
+    link: "https://www.linkedin.com/posts/fashionomicsafrica_african-puzzle-activity-6798951779166916608-UsAj/",
+  },
+  {
+    title: "Johannes Heidecker on LinkedIn",
+    description: "A quand pour l'Europe?",
+    date: "2021-05-15",
+    category: "social",
+    image: "/images/media/heidecker-linkedin.png",
+    link: "https://www.linkedin.com/posts/johannesheidecker_african-puzzle-activity-6793923846715039744-BAf8/",
+  },
+  {
+    title: "Princess Erika on Twitter",
+    description: "Je vous partage une nouvelle application révolutionnaire @african_puzzle faite sur mesure pour les artisans !! Cliquez et partagez !!",
+    date: "2021-05-12",
+    category: "social",
+    image: "/images/media/princess-erika.png",
+    link: "https://twitter.com/PrincessErikaPr/status/1392372234140930048",
+  },
+  {
+    title: "Alice Zagury on LinkedIn",
+    description: "Voici une application qui permet aux artisans couturiers de tout gérer pour eux : décrire chaque client, noter ses mesures, le modèle souhaité, le tissu, les aller-retours, la transaction...",
+    date: "2021-04-28",
+    category: "social",
+    image: "/images/media/alice-zagury.png",
+    link: "https://www.linkedin.com/posts/alicezagu_african-puzzle-fran%C3%A7ais-activity-6793682874831917056-uods/",
+  },
+];
+
+const categoryLabels: Record<string, string> = {
+  radio: 'Radio & Podcasts',
+  'press-release': lang === 'fr' ? 'Communiqué de presse' : 'Press Release',
+  articles: 'Articles',
+  videos: lang === 'fr' ? 'Vidéos' : 'Videos',
+  social: 'Social Mention',
+};
+
+function formatDate(dateStr: string, locale: string): string {
+  const date = new Date(dateStr + 'T00:00:00');
+  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', pcm: 'en-US' };
+  return date.toLocaleDateString(localeMap[locale] || 'fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const ITEMS_PER_PAGE = 9;
 ---
 
 <section class="pt-32 pb-20 lg:pb-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-brand-purple-600 font-semibold text-sm uppercase tracking-wider">
-        {t(lang, 'media.label')}
-      </span>
-      <h1 class="mt-3 text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
         {t(lang, 'media.title')}
       </h1>
-      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+      <p class="mt-4 text-lg text-slate-600">
         {t(lang, 'media.subtitle')}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {mediaItems.map((item) => (
-        <div class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <div class={`h-48 bg-gradient-to-br ${item.color} flex items-center justify-center`}>
-            <svg class="w-12 h-12 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-            </svg>
+    <!-- Category Filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-14" id="media-filters">
+      <button
+        data-filter="all"
+        class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-brand-purple-600 text-white"
+      >
+        {lang === 'fr' ? 'Tous' : 'All'}
+      </button>
+      {categories.map((cat) => (
+        <button
+          data-filter={cat.key}
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-brand-purple-100 hover:text-brand-purple-700"
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Media Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="media-grid">
+      {mediaItems.map((item, index) => (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-category={item.category}
+          data-index={index}
+          class:list={[
+            'media-card group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
+            index >= ITEMS_PER_PAGE && 'hidden',
+          ]}
+        >
+          <div class="aspect-[4/3] overflow-hidden bg-slate-100">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
           </div>
           <div class="p-6">
-            <h3 class="font-bold text-slate-900 dark:text-white">{item.title}</h3>
-            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              {lang === 'fr' ? 'Article de presse' : 'Press article'}
-            </p>
+            <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-purple-600 mb-2">
+              {categoryLabels[item.category]}
+            </span>
+            <h3 class="font-bold text-slate-900 leading-snug group-hover:text-brand-purple-700 transition-colors">
+              {item.title}
+            </h3>
+            {item.description && (
+              <p class="mt-3 text-sm text-slate-500 line-clamp-3">
+                {item.description}
+              </p>
+            )}
+            <time class="block mt-4 text-xs text-slate-400 font-medium">
+              {formatDate(item.date, lang)}
+            </time>
           </div>
-        </div>
+        </a>
       ))}
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-12" id="load-more-wrapper">
+      <button
+        id="load-more-btn"
+        class="inline-flex items-center px-8 py-3 bg-brand-purple-600 text-white font-semibold rounded-full hover:bg-brand-purple-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+      >
+        {lang === 'fr' ? 'Plus' : 'More'}
+      </button>
     </div>
   </div>
 </section>
+
+<script define:vars={{ ITEMS_PER_PAGE }}>
+  const filters = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.media-card');
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  const loadMoreWrapper = document.getElementById('load-more-wrapper');
+  let currentFilter = 'all';
+  let visibleCount = ITEMS_PER_PAGE;
+
+  function updateVisibility() {
+    let shown = 0;
+    let totalMatching = 0;
+
+    cards.forEach((card) => {
+      const matchesFilter = currentFilter === 'all' || card.dataset.category === currentFilter;
+
+      if (!matchesFilter) {
+        card.classList.add('hidden');
+        return;
+      }
+
+      totalMatching++;
+
+      if (shown < visibleCount) {
+        card.classList.remove('hidden');
+        shown++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Show/hide load more button
+    if (loadMoreWrapper) {
+      loadMoreWrapper.style.display = shown < totalMatching ? '' : 'none';
+    }
+  }
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      currentFilter = btn.dataset.filter || 'all';
+      visibleCount = ITEMS_PER_PAGE;
+
+      // Update active state
+      filters.forEach((b) => {
+        b.classList.remove('active', 'bg-brand-purple-600', 'text-white');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+      });
+      btn.classList.add('active', 'bg-brand-purple-600', 'text-white');
+      btn.classList.remove('bg-slate-100', 'text-slate-600');
+
+      updateVisibility();
+    });
+  });
+
+  loadMoreBtn?.addEventListener('click', () => {
+    visibleCount += ITEMS_PER_PAGE;
+    updateVisibility();
+  });
+
+  // Initial state
+  updateVisibility();
+</script>

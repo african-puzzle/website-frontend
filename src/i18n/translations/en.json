@@ -15,6 +15,10 @@
   "hero.cta": "Download on Google Play",
   "hero.learn_more": "Learn more",
 
+  "intro.title": "African Puzzle works",
+  "intro.subtitle": "The personal assistant that revolutionizes the organization of",
+  "intro.audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS",
+
   "features.label": "Features",
   "features.title": "Everything you need",
   "features.subtitle": "African Puzzle WORKS helps you manage your projects, clients and appointments in one place",
@@ -40,21 +44,25 @@
   "reach.title": "Available in 70 countries",
   "reach.subtitle": "African Puzzle WORKS supports creatives around the world",
 
-  "cta.title": "Ready to get organized?",
-  "cta.subtitle": "Download African Puzzle WORKS for free and start today",
-  "cta.button": "Download now",
+  "cta.title": "Join the test version",
+  "cta.subtitle": "Download to test the first version of African Puzzle works.",
+  "cta.button": "Download to test the app",
 
   "about.label": "About Us",
   "about.title": "Wealth for everyone",
   "about.subtitle": "Africa is creative and creatives now have their personal assistant!",
+  "about.innovation": "African Puzzle innovates with this simple and easy-to-use tool and enables as many people as possible to progress.",
+  "about.creative_statement": "<strong>Africa is creative and creatives now have their personal assistant!</strong>",
   "about.mission": "African Puzzle WORKS is a mobile application designed to help artisans, tailors, creatives and entrepreneurs better organize their daily activities.",
   "about.team_title": "Our team",
 
   "contact.label": "Contact",
-  "contact.title": "Let's stay in touch",
+  "contact.title": "Contact African Puzzle",
   "contact.subtitle": "Don't hesitate to contact us with any questions or suggestions",
   "contact.address_label": "Address",
-  "contact.address": "African Puzzle, Inc., 21 boulevard Haussmann, 75 009 Paris, France",
+  "contact.address_company": "African Puzzle, Inc.",
+  "contact.address_street": "21 boulevard Haussmann",
+  "contact.address_city": "75 009 Paris - France",
   "contact.email_label": "Email",
   "contact.social_label": "Social networks",
 
@@ -64,6 +72,8 @@
 
   "privacy.title": "Privacy Policy",
   "privacy.effective": "Effective May 1, 2021",
+
+  "download_banner.title": "Download to test the African Puzzle works app",
 
   "footer.rights": "All rights reserved",
   "footer.privacy": "Privacy Policy",

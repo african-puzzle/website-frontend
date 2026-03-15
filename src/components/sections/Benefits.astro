@@ -8,50 +8,22 @@ interface Props {
 const { lang } = Astro.props;
 
 const benefits = [
-  {
-    title: t(lang, 'benefits.happy.title'),
-    desc: t(lang, 'benefits.happy.desc'),
-    icon: 'M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-  },
-  {
-    title: t(lang, 'benefits.time.title'),
-    desc: t(lang, 'benefits.time.desc'),
-    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-  },
-  {
-    title: t(lang, 'benefits.efficient.title'),
-    desc: t(lang, 'benefits.efficient.desc'),
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-  },
+  t(lang, 'benefits.efficient.title'),
+  t(lang, 'benefits.time.title'),
+  t(lang, 'benefits.happy.title'),
 ];
 ---
 
-<section class="py-20 lg:py-28 bg-slate-50 dark:bg-slate-800/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-brand-purple-600 font-semibold text-sm uppercase tracking-wider">
-        {t(lang, 'benefits.label')}
-      </span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
-        {t(lang, 'benefits.title')}
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {benefits.map((benefit, i) => (
-        <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple-600 to-brand-blue-600 text-white mb-6 shadow-lg shadow-brand-purple-600/20">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d={benefit.icon} />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-            {benefit.title}
-          </h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-            {benefit.desc}
-          </p>
-        </div>
+<section
+  class="py-24 lg:py-36"
+  style="background-color: #340975; background-image: url('/images/speckled-block.png'); background-size: cover; background-position: center;"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="flex flex-col gap-6 sm:gap-8">
+      {benefits.map((text) => (
+        <p class="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white leading-relaxed font-display">
+          {text}
+        </p>
       ))}
     </div>
   </div>

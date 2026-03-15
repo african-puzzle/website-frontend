@@ -59,3 +59,18 @@ export const localePaths: Record<Locale, Record<string, string>> = {
     privacy: '/pcm/privacy',
   },
 };
+
+export function getEquivalentPath(currentPath: string, targetLocale: Locale): string {
+  const normalized = currentPath.replace(/\/$/, '') || '/';
+
+  for (const locale of locales) {
+    const paths = localePaths[locale];
+    for (const [key, path] of Object.entries(paths)) {
+      if (path === normalized) {
+        return localePaths[targetLocale][key];
+      }
+    }
+  }
+
+  return localePaths[targetLocale].home;
+}

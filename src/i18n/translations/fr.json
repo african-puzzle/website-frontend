@@ -15,6 +15,10 @@
   "hero.cta": "Télécharger sur Google Play",
   "hero.learn_more": "En savoir plus",
 
+  "intro.title": "African Puzzle works",
+  "intro.subtitle": "L'assistant personnel qui révolutionne l'organisation des",
+  "intro.audiences": "ARTISANS · COUTURIERS · CRÉATIFS · ENTREPRENEURS",
+
   "features.label": "Fonctionnalités",
   "features.title": "Tout ce dont vous avez besoin",
   "features.subtitle": "African Puzzle WORKS vous aide à gérer vos projets, clients et rendez-vous en un seul endroit",
@@ -40,21 +44,25 @@
   "reach.title": "Disponible dans 70 pays",
   "reach.subtitle": "African Puzzle WORKS accompagne les créatifs à travers le monde",
 
-  "cta.title": "Prêt à vous organiser ?",
-  "cta.subtitle": "Téléchargez African Puzzle WORKS gratuitement et commencez dès aujourd'hui",
-  "cta.button": "Télécharger maintenant",
+  "cta.title": "Participez à la version test",
+  "cta.subtitle": "Télécharger pour tester la première version de African Puzzle works.",
+  "cta.button": "Télécharger pour tester l'application",
 
   "about.label": "À propos",
   "about.title": "La richesse pour tous",
   "about.subtitle": "L'Afrique est créative et les créatifs ont désormais leur assistant personnel !",
+  "about.innovation": "African Puzzle innove avec cet outil simple et facile d'utilisation et permet au plus grand nombre de progresser.",
+  "about.creative_statement": "<strong>L'Afrique est créative et les créatifs ont maintenant leur assistant personnel !</strong>",
   "about.mission": "African Puzzle WORKS est une application mobile conçue pour aider les artisans, tailleurs, créatifs et entrepreneurs à mieux s'organiser dans leur activité quotidienne.",
   "about.team_title": "Notre équipe",
 
   "contact.label": "Contact",
-  "contact.title": "Restons en contact",
+  "contact.title": "Contacter African Puzzle",
   "contact.subtitle": "N'hésitez pas à nous contacter pour toute question ou suggestion",
   "contact.address_label": "Adresse",
-  "contact.address": "African Puzzle, Inc., 21 boulevard Haussmann, 75 009 Paris, France",
+  "contact.address_company": "African Puzzle, Inc.",
+  "contact.address_street": "21 boulevard Haussmann",
+  "contact.address_city": "75 009 Paris - France",
   "contact.email_label": "Email",
   "contact.social_label": "Réseaux sociaux",
 
@@ -64,6 +72,8 @@
 
   "privacy.title": "Politique de confidentialité",
   "privacy.effective": "En vigueur depuis le 1er mai 2021",
+
+  "download_banner.title": "Télécharger pour tester l'application African Puzzle works",
 
   "footer.rights": "Tous droits réservés",
   "footer.privacy": "Politique de confidentialité",
