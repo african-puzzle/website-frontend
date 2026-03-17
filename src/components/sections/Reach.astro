@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: Locale;
@@ -7,82 +8,7 @@ interface Props {
 
 const { lang } = Astro.props;
 
-// Country data: [emoji flag, FR name, EN name, PCM name]
-const countries: [string, string, string, string][] = [
-  ['🇩🇿', 'Algérie', 'Algeria', 'Algeria'],
-  ['🇦🇹', 'Autriche', 'Austria', 'Austria'],
-  ['🇧🇪', 'Belgique', 'Belgium', 'Belgium'],
-  ['🇧🇯', 'Bénin', 'Benin', 'Benin'],
-  ['🇧🇼', 'Botswana', 'Botswana', 'Botswana'],
-  ['🇧🇬', 'Bulgarie', 'Bulgaria', 'Bulgaria'],
-  ['🇧🇫', 'Burkina Faso', 'Burkina Faso', 'Burkina Faso'],
-  ['🇨🇲', 'Cameroun', 'Cameroon', 'Cameroon'],
-  ['🇨🇦', 'Canada', 'Canada', 'Canada'],
-  ['🇨🇫', 'République Centre Africaine', 'Central African Republic', 'Central African Republic'],
-  ['🇹🇩', 'Tchad', 'Chad', 'Chad'],
-  ['🇰🇲', 'Comores', 'Comoros', 'Comoros'],
-  ['🇭🇷', 'Croatie', 'Croatia', 'Croatia'],
-  ['🇨🇺', 'Cuba', 'Cuba', 'Cuba'],
-  ['🇨🇾', 'Chypre', 'Cyprus', 'Cyprus'],
-  ['🇨🇿', 'République Tchèque', 'Czech Republic', 'Czech Republic'],
-  ['🇨🇩', 'RD Congo', 'DR Congo', 'DR Congo'],
-  ['🇩🇰', 'Danemark', 'Denmark', 'Denmark'],
-  ['🇪🇬', 'Égypte', 'Egypt', 'Egypt'],
-  ['🇬🇶', 'Guinée Équatoriale', 'Equatorial Guinea', 'Equatorial Guinea'],
-  ['🇪🇪', 'Estonie', 'Estonia', 'Estonia'],
-  ['🇫🇮', 'Finlande', 'Finland', 'Finland'],
-  ['🇫🇷', 'France', 'France', 'France'],
-  ['🇵🇫', 'Polynésie Française', 'French Polynesia', 'French Polynesia'],
-  ['🇬🇦', 'Gabon', 'Gabon', 'Gabon'],
-  ['🇩🇪', 'Allemagne', 'Germany', 'Germany'],
-  ['🇬🇭', 'Ghana', 'Ghana', 'Ghana'],
-  ['🇬🇷', 'Grèce', 'Greece', 'Greece'],
-  ['🇬🇵', 'Guadeloupe', 'Guadeloupe', 'Guadeloupe'],
-  ['🇬🇳', 'Guinée', 'Guinea', 'Guinea'],
-  ['🇬🇼', 'Guinée Bissau', 'Guinea-Bissau', 'Guinea-Bissau'],
-  ['🇭🇺', 'Hongrie', 'Hungary', 'Hungary'],
-  ['🇮🇪', 'Irlande', 'Ireland', 'Ireland'],
-  ['🇮🇹', 'Italie', 'Italy', 'Italy'],
-  ['🇨🇮', "Côte d'Ivoire", 'Ivory Coast', 'Ivory Coast'],
-  ['🇰🇪', 'Kenya', 'Kenya', 'Kenya'],
-  ['🇱🇻', 'Lettonie', 'Latvia', 'Latvia'],
-  ['🇱🇷', 'Liberia', 'Liberia', 'Liberia'],
-  ['🇱🇹', 'Lituanie', 'Lithuania', 'Lithuania'],
-  ['🇱🇺', 'Luxembourg', 'Luxembourg', 'Luxembourg'],
-  ['🇲🇬', 'Madagascar', 'Madagascar', 'Madagascar'],
-  ['🇲🇱', 'Mali', 'Mali', 'Mali'],
-  ['🇲🇹', 'Malte', 'Malta', 'Malta'],
-  ['🇲🇶', 'Martinique', 'Martinique', 'Martinique'],
-  ['🇲🇷', 'Mauritanie', 'Mauritania', 'Mauritania'],
-  ['🇾🇹', 'Mayotte', 'Mayotte', 'Mayotte'],
-  ['🇲🇦', 'Maroc', 'Morocco', 'Morocco'],
-  ['🇲🇿', 'Mozambique', 'Mozambique', 'Mozambique'],
-  ['🇳🇱', 'Pays-Bas', 'Netherlands', 'Netherlands'],
-  ['🇳🇨', 'Nouvelle-Calédonie', 'New Caledonia', 'New Caledonia'],
-  ['🇳🇪', 'Niger', 'Niger', 'Niger'],
-  ['🇳🇬', 'Nigeria', 'Nigeria', 'Nigeria'],
-  ['🇵🇱', 'Pologne', 'Poland', 'Poland'],
-  ['🇵🇹', 'Portugal', 'Portugal', 'Portugal'],
-  ['🇷🇪', 'Réunion', 'Réunion', 'Réunion'],
-  ['🇷🇴', 'Roumanie', 'Romania', 'Romania'],
-  ['🇷🇼', 'Rwanda', 'Rwanda', 'Rwanda'],
-  ['🇸🇹', 'Sao Tomé et Principe', 'São Tomé and Príncipe', 'São Tomé and Príncipe'],
-  ['🇸🇳', 'Sénégal', 'Senegal', 'Senegal'],
-  ['🇸🇰', 'Slovaquie', 'Slovakia', 'Slovakia'],
-  ['🇸🇮', 'Slovénie', 'Slovenia', 'Slovenia'],
-  ['🇪🇸', 'Espagne', 'Spain', 'Spain'],
-  ['🇸🇩', 'Soudan', 'Sudan', 'Sudan'],
-  ['🇸🇪', 'Suède', 'Sweden', 'Sweden'],
-  ['🇨🇭', 'Suisse', 'Switzerland', 'Switzerland'],
-  ['🇹🇬', 'République du Togo', 'Togo', 'Togo'],
-  ['🇹🇳', 'Tunisie', 'Tunisia', 'Tunisia'],
-  ['🇬🇧', 'Royaume-Uni', 'United Kingdom', 'United Kingdom'],
-  ['🇺🇸', "États-Unis d'Amérique", 'United States', 'United States'],
-  ['🇿🇲', 'Zambie', 'Zambia', 'Zambia'],
-  ['🇿🇼', 'Zimbabwe', 'Zimbabwe', 'Zimbabwe'],
-];
-
-const langIndex = lang === 'fr' ? 1 : lang === 'en' ? 2 : 3;
+const countries = await getCollection('countries');
 ---
 
 <section class="py-20 lg:py-28 bg-white">
@@ -92,10 +18,10 @@ const langIndex = lang === 'fr' ? 1 : lang === 'en' ? 2 : 3;
     </h2>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-      {countries.map(([flag, ...names]) => (
+      {countries.map((entry) => (
         <div class="flex items-center gap-3">
-          <span class="text-2xl leading-none">{flag}</span>
-          <span class="text-sm text-slate-700">{names[langIndex - 1]}</span>
+          <span class="text-2xl leading-none">{entry.data.emoji}</span>
+          <span class="text-sm text-slate-700">{entry.data[lang]}</span>
         </div>
       ))}
     </div>

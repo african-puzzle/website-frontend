@@ -5,20 +5,22 @@ Marketing website for African Puzzle WORKS mobile app, rebuilt with Astro + Tail
 ## Stack
 - **Framework**: Astro (static output)
 - **Styling**: Tailwind CSS
-- **CMS**: Decap CMS (content stored as Markdown in `src/content/`)
-- **Hosting**: GitHub Pages with custom domain (africanpuzzle.com)
+- **CMS**: Sveltia CMS (content stored as Markdown/JSON in `src/content/`, admin at `admin.africanpuzzle.com` via separate `website-cms` repo)
+- **Hosting**: GitHub Pages with custom domain (africanpuzzle.com), repo: `african-puzzle/website-frontend`
 - **i18n**: 3 locales — French (default), English, Pidgin
 
 ## Project Structure
 ```
 src/
+  content.config.ts → Content collection schemas (Zod + Content Layer API)
   components/    → Astro components (ui/, sections/, layout/)
   content/       → Content collections (team, features, media, countries)
   i18n/          → Translation files (fr.json, en.json, pcm.json) + utils
   layouts/       → Base layout with SEO, nav, footer
   pages/         → Route pages organized by locale (fr/, en/, pcm/)
   styles/        → Global styles, Tailwind config
-public/          → Static assets, CNAME, favicon
+public/
+  images/        → Static images, CNAME, favicon
 ```
 
 ## Commands
@@ -32,6 +34,7 @@ public/          → Static assets, CNAME, favicon
 - `/astro-content [collection] [action]` — Manage CMS content
 - `/tailwind-section [type] [desc]` — Build UI sections
 - `/i18n [action] [key]` — Manage translations
+- `/sveltia-cms [action] [collection]` — Manage Sveltia CMS config
 - `/deploy` — Build and deploy to GitHub Pages
 - `/perf-audit` — Performance audit
 - `/responsive-audit` — Responsive design audit

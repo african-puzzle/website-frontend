@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 import PhoneFrame from '../ui/PhoneFrame.astro';
 
 interface Props {
@@ -8,32 +9,15 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const features = [
-  {
-    title: t(lang, 'features.projects.title'),
-    desc: t(lang, 'features.projects.desc'),
-    gif: '/images/features/projects.gif',
-    cardBg: 'bg-feature-projects',
-  },
-  {
-    title: t(lang, 'features.clients.title'),
-    desc: t(lang, 'features.clients.desc'),
-    gif: '/images/features/clients.gif',
-    cardBg: 'bg-feature-clients',
-  },
-  {
-    title: t(lang, 'features.album.title'),
-    desc: t(lang, 'features.album.desc'),
-    gif: '/images/features/album.gif',
-    cardBg: 'bg-feature-album',
-  },
-  {
-    title: t(lang, 'features.appointments.title'),
-    desc: t(lang, 'features.appointments.desc'),
-    gif: '/images/features/appointments.gif',
-    cardBg: 'bg-feature-appointments',
-  },
-];
+const featureEntries = await getCollection('features');
+const features = featureEntries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(entry => ({
+    title: t(lang, entry.data.titleKey as any),
+    desc: t(lang, entry.data.descKey as any),
+    gif: entry.data.gif,
+    cardBg: entry.data.cardBg,
+  }));
 ---
 
 <section

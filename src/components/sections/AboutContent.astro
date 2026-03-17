@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: Locale;
@@ -7,20 +8,10 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const team = [
-  { name: 'Bams Betga', role: { fr: 'Fondatrice, CEO', en: 'Founder, CEO', pcm: 'Founder, CEO' }, linkedin: 'https://www.linkedin.com/in/bams-b-282454b/', photo: '/images/team/bams-betga.png' },
-  { name: 'Benjamin Mbiandjeu', role: { fr: 'Co-Fondateur, Risk', en: 'Co-Founder, Risk', pcm: 'Co-Founder, Risk' }, linkedin: 'https://www.linkedin.com/in/benjamin-mbiandjeu-0b707b1/', photo: '' },
-  { name: 'Jérôme Ebella', role: { fr: 'Co-Fondateur', en: 'Co-Founder', pcm: 'Co-Founder' }, linkedin: '', photo: '/images/team/jerome-ebella.png' },
-  { name: 'Alain Titty Dimbeng', role: { fr: 'Co-Fondateur', en: 'Co-Founder', pcm: 'Co-Founder' }, linkedin: 'http://fr.viadeo.com/fr/profile/alain.titty-dimbeng', photo: '' },
-  { name: 'David Fala', role: { fr: '', en: '', pcm: '' }, linkedin: 'https://www.linkedin.com/in/davidfala/', photo: '/images/team/david-fala.png' },
-  { name: "Qa'id Jacobs", role: { fr: 'UX Designer / PO', en: 'UX Designer / PO', pcm: 'UX Designer / PO' }, linkedin: 'https://www.linkedin.com/in/qaidjacobs/', photo: '/images/team/qaid-jacobs.png' },
-  { name: 'Mathieu Gbetro', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: 'https://www.linkedin.com/in/mathieu-gbetro/', photo: '/images/team/mathieu-gbetro.jpg' },
-  { name: 'David Juillard', role: { fr: '', en: '', pcm: '' }, linkedin: 'https://www.linkedin.com/in/david-juillard-8666839/', photo: '/images/team/david-juillard.png' },
-  { name: 'Michèle Onga', role: { fr: 'R&D - Design Thinking', en: 'R&D - Design Thinking', pcm: 'R&D - Design Thinking' }, linkedin: 'https://www.linkedin.com/in/michele-onga-bb3a4b7', photo: '/images/team/michele-onga.png' },
-  { name: 'Saran Diakité Kaba', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/saran-diakite-kaba.png' },
-  { name: 'Fodé Touré', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/fode-toure.png' },
-  { name: 'Pierre Medina', role: { fr: 'Développement', en: 'Development', pcm: 'Development' }, linkedin: '', photo: '/images/team/pierre-medina.jpg' },
-];
+const teamEntries = await getCollection('team');
+const team = teamEntries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(entry => entry.data);
 ---
 
 <section class="pb-20 lg:pb-28 bg-about-tan">
