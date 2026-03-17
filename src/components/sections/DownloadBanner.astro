@@ -1,12 +1,14 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
-const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.africanpuzzle.works';
+const site = (await getCollection('settings'))[0].data;
+const playStoreUrl = site.playStoreUrl;
 ---
 
 <section class="download-banner relative w-full overflow-hidden" style="background-color: #67A097;">

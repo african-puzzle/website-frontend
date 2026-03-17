@@ -1,292 +1,32 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection, render } from 'astro:content';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
+
+const privacyEntries = await getCollection('privacy');
+const entry = privacyEntries.find((e) => e.data.locale === lang)
+  ?? privacyEntries.find((e) => e.data.locale === 'fr');
+const { Content } = await render(entry!);
 ---
 
 <section class="pt-32 pb-20 lg:pb-28">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <h1 class="text-4xl sm:text-5xl font-bold leading-tight" style="color: #8c30f5;">
-        {lang === 'fr'
-          ? "Politique de confidentialité d'African Puzzle"
-          : lang === 'pcm'
-            ? 'African Puzzle Privacy Policy'
-            : 'African Puzzle Privacy Policy'}
+        {entry!.data.title}
       </h1>
       <p class="mt-4 text-sm uppercase tracking-wider text-slate-400">
-        EFFECTIVE UPDATE: May 01, 2021
+        {t(lang, 'privacy.effective')}
       </p>
     </div>
 
     <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-a:underline" style="color: #3d2664;">
-      {lang === 'fr' ? (
-        <>
-          <p>African Puzzle, SAS/INC société éditrice de l'application mobile African Puzzle works. ("African Puzzle works ", "nous", "notre" et "nos") fournit un espace de travail tout-en-un permettant à nos utilisateurs de s'enregistrer, de télécharger des photos, leurs contacts, d'écrire, de planifier afin de s'organiser. Notre politique de confidentialité ("Politique de confidentialité") est conçue pour vous aider à comprendre comment nous collectons, utilisons et partageons vos informations personnelles et pour vous aider à exercer les droits de confidentialité dont vous disposez.</p>
-
-          <h2>Vos données vous appartiennent</h2>
-          <p>Vos données ne nous appartiennent pas. Mettre des notes et autres contenus sur African Puzzle works ne modifie en rien le statut de la propriété et des droits d'auteur du contenu en question. Si les données vous appartenaient à l'origine, elles continuent de vous appartenir une fois que vous les avez placées sur African Puzzle works. Naturellement, si les données ne vous appartenaient pas à l'origine, les mettre sur African Puzzle works ne vous en donne en aucun cas la propriété. Ceci est valable pour tous nos produits et services.</p>
-          <p>En utilisant nos produits, vous autorisez African Puzzle works à effectuer certaines actions avec vos données afin de faire fonctionner notre service. Par exemple, vous nous autorisez à les sauvegarder dans la limite de temps de la réglementation légale, les envoyer sur un réseau, les indexer pour vous permettre de les rechercher par la suite, les afficher sur vos différents appareils, etc. Certaines de ces opérations peuvent nécessiter que nous envoyions vos données à nos partenaires commerciaux réguliers (tels que notre opérateur de réseau) à qui nous avons confié l'exécution d'une partie du service African Puzzle works. En amont, nous nous assurons toujours que nos contrats avec ces partenaires protègent vos droits de propriété.</p>
-          <p>A part nous autoriser à effectuer ces opérations limitées pour faire fonctionner le service African Puzzle works, vous conservez tous les droits ayant trait à vos données.</p>
-
-          <h2>Périmètre</h2>
-          <p>La présente politique de confidentialité couvre les informations personnelles que nous recueillons à votre sujet lorsque vous utilisez nos produits ou services, ou interagissez avec nous de toute autre manière, notamment sur notre site Web à l'adresse <a href="https://africanpuzzle.com">www.africanpuzzle.com</a>, notre application mobile ("<strong>App</strong>") et notre groupe WhatsApp offre connexe en ligne ("<strong>Service</strong>"). Cette politique explique également les choix qui s'offrent à vous quant à la manière dont nous utilisons vos informations personnelles, notamment la manière dont vous pouvez vous opposer à certaines utilisations des informations et la manière dont vous pouvez accéder à certaines informations et les mettre à jour.</p>
-
-          <h2>1. Informations personnelles que nous recueillons</h2>
-          <p>Nous recueillons des informations personnelles lorsque vous nous les fournissez, lorsque vous utilisez nos services et lorsque d'autres sources nous les fournissent, comme décrit ci-dessous.</p>
-
-          <h3>A. Informations que vous nous fournissez</h3>
-          <p><strong>Création de compte :</strong> Lorsque vous créez un compte ou utilisez les Services, nous recueillons des informations telles que votre nom, votre adresse électronique, votre mot de passe et votre rôle au sein de votre équipe ou de votre entreprise. Si vous choisissez d'en donner l'autorisation, l'application African Puzzle WORKS accède aux contacts et aux photos de votre appareil afin d'améliorer votre expérience avec l'application. African Puzzle WORKS ne stocke pas votre contenu sur les serveurs de l'entreprise, ce qui signifie que tout contenu que vous enregistrez dans l'application - comme du texte, des images, des photos, des contacts, des numéros et des notes vocales - est stocké uniquement sur votre appareil. Nous respectons votre vie privée et ne partagerons jamais ces informations sans votre consentement explicite.</p>
-          <p><strong>Vos communications avec nous :</strong> Nous recueillons des informations personnelles telles que votre adresse électronique, votre numéro de téléphone ou votre adresse postale lorsque vous demandez des informations sur nos services, que vous vous inscrivez à notre bulletin d'information, que vous demandez une assistance technique ou une assistance à la clientèle ou que vous communiquez avec nous de toute autre manière. Nous recueillons également le contenu des messages ou des pièces jointes que vous pouvez nous envoyer, ainsi que d'autres informations que vous choisissez de fournir, et qui peuvent être associées à vos communications.</p>
-          <p><strong>Informations sur le paiement :</strong> Lorsque vous choisissez de vous abonner à notre service, nous recueillons des informations de paiement vous permettant de nous payer. Nous utilisons des fournisseurs de paiement tiers pour traiter les paiements sur les Services. Nous pouvons recevoir des informations associées à vos informations de paiement, telles que l'adresse de facturation et les informations de transaction, mais nous ne stockons pas directement les informations de paiement sur les Services.</p>
-          <p><strong>Enquêtes :</strong> Nous pouvons vous contacter pour participer à des enquêtes. Si vous décidez d'y participer, il vous sera peut-être demandé de fournir certaines informations qui peuvent inclure des données personnelles.</p>
-          <p><strong>Fonctionnalités interactives :</strong> Nous pouvons proposer des fonctionnalités interactives telles que des forums, des blogs, des services de chat et de messagerie, et des pages de médias sociaux. Nous et les autres utilisateurs de nos services pouvons recueillir les informations que vous soumettez ou rendez disponibles par le biais de ces fonctions interactives. Tout contenu que vous fournissez via les sections publiques de ces fonctions sera considéré comme "public" et ne sera pas soumis aux protections de la vie privée mentionnées dans les présentes. En utilisant ces fonctions interactives, vous comprenez que les informations personnelles que vous fournissez peuvent être consultées et utilisées par des tiers à leurs propres fins.</p>
-          <p><strong>Inscription à des loteries ou concours :</strong> Nous pouvons organiser des loteries et des concours. Les informations de contact que vous fournissez peuvent être utilisées pour vous informer sur les tirages au sort ou les concours et à d'autres fins promotionnelles, marketing et commerciales.</p>
-          <p><strong>Conférences, foires commerciales et autres événements :</strong> Nous pouvons assister à des conférences, des salons professionnels et d'autres événements au cours desquels nous recueillons des informations personnelles auprès de personnes qui interagissent avec les services ou qui expriment un intérêt pour ceux-ci.</p>
-          <p><strong>Demande d'emploi :</strong> Nous pouvons publier des offres d'emploi et des opportunités sur les services. Si vous répondez à l'une de ces offres en nous soumettant votre candidature, votre CV et/ou votre lettre de motivation, nous collecterons et utiliserons vos informations pour évaluer vos qualifications.</p>
-
-          <h3>B. Informations collectées automatiquement</h3>
-          <p><strong>Collecte automatique des données :</strong> Nous gardons trace de certaines informations vous concernant lorsque vous visitez et interagissez avec l'un de nos services. Ces informations peuvent inclure votre adresse de protocole Internet (IP), vos paramètres d'utilisateur, votre adresse MAC, vos identifiants de cookies, votre opérateur mobile, votre publicité mobile et d'autres identifiants uniques, des détails sur votre navigateur, votre système d'exploitation ou votre appareil, des informations de localisation (y compris la localisation déduite de votre adresse IP), votre fournisseur de services Internet, les pages que vous visitez avant, pendant et après l'utilisation des services, des informations sur les liens sur lesquels vous cliquez, des informations sur la manière dont vous interagissez avec les services, y compris la fréquence et la durée de vos activités, et d'autres informations sur la manière dont vous utilisez les services. Les informations que nous recueillons peuvent être associées à des comptes et à d'autres dispositifs.</p>
-          <p><strong>Cookies, Pixel Tags/Web Beacons, and Analytics Information :</strong> Nous, ainsi que les tiers qui fournissent du contenu, de la publicité ou d'autres fonctionnalités sur les Services, pouvons utiliser des cookies, des balises pixel, un stockage local et d'autres technologies ("Technologies") pour collecter automatiquement des informations par le biais des Services. Les Technologies sont essentiellement de petits fichiers de données placés sur vos appareils qui nous permettent, ainsi qu'à nos partenaires, d'enregistrer certaines informations chaque fois que vous visitez ou interagissez avec nos Services.</p>
-          <p><strong>Cookies :</strong> Les cookies sont de petits fichiers texte placés dans les navigateurs des appareils pour mémoriser leurs préférences. La plupart des navigateurs vous permettent de bloquer et de supprimer les cookies. Toutefois, si vous le faites, les services peuvent ne pas fonctionner correctement.</p>
-          <p><strong>Pixel invisibles / Balises web :</strong> Une balise pixel (également connue sous le nom de web beacon) est un élément de code intégré aux services qui collecte des informations sur l'engagement dans les services. L'utilisation d'une balise pixel nous permet d'enregistrer, par exemple, qu'un utilisateur a visité une page web particulière ou a cliqué sur une publicité particulière. Nous pouvons également inclure des balises web dans les courriers électroniques afin de savoir si les messages ont été ouverts, traités ou transférés.</p>
-          <p><strong>Analytiques :</strong> Nous pouvons également faire appel à des prestataires de services tiers pour collecter et traiter des données analytiques et d'autres informations sur nos services. Ces fournisseurs de services tiers peuvent utiliser des cookies, des balises pixel, des balises web ou d'autres technologies de stockage pour collecter et stocker des analyses et d'autres informations. Ils disposent de leurs propres politiques de confidentialité concernant la manière dont ils utilisent les analyses et autres informations, et nous n'avons pas accès à l'utilisation des cookies ou autres technologies de suivi par ces tiers, ni ne la contrôlons.</p>
-
-          <h3>C. Informations provenant d'autres sources</h3>
-          <p>Nous pouvons obtenir des informations vous concernant à partir d'autres sources, notamment par le biais de services et d'organisations tiers. Par exemple, si vous accédez à nos Services par l'intermédiaire d'une application tierce, telle qu'un site de réseau social ou un service de connexion tiers, nous pouvons recueillir des informations vous concernant auprès de ce tiers, que vous avez rendues accessibles via vos paramètres de confidentialité.</p>
-          <p>Si vous choisissez d'utiliser la fonction Contacts Google dans nos services, nous aurons la possibilité de consulter vos contacts via l'API Google People. La seule utilisation de ces données consiste à alimenter l'auto-complétion de vos contacts lors de l'envoi de courriels d'invitation. African Puzzle works n'utilisera pas ces données à d'autres fins.</p>
-
-          <h2>2. Comment nous utilisons vos informations ?</h2>
-          <p>Nous utilisons vos informations personnelles à des fins commerciales diverses, notamment pour :</p>
-          <p><strong>Fournir les services ou les informations demandées, comme :</strong></p>
-          <ul>
-            <li>Remplir notre contrat avec vous,</li>
-            <li>Identifier et communiquer avec vous, notamment en vous envoyant des bulletins d'information et du matériel de marketing,</li>
-            <li>Gérer vos informations,</li>
-            <li>Traiter vos paiements et gérer vos factures,</li>
-            <li>Répondre aux questions, commentaires et autres demandes,</li>
-            <li>Fournir l'accès à certaines zones, fonctionnalités et caractéristiques de nos services et,</li>
-            <li>Répondre aux demandes d'assistance technique ou d'assistance à la clientèle.</li>
-          </ul>
-          <p><strong>La gestion administrative, comme :</strong></p>
-          <ul>
-            <li>Une communication autour de vos centres d'intérêts légitimes, tels que le marketing direct, la recherche et le développement (y compris les études de marché), la sécurité des réseaux et des informations, et la prévention des fraudes,</li>
-            <li>Mesurer l'intérêt et l'engagement dans nos services, y compris l'analyse de votre utilisation des services,</li>
-            <li>Développer de nouveaux produits et services et améliorer les services,</li>
-            <li>Assurer le contrôle interne de la qualité et de la sécurité de nos services,</li>
-            <li>Authentification et vérification de votre identité,</li>
-            <li>Réaliser des audits,</li>
-            <li>Communiquer avec vous au sujet de votre compte, de vos activités sur nos services et des mises à jour de notre politique de confidentialité,</li>
-            <li>Prévenir et stopper les activités potentiellement interdites ou illégales,</li>
-            <li>Mettre en application nos Conditions d'utilisation,</li>
-            <li>Faire respecter nos obligations légales.</li>
-          </ul>
-          <p><strong>Commercialisation de nos produits et services :</strong> Nous pouvons utiliser les informations personnelles pour personnaliser et vous fournir du contenu et des publicités. Si vous avez des questions sur nos pratiques de marketing ou si vous souhaitez refuser l'utilisation de vos informations personnelles à des fins de marketing, vous pouvez nous contacter comme indiqué ci-dessous.</p>
-          <p><strong>Consentement :</strong> Nous ne pouvons utiliser les informations personnelles à d'autres fins qui vous sont clairement communiquées au moment où vous fournissez les informations personnelles qu'avec votre consentement.</p>
-          <p><strong>Utilisation d'informations dépersonnalisées et anonymisées :</strong> Nous pouvons utiliser des informations personnelles et d'autres données vous concernant pour créer des informations dépersonnalisées ou anonymisées. Ces informations ne sont pas des informations personnelles, et nous pouvons utiliser et divulguer ces informations de diverses manières, notamment à des fins de recherche, d'analyse interne, d'analyse et à toute autre fin légalement autorisée.</p>
-          <p><strong>Traitement des informations pour le compte de nos clients :</strong> Nos clients peuvent choisir d'utiliser nos services pour traiter certaines de leurs propres données, qui peuvent contenir des informations personnelles. Ces informations personnelles que nous traitons pour le compte de nos clients et nos pratiques en matière de confidentialité seront régies par les contrats que nous avons mis en place avec nos clients, et non par la présente politique de confidentialité.</p>
-          <p>Si vous avez des questions ou des préoccupations sur la façon dont ces informations personnelles sont traitées ou si vous souhaitez exercer vos droits, vous devez contacter la personne ou l'entité (c'est-à-dire le contrôleur de données) qui a passé un contrat avec nous pour utiliser le Service afin de traiter ces informations. Dans ces cas, nos clients contrôlent les informations personnelles et déterminent les paramètres de sécurité du compte, ses contrôles d'accès et ses informations d'identification. Nous fournirons toutefois une assistance à nos clients pour répondre à leurs préoccupations éventuelles, conformément aux termes du contrat qui nous lie à eux.</p>
-          <p>Nous utilisons les sous-processeurs suivants :</p>
-          <ul>
-            <li>Google Analytics (USA)</li>
-          </ul>
-          <p><strong>Comment nous utilisons les technologies de collecte automatique :</strong> Nos utilisations des technologies entrent dans les catégories générales suivantes :</p>
-          <ul>
-            <li>Nécessaires sur le plan opérationnel,</li>
-            <li>Liées à la performance,</li>
-            <li>Liées aux fonctionnalités,</li>
-            <li>Liées à la publicité ou au ciblage.</li>
-          </ul>
-          <p><strong>Suivi des appareils :</strong> Votre activité de navigation peut être suivie sur différents sites web et sur différents appareils ou applications. Par exemple, nous pouvons tenter de faire correspondre votre activité de navigation sur votre appareil mobile avec votre activité de navigation sur votre ordinateur portable. Pour ce faire, nos partenaires technologiques peuvent partager des données, telles que vos schémas de navigation, votre géolocalisation et les identifiants de votre appareil, et feront correspondre les informations du navigateur et des appareils qui semblent être utilisés par la même personne.</p>
-
-          <h2>3. Divulgation de vos informations à des tiers</h2>
-          <p>Nous pouvons partager vos informations personnelles avec les catégories de tiers suivantes :</p>
-          <p><strong>Fournisseurs de services :</strong> Nous pouvons partager les informations personnelles que nous recueillons à votre sujet avec nos prestataires de services tiers. Les catégories de prestataires de services à qui nous confions des informations personnelles comprennent les prestataires de services pour : (i) la fourniture des Services ; (ii) la fourniture des informations, produits et autres services que vous avez demandés ; (iii) le marketing et la publicité ; (iv) le traitement des paiements et des transactions ; (v) les activités de service à la clientèle ; et (vi) la fourniture de services informatiques et connexes.</p>
-          <p><strong>Partenaires commerciaux :</strong> Nous pouvons fournir des informations personnelles à des partenaires commerciaux pour vous fournir un produit ou un service que vous avez demandé. Nous pouvons également fournir des informations personnelles à des partenaires commerciaux avec lesquels nous proposons conjointement des produits ou des services.</p>
-          <p><strong>Maison mère :</strong> L'ensemble de ces informations personnelles sont sous la responsabilité de African Puzzle la société éditrice de l'application mobile African Puzzle works, site internet African Puzzle et responsable de la gestion des réseaux sociaux African Puzzle works</p>
-          <p><strong>Partenaires publicitaires :</strong> Nous n'utilisons ni ne partageons vos informations, y compris les informations personnelles, pour faire la publicité des produits ou services d'un tiers via les Services. Nous pouvons utiliser et partager vos informations personnelles avec des partenaires publicitaires tiers pour commercialiser nos propres Services et accroître la base d'utilisateurs de nos Services, par exemple pour fournir un marketing ciblé sur nos propres Services via des services tiers. Si vous préférez ne pas partager vos informations personnelles avec des partenaires publicitaires tiers, vous pouvez suivre les instructions ci-dessous.</p>
-          <p>Nous pouvons partager vos informations personnelles avec d'autres tiers, y compris d'autres utilisateurs, dans les circonstances suivantes :</p>
-          <p><strong>Partager le contenu avec des amis ou des collègues :</strong> Nos services peuvent vous permettre de fournir des informations sur vos amis, et vous permettre de transférer ou de partager certains contenus avec un ami ou un collègue, comme un message WhatsApp d'invitation.</p>
-          <p><strong>Divulgations pour nous protéger ou protéger d'autres personnes :</strong> Nous pouvons accéder, préserver et divulguer toute information que nous stockons en association avec vous à des parties externes si nous pensons, en toute bonne foi, que cela est nécessaire ou approprié pour : (i) nous conformer à des demandes d'application de la loi ou de sécurité nationale et à des procédures légales, telles qu'une ordonnance du tribunal ou une assignation à comparaître ; (ii) protéger vos droits, notre propriété ou votre sécurité ou ceux d'autres personnes ; (iii) faire appliquer nos politiques ou nos contrats ; (iv) recouvrer les montants qui nous sont dus ; ou (v) contribuer à une enquête et à une poursuite d'une activité illégale présumée ou réelle.</p>
-          <p><strong>Divulgation en cas de fusion, vente ou autre transfert d'actifs :</strong> Si nous sommes impliqués dans une fusion, une acquisition, une vérification préalable du financement, une réorganisation, une faillite, une mise sous séquestre, l'achat ou la vente d'actifs, ou la transition du service vers un autre fournisseur, vos informations peuvent être vendues ou transférées dans le cadre d'une telle transaction, comme le permet la loi et/ou le contrat.</p>
-
-          <h2>4. Transferts internationaux de données</h2>
-          <p>Toutes les informations que nous traitons sont traitées et stockées en France. Nous nous efforçons de protéger vos informations conformément aux exigences des lois applicables à la Commission Européenne.</p>
-
-          <h2>5. Vos Choix</h2>
-          <p><strong>General :</strong> Vous avez le droit de vous opposer ou de refuser certaines utilisations de vos informations personnelles. Lorsque vous avez consenti au traitement de vos informations personnelles, vous pouvez retirer ce consentement à tout moment en nous contactant comme décrit ci-dessous. Même si vous vous désengagez, nous pouvons toujours collecter et utiliser des informations non personnelles concernant vos activités sur nos services et à d'autres fins légales, comme décrit ci-dessus.</p>
-          <p><strong>Communications par e-mail :</strong> Si vous recevez un courriel non désiré de notre part, vous pouvez utiliser le lien de désinscription qui se trouve au bas du courriel pour ne plus recevoir de courriels. Notez que vous continuerez à recevoir des courriels liés aux transactions concernant les produits ou services que vous avez demandés. Nous pouvons également vous envoyer certaines communications non promotionnelles nous concernant et concernant nos services, et vous ne pourrez pas refuser ces communications (par exemple, les communications concernant les services ou les mises à jour de la présente politique de confidentialité).</p>
-          <p><strong>Telephones portables :</strong> Nous pouvons vous envoyer des notifications push par le biais de notre app. Vous pouvez à tout moment refuser de recevoir ces types de communications en modifiant les paramètres de votre appareil mobile. Avec votre consentement, nous pouvons également collecter des informations de localisation précises si vous utilisez nos Apps. Vous pouvez refuser cette collecte en nous contactant à cette adresse <a href="mailto:privacy@africanpuzzle.com">privacy@africanpuzzle.com</a></p>
-          <p><strong>Localisation :</strong> Votre navigateur peut vous offrir une option "Désactiver la localisation", qui vous permet de signaler aux opérateurs de sites web et d'applications web et de services que vous ne souhaitez pas que ces opérateurs suivent certaines de vos activités en ligne dans le temps et/ou sur différents sites web. Si votre navigateur est réglé sur "Désactiver la localisation", African Puzzle works s'efforcera d'honorer cette fonctionnalité. Cependant, nos fournisseurs de services tiers peuvent utiliser leurs propres cookies, balises pixel, balises web ou autres technologies de stockage pour collecter et stocker les données du journal ou des informations provenant d'ailleurs sur Internet, et nous n'avons pas accès à, ni contrôle sur, l'utilisation des cookies ou autres technologies de suivi par un tiers.</p>
-          <p><strong>Cookies et publicité basée sur les intérêts :</strong> Vous pouvez arrêter ou restreindre le placement de Technologies sur votre appareil ou les supprimer en ajustant vos préférences comme votre navigateur ou votre appareil le permet. Veuillez noter que les exclusions basées sur les cookies ne sont pas efficaces sur les applications mobiles. Toutefois, vous pouvez refuser les publicités personnalisées sur certaines applications mobiles en suivant les instructions pour <a href="https://support.google.com/googleplay/android-developer/answer/6048248?hl=en">Android</a>. Le secteur de la publicité en ligne propose également des sites web à partir desquels vous pouvez refuser de recevoir des publicités ciblées de la part de partenaires de données et d'autres partenaires publicitaires qui participent à des programmes d'autorégulation. Vous pouvez accéder à ces sites Web et en savoir plus sur la publicité ciblée, le choix des consommateurs et la protection de la vie privée aux adresses suivantes : <a href="http://www.networkadvertising.org/managing/opt_out.asp">www.networkadvertising.org/managing/opt_out.asp</a>, <a href="http://www.youronlinechoices.eu/">www.youronlinechoices.eu</a>, <a href="https://youradchoices.ca/choices/">youradchoices.ca/choices</a> et <a href="http://www.aboutads.info/choices/">www.aboutads.info/choices</a>.</p>
-          <p><strong>Veuillez noter que vous devez vous désinscrire séparément dans chaque navigateur et sur chaque appareil.</strong></p>
-
-          <h2>6. Votre droit à la vie privée</h2>
-          <p>En fonction de votre localisation et conformément aux lois applicables, vous pouvez avoir le droit de :</p>
-          <ul>
-            <li><strong>Accéder</strong> aux informations personnelles vous concernant conformément aux exigences légales. En outre, vous pouvez avoir le droit, dans certains cas, de recevoir ou de faire transférer vos informations personnelles électroniques à une autre partie.</li>
-            <li><strong>Demander la correction</strong> de vos informations personnelles lorsqu'elles sont inexactes ou incomplètes.</li>
-            <li><strong>Demander la suppression de vos informations personnelles</strong> sous réserve de certaines exceptions prévues par la loi.</li>
-            <li><strong>Demander la restriction ou l'opposition au traitement de vos informations personnelles</strong>, y compris le droit d'accepter ou de refuser la vente de vos informations personnelles à des tiers.</li>
-          </ul>
-          <p><strong>Vous ne serez en aucun cas discriminé par nous pour avoir exercé vos droits à la vie privée.</strong></p>
-          <p>Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter comme indiqué ci-dessous. Nous traiterons ces demandes conformément aux lois applicables. Pour protéger votre vie privée, nous prendrons des mesures pour vérifier votre identité avant de répondre à votre demande, par exemple en vous demandant de soumettre votre demande via votre compte.</p>
-
-          <h2>7. Conservation des données</h2>
-          <p>Nous conservons les informations personnelles que nous recevons comme décrit dans la présente politique de confidentialité aussi longtemps que vous utilisez nos services ou aussi longtemps que cela est nécessaire pour atteindre les objectifs pour lesquels elles ont été collectées, fournir nos services, résoudre les litiges, établir des défenses juridiques, effectuer des audits, poursuivre des objectifs commerciaux légitimes, faire respecter nos accords et se conformer aux lois applicables.</p>
-          <p><strong>Où est ce que African Puzzle, la société éditrice de African Puzzle works stocke t elle mes informations ??</strong></p>
-          <p>Lorsque vous utilisez le Logiciel African Puzzle works sur votre matériel informatique, par exemple en utilisant notre application téléchargeable, une partie de vos données est stockée localement sur cet appareil.</p>
-          <p>Lorsque vous synchronisez votre appareil avec le Service, les données sont répliquées sur des serveurs gérés en France par la société Clever Cloud. Cela signifie que si vous stockez des informations ou si vous envoyez des données au site Web African Puzzle ou au Logiciel African Puzzle works et que vous synchronisez ce Logiciel vous acceptez que vos informations personnelles soient transférées, hébergées et accessibles en France.</p>
-          <p>Les lois et réglementations sur la confidentialité des données dans votre pays peuvent différer de celles en France. Nous collecterons, stockerons et utiliserons vos informations personnelles conformément à cette Politique de confidentialité et aux lois applicables, où qu'elles soient traitées.</p>
-          <p>Clever Cloud dont le siège est en France est responsable du traitement de vos données.</p>
-
-          <h2>8. Sécurité de vos données</h2>
-          <p>Nous prenons des mesures pour garantir que vos informations sont traitées en toute sécurité et conformément à la présente politique de confidentialité. Malheureusement, aucun système n'est sûr à 100 % et nous ne pouvons pas assurer ou garantir la sécurité des informations que vous nous fournissez. Dans toute la mesure permise par la loi applicable, nous n'acceptons aucune responsabilité en cas de divulgation non autorisée.</p>
-          <p>En utilisant les Services ou en nous fournissant des informations personnelles, vous acceptez que nous puissions communiquer avec vous par voie électronique concernant la sécurité, la confidentialité et les questions administratives liées à votre utilisation des Services. Si nous apprenons la violation d'un système de sécurité, nous pouvons tenter de vous en informer par voie électronique en publiant un avis sur les services, par courrier, email ou en vous envoyant un sms.</p>
-          <p><strong>Est-il possible qu'un employé d'African Puzzle, la société éditrice de African Puzzle works voie un jour mon Contenu ?</strong></p>
-          <p>Vous contrôlez qui peut voir votre Contenu. Nous limitons l'utilisation de votre Contenu pour qu'aucun employé d'African Puzzle ne puisse le voir, sauf si vous nous donnez votre autorisation expresse ou si cela est nécessaire pour respecter nos obligations légales. Pour être plus précis : Nous pouvons vous demander l'autorisation de consulter des parties de votre Contenu afin d'améliorer notre technologie. Par exemple, si une nouvelle fonctionnalité suggère des notes connexes pertinentes par rapport à votre Contenu, nous pouvons vous donner la possibilité de nous envoyer vos commentaires sur l'efficacité de la fonctionnalité avec un échantillon du Contenu en question afin de nous assurer que cette fonctionnalité fournit des suggestions appropriées. Un tel accès à votre Contenu ne peut se faire qu'avec votre autorisation expresse et est soumis à des règles de confidentialité strictes, ainsi qu'à des contrôles d'accès aux données. Vous êtes entièrement libre de nous donner votre autorisation. Si vous contactez l'équipe d'Assistance parce que vous avez besoin d'aide avec certaines parties du Contenu de votre compte (ex. : si vous ne trouvez pas une note vocale, une photo, un texte qui devrait, selon vous, être dans votre compte), nous pouvons vous demander votre autorisation temporaire pour consulter votre Contenu. Dans ce cas, l'autorisation prend fin une fois le problème résolu.</p>
-
-          <h2>9. Sites web/applications de tiers</h2>
-          <p>Les Services peuvent contenir des liens vers d'autres sites web/applications et d'autres sites web/applications peuvent faire référence ou se lier à nos Services. Ces services tiers ne sont pas contrôlés par nous. Nous encourageons nos utilisateurs à lire les politiques de confidentialité de chaque site Web et application avec lesquels ils interagissent. Nous ne soutenons pas, ne filtrons pas et n'approuvons pas, et ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces autres sites Web ou applications. La visite de ces autres sites Web ou applications se fait à vos propres risques.</p>
-
-          <h2>10. Concernant les enfants</h2>
-          <p>Les Services ne sont pas destinés aux enfants de moins de 13 ans (ou tout autre âge requis par la législation locale), et nous ne collectons pas sciemment d'informations personnelles auprès des enfants. Si vous apprenez que votre enfant nous a fourni des informations personnelles sans votre consentement, vous pouvez nous contacter comme indiqué ci-dessous. Si nous apprenons que nous avons recueilli les informations personnelles d'un enfant en violation de la loi applicable, nous prendrons rapidement des mesures pour supprimer ces informations et résilier le compte de l'enfant.</p>
-
-          <h2>11. Autorité de surveillance</h2>
-          <p>Si vous êtes situé dans l'Espace économique européen ou au Royaume-Uni, vous avez le droit de déposer une plainte auprès d'une autorité de surveillance si vous pensez que le traitement de vos informations personnelles par nos soins viole la loi applicable.</p>
-
-          <h2>12. Avis de confidentialité de la Californie</h2>
-          <p>Le présent avis de confidentialité s'applique aux consommateurs californiens et complète la politique de confidentialité.</p>
-          <p><strong>Loi californienne "Shine the Light" :</strong> La loi californienne "Shine the Light" permet aux utilisateurs qui sont des résidents de Californie de demander et d'obtenir de notre part, une fois par an et gratuitement, une liste des tiers auxquels nous avons divulgué leurs informations personnelles (le cas échéant) à des fins de marketing direct au cours de l'année civile précédente, ainsi que le type d'informations personnelles divulguées à ces tiers. Pour nous faire une telle demande, si vous y avez droit, veuillez utiliser les coordonnées indiquées ci-dessous.</p>
-          <p><strong>Loi californienne sur la protection de la vie privée des consommateurs (CCPA) :</strong> Au cours des 12 derniers mois, nous n'avons pas divulgué vos informations personnelles à un tiers d'une manière qui pourrait être considérée comme une vente au sens de la CCPA.</p>
-
-          <h2>13. Modifications de notre politique de confidentialité</h2>
-          <p>Nous pouvons réviser cette politique de confidentialité de temps à autre à notre seule discrétion. En cas de modification importante de la présente Politique de confidentialité, nous vous en informerons comme l'exige la loi applicable. Vous comprenez et acceptez que vous serez réputé avoir accepté la Politique de confidentialité mise à jour si vous continuez à utiliser les Services après l'entrée en vigueur de la nouvelle Politique de confidentialité.</p>
-
-          <h2>Nous contacter</h2>
-          <p>Si vous avez des questions sur nos pratiques en matière de confidentialité ou sur la présente politique de confidentialité, veuillez nous contacter à l'adresse suivante :</p>
-          <p>
-            <strong>African Puzzle, Inc/SAS.</strong><br />
-            <strong>21 boulevard Haussmann 75 009 Paris - France</strong><br />
-            <a href="mailto:privacy@africanpuzzle.com"><strong>privacy@africanpuzzle.com</strong></a>
-          </p>
-        </>
-      ) : (
-        <>
-          <p>African Puzzle, SAS/INC, publisher of the African Puzzle works mobile application ("African Puzzle works", "we", "our" and "us") provides an all-in-one workspace enabling our users to register, upload photos, contacts, write, plan and organize. Our privacy policy ("Privacy Policy") is designed to help you understand how we collect, use and share your personal information and to help you exercise the privacy rights available to you.</p>
-
-          <h2>Your data belongs to you</h2>
-          <p>Your data does not belong to us. Putting notes and other content on African Puzzle works does not change the ownership and copyright status of the content in question. If the data originally belonged to you, it continues to belong to you once you have placed it on African Puzzle works. Naturally, if the data did not originally belong to you, putting it on African Puzzle works does not give you ownership in any way. This applies to all our products and services.</p>
-          <p>By using our products, you authorize African Puzzle works to perform certain actions with your data in order to operate our service. For example, you authorize us to save it within the time limits of legal regulations, send it over a network, index it so you can search for it later, display it on your different devices, etc. Some of these operations may require us to send your data to our regular business partners (such as our network operator) to whom we have entrusted the execution of part of the African Puzzle works service. We always ensure that our contracts with these partners protect your property rights.</p>
-          <p>Apart from authorizing us to perform these limited operations to run the African Puzzle works service, you retain all rights relating to your data.</p>
-
-          <h2>Scope</h2>
-          <p>This privacy policy covers the personal information we collect about you when you use our products or services, or interact with us in any other way, including on our website at <a href="https://africanpuzzle.com">www.africanpuzzle.com</a>, our mobile application ("<strong>App</strong>") and our WhatsApp group related online service ("<strong>Service</strong>"). This policy also explains the choices available to you regarding how we use your personal information, including how you can object to certain uses of information and how you can access and update certain information.</p>
-
-          <h2>1. Personal information we collect</h2>
-          <p>We collect personal information when you provide it to us, when you use our services and when other sources provide it to us, as described below.</p>
-
-          <h3>A. Information you provide to us</h3>
-          <p><strong>Account creation:</strong> When you create an account or use the Services, we collect information such as your name, email address, password and your role within your team or company. If you choose to grant permission, the African Puzzle WORKS application accesses your device's contacts and photos to enhance your experience with the application. African Puzzle WORKS does not store your content on company servers, meaning any content you save in the application - such as text, images, photos, contacts, numbers and voice notes - is stored only on your device. We respect your privacy and will never share this information without your explicit consent.</p>
-          <p><strong>Your communications with us:</strong> We collect personal information such as your email address, phone number or mailing address when you request information about our services, subscribe to our newsletter, request technical or customer support, or otherwise communicate with us. We also collect the content of messages or attachments you may send us, as well as other information you choose to provide, which may be associated with your communications.</p>
-          <p><strong>Payment information:</strong> When you choose to subscribe to our service, we collect payment information to enable you to pay us. We use third-party payment providers to process payments on the Services. We may receive information associated with your payment information, such as billing address and transaction information, but we do not directly store payment information on the Services.</p>
-          <p><strong>Surveys:</strong> We may contact you to participate in surveys. If you decide to participate, you may be asked to provide certain information that may include personal data.</p>
-          <p><strong>Interactive features:</strong> We may offer interactive features such as forums, blogs, chat and messaging services, and social media pages. We and other users of our services may collect information that you submit or make available through these interactive features. Any content you provide through the public sections of these features will be considered "public" and will not be subject to the privacy protections mentioned herein.</p>
-          <p><strong>Lottery or contest registration:</strong> We may organize lotteries and contests. The contact information you provide may be used to inform you about draws or contests and for other promotional, marketing and commercial purposes.</p>
-          <p><strong>Conferences, trade shows and other events:</strong> We may attend conferences, trade shows and other events where we collect personal information from people who interact with or express interest in the services.</p>
-          <p><strong>Job applications:</strong> We may post job openings and opportunities on the services. If you respond to one of these postings by submitting your application, CV and/or cover letter, we will collect and use your information to assess your qualifications.</p>
-
-          <h3>B. Information collected automatically</h3>
-          <p><strong>Automatic data collection:</strong> We keep track of certain information about you when you visit and interact with any of our services. This information may include your Internet Protocol (IP) address, user settings, MAC address, cookie identifiers, mobile carrier, mobile advertising and other unique identifiers, details about your browser, operating system or device, location information (including location inferred from your IP address), your Internet service provider, pages you visit before, during and after using the services, information about links you click, information about how you interact with the services including frequency and duration of your activities, and other information about how you use the services.</p>
-          <p><strong>Cookies, Pixel Tags/Web Beacons, and Analytics Information:</strong> We, as well as third parties that provide content, advertising or other features on the Services, may use cookies, pixel tags, local storage and other technologies ("Technologies") to automatically collect information through the Services.</p>
-          <p><strong>Cookies:</strong> Cookies are small text files placed in device browsers to remember their preferences. Most browsers allow you to block and delete cookies. However, if you do so, the services may not function properly.</p>
-          <p><strong>Pixel Tags / Web Beacons:</strong> A pixel tag (also known as a web beacon) is a piece of code embedded in services that collects information about engagement in services.</p>
-          <p><strong>Analytics:</strong> We may also use third-party service providers to collect and process analytics data and other information about our services.</p>
-
-          <h3>C. Information from other sources</h3>
-          <p>We may obtain information about you from other sources, including through third-party services and organizations. If you choose to use the Google Contacts feature in our services, we will be able to view your contacts via the Google People API. The sole use of this data is to populate auto-completion of your contacts when sending invitation emails. African Puzzle works will not use this data for any other purpose.</p>
-
-          <h2>2. How do we use your information?</h2>
-          <p>We use your personal information for various business purposes, including to:</p>
-          <p><strong>Provide the services or information requested, such as:</strong></p>
-          <ul>
-            <li>Fulfilling our contract with you,</li>
-            <li>Identifying and communicating with you, including sending newsletters and marketing materials,</li>
-            <li>Managing your information,</li>
-            <li>Processing your payments and managing your invoices,</li>
-            <li>Responding to questions, comments and other requests,</li>
-            <li>Providing access to certain areas, features and characteristics of our services, and</li>
-            <li>Responding to requests for technical support or customer support.</li>
-          </ul>
-          <p><strong>Administrative management, such as:</strong></p>
-          <ul>
-            <li>Communication around your legitimate interests, such as direct marketing, research and development, network and information security, and fraud prevention,</li>
-            <li>Measuring interest and engagement in our services,</li>
-            <li>Developing new products and services and improving the services,</li>
-            <li>Ensuring internal quality control and security of our services,</li>
-            <li>Authentication and verification of your identity,</li>
-            <li>Conducting audits,</li>
-            <li>Communicating with you about your account, activities on our services and updates to our privacy policy,</li>
-            <li>Preventing and stopping potentially prohibited or illegal activities,</li>
-            <li>Enforcing our Terms of Use,</li>
-            <li>Enforcing our legal obligations.</li>
-          </ul>
-
-          <h2>3. Disclosure of your information to third parties</h2>
-          <p>We may share your personal information with the following categories of third parties:</p>
-          <p><strong>Service providers:</strong> We may share the personal information we collect about you with our third-party service providers for: (i) providing the Services; (ii) providing information, products and other services you have requested; (iii) marketing and advertising; (iv) payment and transaction processing; (v) customer service activities; and (vi) providing IT and related services.</p>
-          <p><strong>Business partners:</strong> We may provide personal information to business partners to provide you with a product or service you have requested.</p>
-          <p><strong>Advertising partners:</strong> We do not use or share your information to advertise third-party products or services through the Services. We may use and share your personal information with third-party advertising partners to market our own Services.</p>
-
-          <h2>4. International data transfers</h2>
-          <p>All information we process is processed and stored in France. We strive to protect your information in accordance with the requirements of laws applicable to the European Commission.</p>
-
-          <h2>5. Your choices</h2>
-          <p>You have the right to object to or refuse certain uses of your personal information. When you have consented to the processing of your personal information, you may withdraw that consent at any time by contacting us as described below.</p>
-
-          <h2>6. Your right to privacy</h2>
-          <p>Depending on your location and in accordance with applicable laws, you may have the right to:</p>
-          <ul>
-            <li><strong>Access</strong> personal information about you in accordance with legal requirements.</li>
-            <li><strong>Request correction</strong> of your personal information when it is inaccurate or incomplete.</li>
-            <li><strong>Request deletion of your personal information</strong> subject to certain exceptions provided by law.</li>
-            <li><strong>Request restriction or objection to the processing of your personal information</strong>, including the right to accept or refuse the sale of your personal information to third parties.</li>
-          </ul>
-
-          <h2>7. Data retention</h2>
-          <p>We retain personal information we receive as described in this privacy policy for as long as you use our services or as long as necessary to fulfill the purposes for which it was collected. Data is stored on servers managed in France by Clever Cloud.</p>
-
-          <h2>8. Security of your data</h2>
-          <p>We take steps to ensure that your information is processed securely and in accordance with this privacy policy. Unfortunately, no system is 100% secure and we cannot ensure or guarantee the security of information you provide to us.</p>
-
-          <h2>9. Third-party websites/applications</h2>
-          <p>The Services may contain links to other websites/applications. These third-party services are not controlled by us. We encourage our users to read the privacy policies of each website and application with which they interact.</p>
-
-          <h2>10. Concerning children</h2>
-          <p>The Services are not intended for children under 13 years of age, and we do not knowingly collect personal information from children.</p>
-
-          <h2>11. Supervisory authority</h2>
-          <p>If you are located in the European Economic Area or the United Kingdom, you have the right to file a complaint with a supervisory authority.</p>
-
-          <h2>12. California privacy notice</h2>
-          <p>This privacy notice applies to California consumers and supplements the privacy policy.</p>
-
-          <h2>13. Changes to our privacy policy</h2>
-          <p>We may revise this privacy policy from time to time at our sole discretion. If there is a material change to this Privacy Policy, we will notify you as required by applicable law.</p>
-
-          <h2>Contact us</h2>
-          <p>If you have questions about our privacy practices or this privacy policy, please contact us at:</p>
-          <p>
-            <strong>African Puzzle, Inc/SAS.</strong><br />
-            <strong>21 boulevard Haussmann 75 009 Paris - France</strong><br />
-            <a href="mailto:privacy@africanpuzzle.com"><strong>privacy@africanpuzzle.com</strong></a>
-          </p>
-        </>
-      )}
+      <Content />
     </div>
   </div>
 </section>

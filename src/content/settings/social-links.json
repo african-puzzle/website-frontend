@@ -1,0 +1,65 @@
+[
+  {
+    "id": "whatsapp",
+    "platform": "WhatsApp",
+    "url": "https://api.whatsapp.com/send?phone=33176774727",
+    "handle": "+33 17677 4727",
+    "showInFooter": false,
+    "showInContact": true,
+    "order": 1
+  },
+  {
+    "id": "facebook",
+    "platform": "Facebook",
+    "url": "https://facebook.com/AfricanPuzzle",
+    "handle": "African Puzzle - the app",
+    "showInFooter": true,
+    "showInContact": true,
+    "order": 2
+  },
+  {
+    "id": "instagram",
+    "platform": "Instagram",
+    "url": "https://instagram.com/africanpuzzle",
+    "handle": "@africanpuzzle",
+    "showInFooter": true,
+    "showInContact": true,
+    "order": 3
+  },
+  {
+    "id": "telegram",
+    "platform": "Telegram",
+    "url": "https://t.me/africanpuzzle_bot",
+    "handle": "@africanpuzzle_bot",
+    "showInFooter": false,
+    "showInContact": true,
+    "order": 4
+  },
+  {
+    "id": "twitter",
+    "platform": "Twitter",
+    "url": "https://twitter.com/african_puzzle",
+    "handle": "@african_puzzle",
+    "showInFooter": false,
+    "showInContact": true,
+    "order": 5
+  },
+  {
+    "id": "linkedin",
+    "platform": "LinkedIn",
+    "url": "https://linkedin.com/company/african-puzzle",
+    "handle": "african-puzzle",
+    "showInFooter": true,
+    "showInContact": true,
+    "order": 6
+  },
+  {
+    "id": "youtube",
+    "platform": "YouTube",
+    "url": "https://youtube.com/channel/UCcwmeCUwyZbX5xBUjxE57MA",
+    "handle": "",
+    "showInFooter": true,
+    "showInContact": false,
+    "order": 7
+  }
+]
