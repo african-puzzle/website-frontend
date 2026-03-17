@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t } from '../i18n/utils';
+
+const lang = 'fr';
+---
+
+<Layout title="Page introuvable" lang={lang}>
+  <div class="flex flex-1 items-center justify-center px-6 py-24">
+    <div class="text-center max-w-md">
+      <p class="text-6xl font-bold text-brand-purple-600">404</p>
+      <h1 class="mt-4 text-2xl font-semibold text-gray-900">{t(lang, 'error.notFound')}</h1>
+      <p class="mt-4 text-gray-600">{t(lang, 'error.notFoundDescription')}</p>
+      <a
+        href="/fr/"
+        class="mt-8 inline-block rounded-full bg-brand-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-purple-700 transition-colors"
+      >
+        {t(lang, 'error.backHome')}
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  setTimeout(() => {
+    window.location.href = '/fr/';
+  }, 5000);
+</script>

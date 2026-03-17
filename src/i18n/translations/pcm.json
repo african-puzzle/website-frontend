@@ -83,5 +83,9 @@
   "footer.rights": "All rights reserved",
   "footer.privacy": "Privacy Policy",
   "footer.made_with": "Dem make am with",
-  "footer.in": "for Paris"
+  "footer.in": "for Paris",
+
+  "error.notFound": "Dis page no dey",
+  "error.notFoundDescription": "Di page wey you dey find no exist. We go carry you go homepage in small time.",
+  "error.backHome": "Go back to homepage"
 }

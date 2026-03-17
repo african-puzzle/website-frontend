@@ -12,7 +12,7 @@ export default defineConfig({
     locales: ['fr', 'en', 'pcm'],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: false,
+      redirectToDefaultLocale: true,
     },
   },
 

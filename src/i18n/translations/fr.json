@@ -83,5 +83,9 @@
   "footer.rights": "Tous droits réservés",
   "footer.privacy": "Politique de confidentialité",
   "footer.made_with": "Fait avec",
-  "footer.in": "à Paris"
+  "footer.in": "à Paris",
+
+  "error.notFound": "Page introuvable",
+  "error.notFoundDescription": "La page que vous cherchez n'existe pas. Vous serez redirigé vers l'accueil dans quelques secondes.",
+  "error.backHome": "Retour à l'accueil"
 }

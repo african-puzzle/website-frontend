@@ -83,5 +83,9 @@
   "footer.rights": "All rights reserved",
   "footer.privacy": "Privacy Policy",
   "footer.made_with": "Made with",
-  "footer.in": "in Paris"
+  "footer.in": "in Paris",
+
+  "error.notFound": "Page not found",
+  "error.notFoundDescription": "The page you're looking for doesn't exist. You'll be redirected to the homepage in a few seconds.",
+  "error.backHome": "Back to homepage"
 }
