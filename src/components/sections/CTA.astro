@@ -1,12 +1,14 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
-const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.africanpuzzle.africanpuzzleworks';
+const site = (await getCollection('settings'))[0].data;
+const PLAY_STORE = site.playStoreUrl;
 ---
 
 <section

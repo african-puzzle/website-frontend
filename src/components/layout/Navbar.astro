@@ -1,5 +1,6 @@
 ---
 import { t, localePaths, localeNames, locales, getEquivalentPath, type Locale } from '../../i18n/utils';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: Locale;
@@ -8,7 +9,8 @@ interface Props {
 const { lang } = Astro.props;
 const currentPath = Astro.url.pathname;
 const paths = localePaths[lang];
-const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.africanpuzzle.africanpuzzleworks';
+const site = (await getCollection('settings'))[0].data;
+const PLAY_STORE = site.playStoreUrl;
 
 const navLinks = [
   { href: `${paths.home}#fonctionnalites`, label: t(lang, 'nav.features') },
