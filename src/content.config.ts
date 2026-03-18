@@ -36,7 +36,7 @@ const features = defineCollection({
 });
 
 const countries = defineCollection({
-  loader: file('src/content/countries/countries.json'),
+  loader: file('src/content/countries/countries.json', { parser: (text) => JSON.parse(text).countries }),
   schema: z.object({
     emoji: z.string(),
     fr: z.string(),
