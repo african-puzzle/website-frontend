@@ -45,18 +45,6 @@ const countries = defineCollection({
   }),
 });
 
-const settings = defineCollection({
-  loader: file('src/content/settings/site.json'),
-  schema: z.object({
-    playStoreUrl: z.string(),
-    youtubeVideoId: z.string(),
-    contactEmail: z.string(),
-
-    instagramHandle: z.string(),
-    instagramUrl: z.string(),
-  }),
-});
-
 const socialLinks = defineCollection({
   loader: file('src/content/settings/social-links.json'),
   schema: z.object({
@@ -87,4 +75,4 @@ const privacy = defineCollection({
   }),
 });
 
-export const collections = { team, media, features, countries, settings, socialLinks, instagram, privacy };
+export const collections = { team, media, features, countries, socialLinks, instagram, privacy };

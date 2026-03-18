@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { socialIcons } from '../../lib/social-icons';
 import DownloadBanner from './DownloadBanner.astro';
 import InstagramFeed from './InstagramFeed.astro';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
@@ -12,7 +13,6 @@ interface Props {
 const { lang } = Astro.props;
 
 const allSocial = await getCollection('socialLinks');
-const site = (await getCollection('settings'))[0].data;
 const channels = allSocial
   .filter((s) => s.data.showInContact)
   .sort((a, b) => a.data.order - b.data.order)

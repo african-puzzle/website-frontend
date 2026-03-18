@@ -1,6 +1,6 @@
 ---
 import { t, localePaths, localeNames, locales, getEquivalentPath, type Locale } from '../../i18n/utils';
-import { getCollection } from 'astro:content';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
@@ -9,7 +9,6 @@ interface Props {
 const { lang } = Astro.props;
 const currentPath = Astro.url.pathname;
 const paths = localePaths[lang];
-const site = (await getCollection('settings'))[0].data;
 const PLAY_STORE = site.playStoreUrl;
 
 const navLinks = [

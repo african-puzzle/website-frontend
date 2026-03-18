@@ -1,13 +1,12 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
-import { getCollection } from 'astro:content';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
-const site = (await getCollection('settings'))[0].data;
 const playStoreUrl = site.playStoreUrl;
 ---
 
@@ -29,7 +28,7 @@ const playStoreUrl = site.playStoreUrl;
         class="text-center max-w-md font-semibold leading-tight mb-8"
         style="color: #3d2664; font-size: clamp(1.75rem, 4vw, 2.4rem);"
       >
-        {t(lang, 'download_banner.title')}
+        {t(lang, 'download.banner_title')}
       </h2>
       <a href={playStoreUrl} target="_blank" rel="noopener noreferrer">
         <img

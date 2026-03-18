@@ -2,6 +2,7 @@
 import { t, type Locale } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
 import { socialIcons } from '../../lib/social-icons';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
@@ -9,7 +10,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const instaPosts = (await getCollection('instagram')).sort((a, b) => a.data.order - b.data.order);
-const site = (await getCollection('settings'))[0].data;
 ---
 
 <section class="pb-16 lg:pb-20">
