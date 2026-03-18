@@ -1,0 +1,164 @@
+---
+/**
+ * 3-state theme toggle: Light / System / Dark
+ * Segmented pill with sliding indicator.
+ */
+---
+
+<div class="theme-toggle" role="radiogroup" aria-label="Theme" id="theme-toggle">
+  <button type="button" role="radio" aria-checked="false" aria-label="Light theme" data-theme="light" class="theme-toggle__btn">
+    <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+    </svg>
+  </button>
+  <button type="button" role="radio" aria-checked="true" aria-label="System theme" data-theme="system" class="theme-toggle__btn">
+    <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v6h8V6z" clip-rule="evenodd" />
+      <path d="M7 16a1 1 0 100 2h6a1 1 0 100-2H7z" />
+    </svg>
+  </button>
+  <button type="button" role="radio" aria-checked="false" aria-label="Dark theme" data-theme="dark" class="theme-toggle__btn">
+    <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+    </svg>
+  </button>
+  <div class="theme-toggle__indicator" id="theme-indicator" aria-hidden="true"></div>
+</div>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .theme-toggle__btn {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    color: rgba(203, 213, 225, 0.6);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .theme-toggle__btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .theme-toggle__btn[aria-checked="true"] {
+    color: #c4b5fd;
+  }
+
+  .theme-toggle__icon {
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+  }
+
+  .theme-toggle__indicator {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  .theme-toggle__indicator[data-pos="1"] {
+    transform: translateX(calc(34px));
+  }
+
+  .theme-toggle__indicator[data-pos="2"] {
+    transform: translateX(calc(68px));
+  }
+</style>
+
+<script>
+  function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const indicator = document.getElementById('theme-indicator');
+    if (!toggle || !indicator) return;
+
+    const buttons = toggle.querySelectorAll<HTMLButtonElement>('.theme-toggle__btn');
+    const themeOrder = ['light', 'system', 'dark'];
+
+    function getStored(): string {
+      return localStorage.getItem('theme') || 'system';
+    }
+
+    function applyTheme(theme: string) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = theme === 'dark' || (theme === 'system' && prefersDark);
+      document.documentElement.classList.toggle('dark', isDark);
+    }
+
+    function updateToggleUI(theme: string) {
+      const idx = themeOrder.indexOf(theme);
+      buttons.forEach((btn) => {
+        btn.setAttribute('aria-checked', btn.dataset.theme === theme ? 'true' : 'false');
+      });
+      indicator.setAttribute('data-pos', String(idx));
+    }
+
+    function setTheme(theme: string) {
+      localStorage.setItem('theme', theme);
+      applyTheme(theme);
+      updateToggleUI(theme);
+    }
+
+    // Init
+    const stored = getStored();
+    updateToggleUI(stored);
+
+    // Click handlers
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme!;
+        setTheme(theme);
+      });
+    });
+
+    // Keyboard: arrow keys cycle through options
+    toggle.addEventListener('keydown', (e: Event) => {
+      const ke = e as KeyboardEvent;
+      if (!['ArrowLeft', 'ArrowRight'].includes(ke.key)) return;
+      ke.preventDefault();
+      const current = getStored();
+      const idx = themeOrder.indexOf(current);
+      const next = ke.key === 'ArrowRight'
+        ? themeOrder[(idx + 1) % 3]
+        : themeOrder[(idx + 2) % 3];
+      setTheme(next);
+      // Focus the new active button
+      const nextBtn = toggle.querySelector<HTMLButtonElement>(`[data-theme="${next}"]`);
+      nextBtn?.focus();
+    });
+
+    // Listen for OS theme changes when in system mode
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (getStored() === 'system') {
+        applyTheme('system');
+      }
+    });
+  }
+
+  // Run on initial load and on Astro page transitions
+  initThemeToggle();
+  document.addEventListener('astro:after-swap', initThemeToggle);
+</script>

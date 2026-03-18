@@ -11,9 +11,9 @@ const { lang } = Astro.props;
 const countries = await getCollection('countries');
 ---
 
-<section class="py-20 lg:py-28 bg-white">
+<section class="py-20 lg:py-28" style="background-color: var(--theme-bg-reach);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase text-center mb-16" style="color: #340975;">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase text-center mb-16" style="color: var(--theme-text-heading);">
       {t(lang, 'reach.title')}
     </h2>
 
@@ -21,7 +21,7 @@ const countries = await getCollection('countries');
       {countries.map((entry) => (
         <div class="flex items-center gap-3">
           <span class="text-2xl leading-none">{entry.data.emoji}</span>
-          <span class="text-sm text-slate-700">{entry.data[lang]}</span>
+          <span class="text-sm" style="color: var(--theme-text-reach-country);">{entry.data[lang]}</span>
         </div>
       ))}
     </div>

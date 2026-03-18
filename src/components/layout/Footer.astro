@@ -2,6 +2,7 @@
 import { t, localePaths, type Locale } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
 import { socialIcons } from '../../lib/social-icons';
+import ThemeToggle from '../ui/ThemeToggle.astro';
 
 interface Props {
   lang: Locale;
@@ -18,7 +19,7 @@ const socialLinks = allSocial
   .map((s) => ({ name: s.data.platform, href: s.data.url, icon: socialIcons[s.data.platform] ?? '' }));
 ---
 
-<footer class="text-slate-300" style="background-color: #2D1B4E;">
+<footer class="text-slate-300" style="background-color: var(--theme-bg-footer);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand -->
@@ -63,8 +64,9 @@ const socialLinks = allSocial
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-white/10 flex items-center justify-center text-sm">
+    <div class="mt-12 pt-8 border-t flex items-center justify-between text-sm" style="border-color: var(--theme-border-footer);">
       <p>&copy; {year} African Puzzle. {t(lang, 'footer.rights')}.</p>
+      <ThemeToggle />
     </div>
   </div>
 </footer>

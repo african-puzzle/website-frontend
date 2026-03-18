@@ -25,7 +25,7 @@ const localeFlags: Record<Locale, string> = {
 };
 ---
 
-<nav class="fixed top-0 inset-x-0 z-50 bg-white border-b border-slate-200/50">
+<nav class="fixed top-0 inset-x-0 z-50 border-b" style="background-color: var(--theme-bg-navbar); border-color: var(--theme-border-navbar);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
@@ -38,7 +38,8 @@ const localeFlags: Record<Locale, string> = {
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-sm font-semibold text-[rgb(61,38,100)] hover:text-brand-purple-600 dark:text-slate-300 dark:hover:text-brand-purple-400 transition-colors"
+            class="text-sm font-semibold hover:text-brand-purple-600 dark:hover:text-brand-purple-400 transition-colors"
+            style="color: var(--theme-text-nav);"
           >
             {link.label}
           </a>
@@ -46,7 +47,7 @@ const localeFlags: Record<Locale, string> = {
 
         <!-- Language Selector -->
         <div class="relative" id="lang-selector">
-          <button id="lang-toggle" class="flex items-center gap-1.5 text-sm font-semibold text-[rgb(61,38,100)] hover:text-brand-purple-600 transition-colors cursor-pointer">
+          <button id="lang-toggle" class="flex items-center gap-1.5 text-sm font-semibold hover:text-brand-purple-600 transition-colors cursor-pointer" style="color: var(--theme-text-nav);">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8" />

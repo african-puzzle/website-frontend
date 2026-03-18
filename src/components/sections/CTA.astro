@@ -12,23 +12,23 @@ const PLAY_STORE = site.playStoreUrl;
 
 <section
   class="py-20 lg:py-28"
-  style="background-color: #eae0ab;"
+  style="background-color: var(--theme-bg-cta);"
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase" style="color: #5c9666;">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase" style="color: var(--theme-text-cta-title);">
       {t(lang, 'cta.title')}
     </h2>
-    <p class="mt-6 text-base sm:text-lg text-slate-800 max-w-2xl mx-auto">
+    <p class="mt-6 text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--theme-text-cta-body);">
       {t(lang, 'cta.subtitle')}
     </p>
 
     <div class="mt-10 flex items-center justify-center gap-4">
       <!-- Curvy arrow (desktop) - from production -->
-      <svg role="presentation" class="hidden sm:block shrink-0" style="fill:#5c9666; width:100px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 180">
+      <svg role="presentation" class="hidden sm:block shrink-0" style="fill: var(--theme-arrow-cta); width:100px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 180">
         <path d="M54.1 110c-1.1 0-2.2-.5-2.9-1.5-1.1-1.6-.7-3.8.8-4.9 1-.7 4.9-2.9 8.9-5.2-14.8-2-27.2-8.9-36.1-20.2C7.9 56.3 7.5 24.1 12.3 3.2c.4-1.9 2.3-3.1 4.2-2.6 1.9.4 3.1 2.3 2.6 4.2-4.5 19.4-4.2 49.2 11.4 69.1 8.4 10.7 19.9 16.7 34.2 17.9l-.4-.5c-1.4-1.7-2.7-3.4-4.1-5.1-.7-.9-1.5-1.9-2.3-2.9-1.2-1.5-1-3.7.5-4.9s3.7-1 4.9.5l6.4 8c.5.5.9 1.1 1.4 1.6 1.5 1.8 3.1 3.7 4.5 5.6.1.1.1.2.2.3.2.4.4.8.4 1.3v.7c0 .3-.1.7-.2 1-.1.2-.2.4-.3.5-.2.3-.5.6-.7.9-.2.2-.4.3-.7.5-.1 0-.1.1-.2.1-1.7.8-16 8.6-17.9 9.9-.7.5-1.4.7-2.1.7zM74 99.5s-.1 0 0 0c-.1 0 0 0 0 0z"/>
       </svg>
       <!-- Down arrow (mobile) - from production -->
-      <svg role="presentation" class="sm:hidden shrink-0 w-8" style="fill:#5c9666;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 70">
+      <svg role="presentation" class="sm:hidden shrink-0 w-8" style="fill: var(--theme-arrow-cta);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 70">
         <path d="M32.1 46.5c-1.5-1.2-3.7-1-4.9.5l-6 7.4V6c0-1.9-1.6-3.5-3.5-3.5S14.2 4.1 14.2 6v48.4l-6-7.4c-1.2-1.5-3.4-1.7-4.9-.5s-1.7 3.4-.5 4.9L15 66.6c.7.8 1.7 1.3 2.7 1.3s2.1-.5 2.7-1.3l12.2-15.2c1.3-1.5 1-3.7-.5-4.9z"/>
       </svg>
 
@@ -37,7 +37,7 @@ const PLAY_STORE = site.playStoreUrl;
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block px-12 py-5 text-white text-base sm:text-lg font-bold uppercase rounded-xl hover:opacity-90 transition-all duration-300"
-        style="background-color: #8c30f5;"
+        style="background-color: var(--theme-btn-cta);"
       >
         {t(lang, 'cta.button')}
       </a>

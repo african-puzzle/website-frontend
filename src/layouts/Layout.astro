@@ -19,6 +19,16 @@ const fullTitle = `${title} | African Puzzle`;
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <!-- Anti-FOWT: apply theme before first paint -->
+    <script is:inline>
+      (function() {
+        var s = localStorage.getItem('theme');
+        var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (s === 'dark' || (s !== 'light' && d)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />

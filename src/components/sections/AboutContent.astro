@@ -15,7 +15,7 @@ const team = teamEntries
   .map(entry => entry.data);
 ---
 
-<section class="pb-20 lg:pb-28 bg-about-bg">
+<section class="pb-20 lg:pb-28" style="background-color: var(--theme-bg-about);">
   <!-- Full-bleed hero -->
   <div class="relative w-full h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
     <img
@@ -65,7 +65,7 @@ const team = teamEntries
 
     <!-- Team -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold font-display text-about-name">
+      <h2 class="text-3xl font-bold font-display" style="color: var(--theme-text-about-name);">
         {t(lang, 'about.team_title')}
       </h2>
     </div>
@@ -73,7 +73,7 @@ const team = teamEntries
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {team.map((member) => (
         <div class="text-center group">
-          <div class="relative w-40 h-40 lg:w-[260px] lg:h-[260px] mx-auto mb-4 rounded-full bg-white flex items-center justify-center text-about-name text-3xl lg:text-5xl font-bold overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+          <div class="relative w-40 h-40 lg:w-[260px] lg:h-[260px] mx-auto mb-4 rounded-full flex items-center justify-center text-3xl lg:text-5xl font-bold overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300" style="background-color: var(--theme-bg-card); color: var(--theme-text-about-name);">
             <span>{member.name.split(' ').map(n => n[0]).join('')}</span>
             <img
               src={member.photo}
@@ -82,11 +82,11 @@ const team = teamEntries
               onerror="this.style.display='none'"
             />
           </div>
-          <h3 class="font-bold text-about-name text-lg">
+          <h3 class="font-bold text-lg" style="color: var(--theme-text-about-name);">
             {member.name}
           </h3>
           {member.role[lang] && (
-            <p class="text-base text-about-role mt-1">
+            <p class="text-base mt-1" style="color: var(--theme-text-about-role);">
               {member.role[lang]}
             </p>
           )}
@@ -95,7 +95,8 @@ const team = teamEntries
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1 mt-3 text-base text-about-name hover:text-about-name/70 transition-colors"
+              class="inline-flex items-center gap-1 mt-3 text-base transition-colors hover:opacity-70"
+              style="color: var(--theme-text-about-name);"
             >
               LinkedIn
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

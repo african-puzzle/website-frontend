@@ -27,16 +27,106 @@
   --font-display: 'Nunito', system-ui, sans-serif;
 }
 
+/* ── Semantic theme tokens ── */
+:root {
+  --theme-bg-primary: #ffffff;
+  --theme-bg-hero: #1a7a6d;
+  --theme-bg-features: #1a7a6d;
+  --theme-bg-benefits: #340975;
+  --theme-bg-cta: #eae0ab;
+  --theme-bg-footer: #2D1B4E;
+  --theme-bg-reach: #ffffff;
+  --theme-bg-about: #f3f4f6;
+  --theme-bg-navbar: #ffffff;
+  --theme-bg-card: #ffffff;
+
+  --theme-text-primary: #334155;
+  --theme-text-heading: #340975;
+  --theme-text-accent: #5c9666;
+  --theme-text-cta-title: #5c9666;
+  --theme-text-cta-body: #1e293b;
+  --theme-text-reach-country: #334155;
+  --theme-text-about-name: #340975;
+  --theme-text-about-role: #4b5563;
+  --theme-text-nav: rgb(61, 38, 100);
+
+  --theme-btn-cta: #8c30f5;
+  --theme-btn-cta-hover: #7c3aed;
+  --theme-arrow-cta: #5c9666;
+
+  --theme-text-contact: #3d2664;
+  --theme-text-privacy-title: #8c30f5;
+  --theme-text-privacy-body: #3d2664;
+  --theme-text-privacy-meta: #94a3b8;
+  --theme-bg-download-banner: #67A097;
+  --theme-text-download-banner: #3d2664;
+  --theme-icon-contact: #8c30f5;
+
+  --theme-border-navbar: rgba(226, 232, 240, 0.5);
+  --theme-border-footer: rgba(255, 255, 255, 0.1);
+
+  --theme-selection-bg: #d8b4fe;
+  --theme-selection-text: #3d2664;
+}
+
+.dark {
+  --theme-bg-primary: #0c0a1a;
+  --theme-bg-hero: #0f3d36;
+  --theme-bg-features: #0f3d36;
+  --theme-bg-benefits: #130535;
+  --theme-bg-cta: #1c1a0e;
+  --theme-bg-footer: #0a0618;
+  --theme-bg-reach: #0c0a1a;
+  --theme-bg-about: #0c0a1a;
+  --theme-bg-navbar: #0c0a1a;
+  --theme-bg-card: #1a1530;
+
+  --theme-text-primary: #cbd5e1;
+  --theme-text-heading: #c4b5fd;
+  --theme-text-accent: #86efac;
+  --theme-text-cta-title: #86efac;
+  --theme-text-cta-body: #cbd5e1;
+  --theme-text-reach-country: #cbd5e1;
+  --theme-text-about-name: #c4b5fd;
+  --theme-text-about-role: #94a3b8;
+  --theme-text-nav: #c4b5fd;
+
+  --theme-btn-cta: #a855f7;
+  --theme-btn-cta-hover: #9333ea;
+  --theme-arrow-cta: #86efac;
+
+  --theme-border-navbar: rgba(100, 80, 150, 0.3);
+  --theme-border-footer: rgba(100, 80, 150, 0.2);
+
+  --theme-text-contact: #c4b5fd;
+  --theme-text-privacy-title: #c084fc;
+  --theme-text-privacy-body: #cbd5e1;
+  --theme-text-privacy-meta: #64748b;
+  --theme-bg-download-banner: #1a3d36;
+  --theme-text-download-banner: #c4b5fd;
+  --theme-icon-contact: #c084fc;
+
+  --theme-selection-bg: #6b21a8;
+  --theme-selection-text: #f3e8ff;
+
+  --color-about-bg: #0c0a1a;
+  --color-about-name: #c4b5fd;
+  --color-about-role: #94a3b8;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-slate-700 antialiased;
+    background-color: var(--theme-bg-primary);
+    color: var(--theme-text-primary);
+    @apply antialiased;
   }
 
   ::selection {
-    @apply bg-brand-purple-200 text-brand-purple-900;
+    background-color: var(--theme-selection-bg);
+    color: var(--theme-selection-text);
   }
 }
