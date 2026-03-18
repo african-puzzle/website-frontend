@@ -65,6 +65,14 @@
   --theme-border-navbar: rgba(226, 232, 240, 0.5);
   --theme-border-footer: rgba(255, 255, 255, 0.1);
 
+  --theme-toggle-bg: rgba(255, 255, 255, 0.08);
+  --theme-toggle-border: rgba(255, 255, 255, 0.12);
+  --theme-toggle-icon: rgba(203, 213, 225, 0.6);
+  --theme-toggle-icon-hover: rgba(255, 255, 255, 0.9);
+  --theme-toggle-icon-active: #c4b5fd;
+  --theme-toggle-indicator-bg: rgba(139, 92, 246, 0.2);
+  --theme-toggle-indicator-border: rgba(139, 92, 246, 0.3);
+
   --theme-selection-bg: #d8b4fe;
   --theme-selection-text: #3d2664;
 }
@@ -106,12 +114,16 @@
   --theme-text-download-banner: #c4b5fd;
   --theme-icon-contact: #c084fc;
 
+  --theme-toggle-bg: rgba(255, 255, 255, 0.06);
+  --theme-toggle-border: rgba(255, 255, 255, 0.08);
+  --theme-toggle-icon: rgba(203, 213, 225, 0.5);
+  --theme-toggle-icon-hover: rgba(255, 255, 255, 0.85);
+  --theme-toggle-icon-active: #c084fc;
+  --theme-toggle-indicator-bg: rgba(139, 92, 246, 0.25);
+  --theme-toggle-indicator-border: rgba(139, 92, 246, 0.35);
+
   --theme-selection-bg: #6b21a8;
   --theme-selection-text: #f3e8ff;
-
-  --color-about-bg: #0c0a1a;
-  --color-about-name: #c4b5fd;
-  --color-about-role: #94a3b8;
 }
 
 @layer base {

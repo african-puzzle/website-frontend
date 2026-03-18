@@ -1,23 +1,31 @@
 ---
+import { t, type Locale } from '../../i18n/utils';
+
 /**
  * 3-state theme toggle: Light / System / Dark
  * Segmented pill with sliding indicator.
  */
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
 ---
 
-<div class="theme-toggle" role="radiogroup" aria-label="Theme" id="theme-toggle">
-  <button type="button" role="radio" aria-checked="false" aria-label="Light theme" data-theme="light" class="theme-toggle__btn">
+<div class="theme-toggle" role="radiogroup" aria-label={t(lang, 'theme.label')} id="theme-toggle">
+  <button type="button" role="radio" aria-checked="false" aria-label={t(lang, 'theme.light')} data-theme="light" class="theme-toggle__btn">
     <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
     </svg>
   </button>
-  <button type="button" role="radio" aria-checked="true" aria-label="System theme" data-theme="system" class="theme-toggle__btn">
+  <button type="button" role="radio" aria-checked="true" aria-label={t(lang, 'theme.system')} data-theme="system" class="theme-toggle__btn">
     <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v6h8V6z" clip-rule="evenodd" />
       <path d="M7 16a1 1 0 100 2h6a1 1 0 100-2H7z" />
     </svg>
   </button>
-  <button type="button" role="radio" aria-checked="false" aria-label="Dark theme" data-theme="dark" class="theme-toggle__btn">
+  <button type="button" role="radio" aria-checked="false" aria-label={t(lang, 'theme.dark')} data-theme="dark" class="theme-toggle__btn">
     <svg class="theme-toggle__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
     </svg>
@@ -32,8 +40,8 @@
     gap: 2px;
     padding: 3px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--theme-toggle-bg);
+    border: 1px solid var(--theme-toggle-border);
   }
 
   .theme-toggle__btn {
@@ -45,7 +53,7 @@
     width: 32px;
     height: 32px;
     border-radius: 9999px;
-    color: rgba(203, 213, 225, 0.6);
+    color: var(--theme-toggle-icon);
     cursor: pointer;
     transition: color 0.2s ease;
     background: none;
@@ -54,11 +62,11 @@
   }
 
   .theme-toggle__btn:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--theme-toggle-icon-hover);
   }
 
   .theme-toggle__btn[aria-checked="true"] {
-    color: #c4b5fd;
+    color: var(--theme-toggle-icon-active);
   }
 
   .theme-toggle__icon {
@@ -74,8 +82,8 @@
     width: 32px;
     height: 32px;
     border-radius: 9999px;
-    background: rgba(139, 92, 246, 0.2);
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: var(--theme-toggle-indicator-bg);
+    border: 1px solid var(--theme-toggle-indicator-border);
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
@@ -90,6 +98,8 @@
 </style>
 
 <script>
+  let mediaQueryCleanup: (() => void) | null = null;
+
   function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');
     const indicator = document.getElementById('theme-indicator');
@@ -122,8 +132,9 @@
       updateToggleUI(theme);
     }
 
-    // Init
+    // Init — apply theme and update UI
     const stored = getStored();
+    applyTheme(stored);
     updateToggleUI(stored);
 
     // Click handlers
@@ -150,12 +161,17 @@
       nextBtn?.focus();
     });
 
-    // Listen for OS theme changes when in system mode
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    // Clean up previous matchMedia listener before adding a new one
+    if (mediaQueryCleanup) mediaQueryCleanup();
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => {
       if (getStored() === 'system') {
         applyTheme('system');
       }
-    });
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    mediaQueryCleanup = () => mediaQuery.removeEventListener('change', handleChange);
   }
 
   // Run on initial load and on Astro page transitions

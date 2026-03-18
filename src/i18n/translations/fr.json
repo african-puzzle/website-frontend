@@ -108,6 +108,13 @@
     "banner_title": "Télécharger pour tester l'application African Puzzle works"
   },
 
+  "theme": {
+    "label": "Thème",
+    "light": "Thème clair",
+    "system": "Thème système",
+    "dark": "Thème sombre"
+  },
+
   "footer": {
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
