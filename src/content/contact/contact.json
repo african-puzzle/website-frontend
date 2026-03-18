@@ -1,0 +1,60 @@
+{
+  "contact_methods": [
+    {
+      "label": "WhatsApp",
+      "icon": "whatsapp",
+      "value": "+33 17677 4727",
+      "url": "https://api.whatsapp.com/send?phone=33176774727",
+      "order": 1
+    },
+    {
+      "label": "Facebook",
+      "icon": "facebook",
+      "value": "African Puzzle - the app",
+      "url": "https://facebook.com/AfricanPuzzle",
+      "order": 2
+    },
+    {
+      "label": "Instagram",
+      "icon": "instagram",
+      "value": "@africanpuzzle",
+      "url": "https://instagram.com/africanpuzzle",
+      "order": 3
+    },
+    {
+      "label": "Telegram",
+      "icon": "telegram",
+      "value": "@africanpuzzle_bot",
+      "url": "https://t.me/africanpuzzle_bot",
+      "order": 4
+    },
+    {
+      "label": "Twitter",
+      "icon": "twitter",
+      "value": "@african_puzzle",
+      "url": "https://twitter.com/african_puzzle",
+      "order": 5
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "value": "african-puzzle",
+      "url": "https://linkedin.com/company/african-puzzle",
+      "order": 6
+    },
+    {
+      "label": "YouTube",
+      "icon": "youtube",
+      "value": "",
+      "url": "https://youtube.com/channel/UCcwmeCUwyZbX5xBUjxE57MA",
+      "order": 7
+    },
+    {
+      "label": "Email",
+      "icon": "email",
+      "value": "contact@africanpuzzle.com",
+      "url": "mailto:contact@africanpuzzle.com",
+      "order": 8
+    }
+  ]
+}
