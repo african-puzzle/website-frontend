@@ -3,7 +3,18 @@ import en from './translations/en.json';
 import pcm from './translations/pcm.json';
 
 type Translations = typeof fr;
-type TranslationKey = keyof Translations;
+
+type NestedKeyOf<T, Prefix extends string = ''> = T extends object
+  ? {
+      [K in keyof T & string]: T[K] extends object
+        ? NestedKeyOf<T[K], Prefix extends '' ? K : `${Prefix}.${K}`>
+        : Prefix extends ''
+          ? K
+          : `${Prefix}.${K}`;
+    }[keyof T & string]
+  : never;
+
+export type TranslationKey = NestedKeyOf<Translations>;
 
 const translations: Record<string, Translations> = { fr, en, pcm };
 
@@ -15,9 +26,14 @@ export function getTranslations(locale: string): Translations {
   return translations[locale] ?? translations[defaultLocale];
 }
 
+function getNestedValue(obj: unknown, key: string): string | undefined {
+  const result = key.split('.').reduce<unknown>((o, k) => (o as Record<string, unknown>)?.[k], obj);
+  return typeof result === 'string' ? result : undefined;
+}
+
 export function t(locale: string, key: TranslationKey): string {
   const trans = getTranslations(locale);
-  return trans[key] ?? fr[key] ?? key;
+  return getNestedValue(trans, key) ?? getNestedValue(fr, key) ?? key;
 }
 
 export function getLocaleFromUrl(url: URL): Locale {

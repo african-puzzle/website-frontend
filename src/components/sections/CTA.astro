@@ -1,13 +1,12 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
-import { getCollection } from 'astro:content';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
-const site = (await getCollection('settings'))[0].data;
 const PLAY_STORE = site.playStoreUrl;
 ---
 

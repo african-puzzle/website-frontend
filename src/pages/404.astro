@@ -5,18 +5,18 @@ import { t, locales, defaultLocale } from '../i18n/utils';
 const lang = defaultLocale;
 ---
 
-<Layout title={t(lang, 'error.notFound')} lang={lang}>
+<Layout title={t(lang, 'error.not_found')} lang={lang}>
   <div class="flex flex-1 items-center justify-center px-6 py-24">
     <div class="text-center max-w-md">
       <p class="text-6xl font-bold text-brand-purple-600">404</p>
-      <h1 class="mt-4 text-2xl font-semibold text-gray-900">{t(lang, 'error.notFound')}</h1>
-      <p class="mt-4 text-gray-600">{t(lang, 'error.notFoundDescription')}</p>
+      <h1 class="mt-4 text-2xl font-semibold text-gray-900">{t(lang, 'error.not_found')}</h1>
+      <p class="mt-4 text-gray-600">{t(lang, 'error.not_found_description')}</p>
       <a
         id="back-home"
         href="/fr/"
         class="mt-8 inline-block rounded-full bg-brand-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-purple-700 transition-colors"
       >
-        {t(lang, 'error.backHome')}
+        {t(lang, 'error.back_home')}
       </a>
     </div>
   </div>

@@ -1,93 +1,123 @@
 {
-  "site.name": "African Puzzle",
-  "site.tagline": "WORKS",
+  "site_name": "African Puzzle",
+  "site_tagline": "WORKS",
 
-  "nav.home": "Home",
-  "nav.features": "Features",
-  "nav.about": "About Us",
-  "nav.contact": "Contact",
-  "nav.media": "Media",
-  "nav.download": "Download",
-  "nav.language": "Language",
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "about": "About Us",
+    "contact": "Contact",
+    "media": "Media",
+    "download": "Download",
+    "language": "Language"
+  },
 
-  "hero.title": "The app to get organized easily and remember everything",
-  "hero.subtitle": "The personal assistant for artisans, tailors, creatives and entrepreneurs",
-  "hero.cta": "Download on Google Play",
-  "hero.learn_more": "Learn more",
+  "hero": {
+    "title": "The app to get organized easily and remember everything",
+    "subtitle": "The personal assistant for artisans, tailors, creatives and entrepreneurs",
+    "cta": "Download on Google Play",
+    "learn_more": "Learn more"
+  },
 
-  "intro.title": "African Puzzle works",
-  "intro.subtitle": "The personal assistant that revolutionizes the organization of",
-  "intro.audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS",
+  "intro": {
+    "title": "African Puzzle works",
+    "subtitle": "The personal assistant that revolutionizes the organization of",
+    "audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS"
+  },
 
-  "features.label": "Features",
-  "features.title": "Everything you need",
-  "features.subtitle": "African Puzzle WORKS helps you manage your projects, clients and appointments in one place",
-  "features.projects.title": "Programs / Projects",
-  "features.projects.desc": "Centralize your project details and easily track their progress",
-  "features.clients.title": "Clients",
-  "features.clients.desc": "Manage your client descriptions and information with one click",
-  "features.album.title": "Album",
-  "features.album.desc": "Group your creations by theme to present them to your clients",
-  "features.appointments.title": "Appointments",
-  "features.appointments.desc": "Never miss a commitment thanks to notifications",
+  "features": {
+    "label": "Features",
+    "title": "Everything you need",
+    "subtitle": "African Puzzle WORKS helps you manage your projects, clients and appointments in one place",
+    "projects_title": "Programs / Projects",
+    "projects_desc": "Centralize your project details and easily track their progress",
+    "clients_title": "Clients",
+    "clients_desc": "Manage your client descriptions and information with one click",
+    "album_title": "Album",
+    "album_desc": "Group your creations by theme to present them to your clients",
+    "appointments_title": "Appointments",
+    "appointments_desc": "Never miss a commitment thanks to notifications"
+  },
 
-  "benefits.label": "Benefits",
-  "benefits.title": "Why African Puzzle?",
-  "benefits.happy.title": "Make your clients happy",
-  "benefits.happy.desc": "Offer a professional and organized service that builds client loyalty",
-  "benefits.time.title": "Save time",
-  "benefits.time.desc": "Automate your project management and focus on your creativity",
-  "benefits.efficient.title": "Be more efficient",
-  "benefits.efficient.desc": "Optimize your workflow and boost your daily productivity",
+  "benefits": {
+    "label": "Benefits",
+    "title": "Why African Puzzle?",
+    "happy_title": "Make your clients happy",
+    "happy_desc": "Offer a professional and organized service that builds client loyalty",
+    "time_title": "Save time",
+    "time_desc": "Automate your project management and focus on your creativity",
+    "efficient_title": "Be more efficient",
+    "efficient_desc": "Optimize your workflow and boost your daily productivity"
+  },
 
-  "reach.label": "Global Reach",
-  "reach.title": "Available in 70 countries",
-  "reach.subtitle": "African Puzzle WORKS supports creatives around the world",
+  "reach": {
+    "label": "Global Reach",
+    "title": "Available in 70 countries",
+    "subtitle": "African Puzzle WORKS supports creatives around the world"
+  },
 
-  "cta.title": "Join the test version",
-  "cta.subtitle": "Download to test the first version of African Puzzle works.",
-  "cta.button": "Download to test the app",
+  "cta": {
+    "title": "Join the test version",
+    "subtitle": "Download to test the first version of African Puzzle works.",
+    "button": "Download to test the app"
+  },
 
-  "about.label": "About Us",
-  "about.title": "Wealth for everyone",
-  "about.subtitle": "Africa is creative and creatives now have their personal assistant!",
-  "about.innovation": "African Puzzle innovates with this simple and easy-to-use tool and enables as many people as possible to progress.",
-  "about.creative_statement": "<strong>Africa is creative and creatives now have their personal assistant!</strong>",
-  "about.mission": "African Puzzle WORKS is a mobile application designed to help artisans, tailors, creatives and entrepreneurs better organize their daily activities.",
-  "about.team_title": "Our team",
+  "about": {
+    "label": "About Us",
+    "title": "Wealth for everyone",
+    "subtitle": "Africa is creative and creatives now have their personal assistant!",
+    "innovation": "African Puzzle innovates with this simple and easy-to-use tool and enables as many people as possible to progress.",
+    "creative_statement": "<strong>Africa is creative and creatives now have their personal assistant!</strong>",
+    "mission": "African Puzzle WORKS is a mobile application designed to help artisans, tailors, creatives and entrepreneurs better organize their daily activities.",
+    "team_title": "Our team"
+  },
 
-  "contact.label": "Contact",
-  "contact.title": "Contact African Puzzle",
-  "contact.subtitle": "Don't hesitate to contact us with any questions or suggestions",
-  "contact.address_label": "Address",
-  "contact.address_company": "African Puzzle, Inc.",
-  "contact.address_street": "21 boulevard Haussmann",
-  "contact.address_city": "75 009 Paris - France",
-  "contact.email_label": "Email",
-  "contact.social_label": "Social networks",
+  "contact": {
+    "label": "Contact",
+    "title": "Contact African Puzzle",
+    "subtitle": "Don't hesitate to contact us with any questions or suggestions",
+    "address_label": "Address",
+    "address_company": "African Puzzle, Inc.",
+    "address_street": "21 boulevard Haussmann",
+    "address_city": "75 009 Paris - France",
+    "email_label": "Email",
+    "social_label": "Social networks"
+  },
 
-  "media.label": "Media",
-  "media.title": "In the press",
-  "media.subtitle": "See what the media says about us",
-  "media.press_article": "Press article",
-  "media.filter_all": "All",
-  "media.filter_press_release": "Press Release",
-  "media.filter_videos": "Videos",
-  "media.load_more": "More",
+  "media": {
+    "label": "Media",
+    "title": "In the press",
+    "subtitle": "See what the media says about us",
+    "press_article": "Press article",
+    "filter_all": "All",
+    "filter_press_release": "Press Release",
+    "filter_videos": "Videos",
+    "load_more": "More"
+  },
 
-  "privacy.title": "Privacy Policy",
-  "privacy.effective": "Effective May 1, 2021",
+  "privacy": {
+    "title": "Privacy Policy",
+    "effective": "Effective May 1, 2021"
+  },
 
-  "instagram.alt": "African Puzzle on Instagram",
+  "instagram": {
+    "alt": "African Puzzle on Instagram"
+  },
 
-  "download_banner.title": "Download to test the African Puzzle works app",
+  "download": {
+    "banner_title": "Download to test the African Puzzle works app"
+  },
 
-  "footer.rights": "All rights reserved",
-  "footer.privacy": "Privacy Policy",
-  "footer.made_with": "Made with",
-  "footer.in": "in Paris",
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "made_with": "Made with",
+    "in": "in Paris"
+  },
 
-  "error.notFound": "Page not found",
-  "error.notFoundDescription": "The page you're looking for doesn't exist. You'll be redirected to the homepage in a few seconds.",
-  "error.backHome": "Back to homepage"
+  "error": {
+    "not_found": "Page not found",
+    "not_found_description": "The page you're looking for doesn't exist. You'll be redirected to the homepage in a few seconds.",
+    "back_home": "Back to homepage"
+  }
 }

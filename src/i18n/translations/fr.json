@@ -1,93 +1,123 @@
 {
-  "site.name": "African Puzzle",
-  "site.tagline": "WORKS",
+  "site_name": "African Puzzle",
+  "site_tagline": "WORKS",
 
-  "nav.home": "Accueil",
-  "nav.features": "Fonctionnalités",
-  "nav.about": "À propos",
-  "nav.contact": "Contact",
-  "nav.media": "Médias",
-  "nav.download": "Télécharger",
-  "nav.language": "Langue",
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "about": "À propos",
+    "contact": "Contact",
+    "media": "Médias",
+    "download": "Télécharger",
+    "language": "Langue"
+  },
 
-  "hero.title": "L'application pour s'organiser facilement et tout retenir",
-  "hero.subtitle": "L'assistant personnel des artisans, tailleurs, créatifs et entrepreneurs",
-  "hero.cta": "Télécharger sur Google Play",
-  "hero.learn_more": "En savoir plus",
+  "hero": {
+    "title": "L'application pour s'organiser facilement et tout retenir",
+    "subtitle": "L'assistant personnel des artisans, tailleurs, créatifs et entrepreneurs",
+    "cta": "Télécharger sur Google Play",
+    "learn_more": "En savoir plus"
+  },
 
-  "intro.title": "African Puzzle works",
-  "intro.subtitle": "L'assistant personnel qui révolutionne l'organisation des",
-  "intro.audiences": "ARTISANS · COUTURIERS · CRÉATIFS · ENTREPRENEURS",
+  "intro": {
+    "title": "African Puzzle works",
+    "subtitle": "L'assistant personnel qui révolutionne l'organisation des",
+    "audiences": "ARTISANS · COUTURIERS · CRÉATIFS · ENTREPRENEURS"
+  },
 
-  "features.label": "Fonctionnalités",
-  "features.title": "Tout ce dont vous avez besoin",
-  "features.subtitle": "African Puzzle WORKS vous aide à gérer vos projets, clients et rendez-vous en un seul endroit",
-  "features.projects.title": "Programmes / Projets",
-  "features.projects.desc": "Centralisez les détails de vos projets et suivez leur avancement facilement",
-  "features.clients.title": "Clients",
-  "features.clients.desc": "Gérez les descriptions et informations de vos clients en un clic",
-  "features.album.title": "Album",
-  "features.album.desc": "Regroupez vos créations par thème pour les présenter à vos clients",
-  "features.appointments.title": "Rendez-vous",
-  "features.appointments.desc": "Ne manquez plus jamais un engagement grâce aux notifications",
+  "features": {
+    "label": "Fonctionnalités",
+    "title": "Tout ce dont vous avez besoin",
+    "subtitle": "African Puzzle WORKS vous aide à gérer vos projets, clients et rendez-vous en un seul endroit",
+    "projects_title": "Programmes / Projets",
+    "projects_desc": "Centralisez les détails de vos projets et suivez leur avancement facilement",
+    "clients_title": "Clients",
+    "clients_desc": "Gérez les descriptions et informations de vos clients en un clic",
+    "album_title": "Album",
+    "album_desc": "Regroupez vos créations par thème pour les présenter à vos clients",
+    "appointments_title": "Rendez-vous",
+    "appointments_desc": "Ne manquez plus jamais un engagement grâce aux notifications"
+  },
 
-  "benefits.label": "Avantages",
-  "benefits.title": "Pourquoi African Puzzle ?",
-  "benefits.happy.title": "Rendez vos clients heureux",
-  "benefits.happy.desc": "Offrez un service professionnel et organisé qui fidélise vos clients",
-  "benefits.time.title": "Gagnez du temps",
-  "benefits.time.desc": "Automatisez la gestion de vos projets et concentrez-vous sur votre créativité",
-  "benefits.efficient.title": "Soyez plus efficace",
-  "benefits.efficient.desc": "Optimisez votre workflow et augmentez votre productivité au quotidien",
+  "benefits": {
+    "label": "Avantages",
+    "title": "Pourquoi African Puzzle ?",
+    "happy_title": "Rendez vos clients heureux",
+    "happy_desc": "Offrez un service professionnel et organisé qui fidélise vos clients",
+    "time_title": "Gagnez du temps",
+    "time_desc": "Automatisez la gestion de vos projets et concentrez-vous sur votre créativité",
+    "efficient_title": "Soyez plus efficace",
+    "efficient_desc": "Optimisez votre workflow et augmentez votre productivité au quotidien"
+  },
 
-  "reach.label": "Portée mondiale",
-  "reach.title": "Disponible dans 70 pays",
-  "reach.subtitle": "African Puzzle WORKS accompagne les créatifs à travers le monde",
+  "reach": {
+    "label": "Portée mondiale",
+    "title": "Disponible dans 70 pays",
+    "subtitle": "African Puzzle WORKS accompagne les créatifs à travers le monde"
+  },
 
-  "cta.title": "Participez à la version test",
-  "cta.subtitle": "Télécharger pour tester la première version de African Puzzle works.",
-  "cta.button": "Télécharger pour tester l'application",
+  "cta": {
+    "title": "Participez à la version test",
+    "subtitle": "Télécharger pour tester la première version de African Puzzle works.",
+    "button": "Télécharger pour tester l'application"
+  },
 
-  "about.label": "À propos",
-  "about.title": "La richesse pour tous",
-  "about.subtitle": "L'Afrique est créative et les créatifs ont désormais leur assistant personnel !",
-  "about.innovation": "African Puzzle innove avec cet outil simple et facile d'utilisation et permet au plus grand nombre de progresser.",
-  "about.creative_statement": "<strong>L'Afrique est créative et les créatifs ont maintenant leur assistant personnel !</strong>",
-  "about.mission": "African Puzzle WORKS est une application mobile conçue pour aider les artisans, tailleurs, créatifs et entrepreneurs à mieux s'organiser dans leur activité quotidienne.",
-  "about.team_title": "Notre équipe",
+  "about": {
+    "label": "À propos",
+    "title": "La richesse pour tous",
+    "subtitle": "L'Afrique est créative et les créatifs ont désormais leur assistant personnel !",
+    "innovation": "African Puzzle innove avec cet outil simple et facile d'utilisation et permet au plus grand nombre de progresser.",
+    "creative_statement": "<strong>L'Afrique est créative et les créatifs ont maintenant leur assistant personnel !</strong>",
+    "mission": "African Puzzle WORKS est une application mobile conçue pour aider les artisans, tailleurs, créatifs et entrepreneurs à mieux s'organiser dans leur activité quotidienne.",
+    "team_title": "Notre équipe"
+  },
 
-  "contact.label": "Contact",
-  "contact.title": "Contacter African Puzzle",
-  "contact.subtitle": "N'hésitez pas à nous contacter pour toute question ou suggestion",
-  "contact.address_label": "Adresse",
-  "contact.address_company": "African Puzzle, Inc.",
-  "contact.address_street": "21 boulevard Haussmann",
-  "contact.address_city": "75 009 Paris - France",
-  "contact.email_label": "Email",
-  "contact.social_label": "Réseaux sociaux",
+  "contact": {
+    "label": "Contact",
+    "title": "Contacter African Puzzle",
+    "subtitle": "N'hésitez pas à nous contacter pour toute question ou suggestion",
+    "address_label": "Adresse",
+    "address_company": "African Puzzle, Inc.",
+    "address_street": "21 boulevard Haussmann",
+    "address_city": "75 009 Paris - France",
+    "email_label": "Email",
+    "social_label": "Réseaux sociaux"
+  },
 
-  "media.label": "Médias",
-  "media.title": "Dans la presse",
-  "media.subtitle": "Découvrez ce que les médias disent de nous",
-  "media.press_article": "Article de presse",
-  "media.filter_all": "Tous",
-  "media.filter_press_release": "Communiqué de presse",
-  "media.filter_videos": "Vidéos",
-  "media.load_more": "Plus",
+  "media": {
+    "label": "Médias",
+    "title": "Dans la presse",
+    "subtitle": "Découvrez ce que les médias disent de nous",
+    "press_article": "Article de presse",
+    "filter_all": "Tous",
+    "filter_press_release": "Communiqué de presse",
+    "filter_videos": "Vidéos",
+    "load_more": "Plus"
+  },
 
-  "privacy.title": "Politique de confidentialité",
-  "privacy.effective": "En vigueur depuis le 1er mai 2021",
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "effective": "En vigueur depuis le 1er mai 2021"
+  },
 
-  "instagram.alt": "African Puzzle sur Instagram",
+  "instagram": {
+    "alt": "African Puzzle sur Instagram"
+  },
 
-  "download_banner.title": "Télécharger pour tester l'application African Puzzle works",
+  "download": {
+    "banner_title": "Télécharger pour tester l'application African Puzzle works"
+  },
 
-  "footer.rights": "Tous droits réservés",
-  "footer.privacy": "Politique de confidentialité",
-  "footer.made_with": "Fait avec",
-  "footer.in": "à Paris",
+  "footer": {
+    "rights": "Tous droits réservés",
+    "privacy": "Politique de confidentialité",
+    "made_with": "Fait avec",
+    "in": "à Paris"
+  },
 
-  "error.notFound": "Page introuvable",
-  "error.notFoundDescription": "La page que vous cherchez n'existe pas. Vous serez redirigé vers l'accueil dans quelques secondes.",
-  "error.backHome": "Retour à l'accueil"
+  "error": {
+    "not_found": "Page introuvable",
+    "not_found_description": "La page que vous cherchez n'existe pas. Vous serez redirigé vers l'accueil dans quelques secondes.",
+    "back_home": "Retour à l'accueil"
+  }
 }
