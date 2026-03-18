@@ -1,4 +1,5 @@
-[
+{
+  "countries": [
   { "id": "algeria", "emoji": "🇩🇿", "fr": "Algérie", "en": "Algeria", "pcm": "Algeria" },
   { "id": "austria", "emoji": "🇦🇹", "fr": "Autriche", "en": "Austria", "pcm": "Austria" },
   { "id": "belgium", "emoji": "🇧🇪", "fr": "Belgique", "en": "Belgium", "pcm": "Belgium" },
@@ -70,4 +71,5 @@
   { "id": "united-states", "emoji": "🇺🇸", "fr": "États-Unis d'Amérique", "en": "United States", "pcm": "United States" },
   { "id": "zambia", "emoji": "🇿🇲", "fr": "Zambie", "en": "Zambia", "pcm": "Zambia" },
   { "id": "zimbabwe", "emoji": "🇿🇼", "fr": "Zimbabwe", "en": "Zimbabwe", "pcm": "Zimbabwe" }
-]
+  ]
+}
