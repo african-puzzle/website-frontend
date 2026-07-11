@@ -61,6 +61,8 @@
   --theme-bg-features: #2a1a47;
   --theme-bg-benefits: #340975;
   --theme-bg-pricing: #ffc94d;
+  /* Tint laid over the speckled texture so it reads as the pricing surface */
+  --theme-overlay-pricing: rgba(255, 201, 77, 0.86);
   --theme-bg-cta: #eae0ab;
   --theme-bg-partners: #f6f3fb;
   --theme-bg-footer: #2D1B4E;
@@ -118,6 +120,7 @@
   --theme-bg-features: #171028;
   --theme-bg-benefits: #130535;
   --theme-bg-pricing: #2a2210;
+  --theme-overlay-pricing: rgba(42, 34, 16, 0.86);
   --theme-bg-cta: #1c1a0e;
   --theme-bg-partners: #131022;
   --theme-bg-footer: #0a0618;
