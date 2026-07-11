@@ -1,0 +1,37 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const contactPath = `/${lang}/contact/`;
+const aboutPath = lang === 'fr' ? '/fr/a-propos/' : `/${lang}/about/`;
+---
+
+<section class="py-20 lg:py-24" style="background-color: var(--theme-bg-partners);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold font-display" style="color: var(--theme-text-heading);">
+      {t(lang, 'partners.title')}
+    </h2>
+    <p class="mt-5 text-lg leading-relaxed max-w-2xl mx-auto" style="color: var(--theme-text-primary);">
+      {t(lang, 'partners.body')}
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a
+        href={contactPath}
+        class="inline-flex items-center justify-center px-8 py-4 bg-brand-purple-600 text-white font-semibold rounded-full shadow-lg hover:bg-brand-purple-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+      >
+        {t(lang, 'partners.cta')}
+      </a>
+      <a
+        href={aboutPath}
+        class="inline-flex items-center justify-center px-8 py-4 font-semibold rounded-full border-2 border-brand-purple-300 hover:border-brand-purple-600 transition-colors duration-300"
+        style="color: var(--theme-text-heading);"
+      >
+        {t(lang, 'partners.team_link')}
+      </a>
+    </div>
+  </div>
+</section>

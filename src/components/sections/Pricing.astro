@@ -1,0 +1,23 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<section
+  class="section-textured py-16 lg:py-20"
+  style="background-color: var(--theme-bg-pricing); background-image: linear-gradient(var(--theme-overlay-pricing), var(--theme-overlay-pricing)), url('/images/speckled-block.png');"
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display" style="color: var(--theme-text-pricing-title);">
+      {t(lang, 'pricing.title')}
+    </h2>
+    <p class="mt-3 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto" style="color: var(--theme-text-pricing-body);">
+      {t(lang, 'pricing.body')}
+    </p>
+  </div>
+</section>

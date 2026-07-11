@@ -1,5 +1,25 @@
 @import 'tailwindcss';
+
+/* ── Self-hosted fonts (latin subsets) ── */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/montserrat-latin-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122;
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/nunito-latin-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122;
+}
 @plugin '@tailwindcss/typography';
+@source not "../../.claude";
+@source not "../../.github";
 
 @theme {
   --color-brand-purple-50: #f3e8ff;
@@ -14,11 +34,17 @@
   --color-brand-purple-900: #3d2664;
   --color-brand-blue-500: #3b82f6;
   --color-brand-blue-600: #1F5BFF;
+  --color-brand-ink: #3D2664;
+  --color-brand-ink-deep: #2A1A47;
+  --color-brand-gold: #FFAA00;
+  --color-brand-gold-soft: #FFC94D;
 
-  --color-feature-projects: #fff1c2;
-  --color-feature-clients: #c5bed1;
+  --color-feature-programmes: #fff1c2;
+  --color-feature-contacts: #c5bed1;
+  --color-feature-measurements: #cdeedd;
   --color-feature-album: #ffba42;
   --color-feature-appointments: #aad3fa;
+  --color-feature-collab: #e9d5ff;
   --color-about-bg: #f3f4f6;
   --color-about-name: #340975;
   --color-about-role: #4b5563;
@@ -30,10 +56,15 @@
 /* ── Semantic theme tokens ── */
 :root {
   --theme-bg-primary: #ffffff;
-  --theme-bg-hero: #1a7a6d;
-  --theme-bg-features: #1a7a6d;
+  --theme-bg-hero: #3d2664;
+  --theme-bg-audio: #1a7a6d;
+  --theme-bg-features: #2a1a47;
   --theme-bg-benefits: #340975;
+  --theme-bg-pricing: #ffc94d;
+  /* Tint laid over the speckled texture so it reads as the pricing surface */
+  --theme-overlay-pricing: rgba(255, 201, 77, 0.86);
   --theme-bg-cta: #eae0ab;
+  --theme-bg-partners: #f6f3fb;
   --theme-bg-footer: #2D1B4E;
   --theme-bg-reach: #ffffff;
   --theme-bg-about: #f3f4f6;
@@ -42,9 +73,11 @@
 
   --theme-text-primary: #334155;
   --theme-text-heading: #340975;
-  --theme-text-accent: #5c9666;
-  --theme-text-cta-title: #5c9666;
+  --theme-text-accent: #ffaa00;
+  --theme-text-cta-title: #3d2664;
   --theme-text-cta-body: #1e293b;
+  --theme-text-pricing-title: #3d2664;
+  --theme-text-pricing-body: #43310f;
   --theme-text-reach-country: #334155;
   --theme-text-about-name: #340975;
   --theme-text-about-role: #4b5563;
@@ -52,7 +85,7 @@
 
   --theme-btn-cta: #8c30f5;
   --theme-btn-cta-hover: #7c3aed;
-  --theme-arrow-cta: #5c9666;
+  --theme-arrow-cta: #3d2664;
 
   --theme-text-contact: #3d2664;
   --theme-text-privacy-title: #8c30f5;
@@ -75,14 +108,21 @@
 
   --theme-selection-bg: #d8b4fe;
   --theme-selection-text: #3d2664;
+
+  /* Texture overlay laid over image-backed sections; transparent in light mode */
+  --theme-texture-overlay: rgba(0, 0, 0, 0);
 }
 
 .dark {
   --theme-bg-primary: #0c0a1a;
-  --theme-bg-hero: #0f3d36;
-  --theme-bg-features: #0f3d36;
+  --theme-bg-hero: #201335;
+  --theme-bg-audio: #0f3d36;
+  --theme-bg-features: #171028;
   --theme-bg-benefits: #130535;
+  --theme-bg-pricing: #2a2210;
+  --theme-overlay-pricing: rgba(42, 34, 16, 0.86);
   --theme-bg-cta: #1c1a0e;
+  --theme-bg-partners: #131022;
   --theme-bg-footer: #0a0618;
   --theme-bg-reach: #0c0a1a;
   --theme-bg-about: #0c0a1a;
@@ -91,9 +131,11 @@
 
   --theme-text-primary: #cbd5e1;
   --theme-text-heading: #c4b5fd;
-  --theme-text-accent: #86efac;
-  --theme-text-cta-title: #86efac;
+  --theme-text-accent: #ffc94d;
+  --theme-text-cta-title: #e0d5f5;
   --theme-text-cta-body: #cbd5e1;
+  --theme-text-pricing-title: #ffe1a1;
+  --theme-text-pricing-body: #d8cfc0;
   --theme-text-reach-country: #cbd5e1;
   --theme-text-about-name: #c4b5fd;
   --theme-text-about-role: #94a3b8;
@@ -101,7 +143,7 @@
 
   --theme-btn-cta: #a855f7;
   --theme-btn-cta-hover: #9333ea;
-  --theme-arrow-cta: #86efac;
+  --theme-arrow-cta: #e0d5f5;
 
   --theme-border-navbar: rgba(100, 80, 150, 0.3);
   --theme-border-footer: rgba(100, 80, 150, 0.2);
@@ -124,11 +166,20 @@
 
   --theme-selection-bg: #6b21a8;
   --theme-selection-text: #f3e8ff;
+
+  /* Darkens light PNG/SVG textures so dark tokens read through */
+  --theme-texture-overlay: rgba(10, 6, 24, 0.72);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -137,8 +188,50 @@
     @apply antialiased;
   }
 
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
   ::selection {
     background-color: var(--theme-selection-bg);
     color: var(--theme-selection-text);
+  }
+}
+
+/* ── Textured section helper: color token + image + dark-mode overlay ── */
+.section-textured {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.section-textured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--theme-texture-overlay);
+  pointer-events: none;
+}
+.section-textured > * {
+  position: relative;
+}
+
+/* ── Scroll reveal (visible by default; JS opts elements in) ── */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.reveal-armed {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.reveal-armed.reveal-in {
+    opacity: 1;
+    transform: none;
   }
 }

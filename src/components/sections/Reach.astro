@@ -9,21 +9,48 @@ interface Props {
 const { lang } = Astro.props;
 
 const countries = await getCollection('countries');
+
+const FOCUS = ["Côte d'Ivoire", 'Cameroun', 'Sénégal', 'Ghana', 'Nigeria', 'Burkina Faso', 'Mali', 'République du Togo'];
+const focus = countries.filter((c) => FOCUS.includes(c.data.fr));
+const rest = countries.filter((c) => !FOCUS.includes(c.data.fr));
+const moreLabel = t(lang, 'reach.more_countries').replace('{count}', String(rest.length));
 ---
 
 <section class="py-20 lg:py-28" style="background-color: var(--theme-bg-reach);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase text-center mb-16" style="color: var(--theme-text-heading);">
-      {t(lang, 'reach.title')}
-    </h2>
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-bold font-display" style="color: var(--theme-text-heading);">
+        {t(lang, 'reach.title')}
+      </h2>
+      <p class="mt-4 text-lg" style="color: var(--theme-text-primary);">
+        {t(lang, 'reach.subtitle')}
+      </p>
+    </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
-      {countries.map((entry) => (
-        <div class="flex items-center gap-3">
-          <span class="text-2xl leading-none">{entry.data.emoji}</span>
-          <span class="text-sm" style="color: var(--theme-text-reach-country);">{entry.data[lang]}</span>
+    <!-- Focus countries -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {focus.map((entry) => (
+        <div class="flex flex-col items-center gap-2 rounded-2xl border border-brand-purple-100 py-6 px-4" style="background-color: var(--theme-bg-card);">
+          <span class="text-4xl leading-none">{entry.data.emoji}</span>
+          <span class="font-semibold text-center" style="color: var(--theme-text-heading);">{entry.data[lang]}</span>
         </div>
       ))}
     </div>
+
+    <!-- The rest, collapsed -->
+    <details class="mt-8 group">
+      <summary class="cursor-pointer text-center font-semibold list-none py-3 rounded-full hover:underline" style="color: var(--theme-text-heading);">
+        {moreLabel}
+        <span class="inline-block transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+      </summary>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+        {rest.map((entry) => (
+          <div class="flex items-center gap-3">
+            <span class="text-2xl leading-none">{entry.data.emoji}</span>
+            <span class="text-sm" style="color: var(--theme-text-reach-country);">{entry.data[lang]}</span>
+          </div>
+        ))}
+      </div>
+    </details>
   </div>
 </section>

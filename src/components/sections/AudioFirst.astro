@@ -1,0 +1,47 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+// ponytail: static decorative waveform, heights hand-picked for rhythm
+const bars = [14, 26, 40, 30, 48, 22, 38, 52, 28, 44, 18, 34, 46, 24, 12];
+---
+
+<section class="py-20 lg:py-28" style="background-color: var(--theme-bg-audio);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="flex items-end justify-center gap-1.5 h-14 mb-8 waveform" aria-hidden="true">
+      {bars.map((h, i) => (
+        <span
+          class="w-2 rounded-full bg-brand-gold inline-block"
+          style={`height: ${h}px; animation-delay: ${i * 0.09}s;`}
+        />
+      ))}
+    </div>
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white">
+      {t(lang, 'audio_first.title')}
+    </h2>
+    <p class="mt-6 text-xl sm:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+      {t(lang, 'audio_first.body')}
+    </p>
+    <p class="mt-6 text-base text-white/90">
+      {t(lang, 'audio_first.hint')}
+    </p>
+  </div>
+</section>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .waveform span {
+      animation: pulse 1.8s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scaleY(0.6); }
+      50% { transform: scaleY(1); }
+    }
+  }
+</style>

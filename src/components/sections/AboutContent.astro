@@ -2,12 +2,14 @@
 import { t, type Locale } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
 import aboutPage from '../../content/settings/about-page.json';
+import PhoneFrame from '../ui/PhoneFrame.astro';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
+const phoneScreen = lang === 'en' ? '/images/app/en/programmes-tab.webp' : '/images/app/programmes-tab.webp';
 
 const teamEntries = await getCollection('team');
 const team = teamEntries
@@ -37,7 +39,10 @@ const team = teamEntries
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
 
     <!-- Purple Banner with Phone -->
-    <div class="bg-brand-purple-600 rounded-2xl overflow-visible relative mb-20">
+    <div
+      class="section-textured before:rounded-2xl bg-brand-purple-600 rounded-2xl overflow-visible relative mb-24 lg:mb-32"
+      style="background-image: url('/images/features-texture.svg');"
+    >
       <div class="flex flex-col lg:flex-row items-center">
         <!-- Text side -->
         <div class="flex-1 px-6 py-4 lg:py-5 lg:px-12 text-white">
@@ -53,34 +58,40 @@ const team = teamEntries
         <!-- Phone mockup — protrudes above and below -->
         <div class="relative flex-shrink-0 px-8 lg:px-12 my-4 lg:my-0">
           <div class="lg:my-[-4rem]">
-            <img
-              src={aboutPage.phoneMockupImage}
-              alt="African Puzzle WORKS app"
-              class="w-56 md:w-64 lg:w-72 drop-shadow-2xl"
-            />
+            <div style="--phone-width: min(18rem, 64vw);">
+              <PhoneFrame src={phoneScreen} alt="African Puzzle WORKS app" />
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Team -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold font-display" style="color: var(--theme-text-about-name);">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="text-xs font-bold uppercase tracking-[.16em] text-brand-purple-600 dark:text-brand-purple-300">
+        {t(lang, 'about.label')}
+      </p>
+      <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold font-display" style="color: var(--theme-text-about-name);">
         {t(lang, 'about.team_title')}
       </h2>
+      <p class="mt-4 text-base leading-relaxed" style="color: var(--theme-text-primary);">
+        {t(lang, 'about.mission')}
+      </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {team.map((member) => (
-        <div class="text-center group">
-          <div class="relative w-40 h-40 lg:w-[260px] lg:h-[260px] mx-auto mb-4 rounded-full flex items-center justify-center text-3xl lg:text-5xl font-bold overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300" style="background-color: var(--theme-bg-card); color: var(--theme-text-about-name);">
+        <div class="text-center group rounded-2xl border p-5 lg:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style="background-color: var(--theme-bg-card); border-color: var(--theme-border-navbar);">
+          <div class="relative w-40 h-40 lg:w-48 lg:h-48 mx-auto mb-5 rounded-full flex items-center justify-center text-3xl lg:text-5xl font-bold overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300" style="background-color: var(--theme-bg-about); color: var(--theme-text-about-name);">
             <span>{member.name.split(' ').map(n => n[0]).join('')}</span>
-            <img
-              src={member.photo}
-              alt={member.name}
-              class="absolute inset-0 w-full h-full object-cover"
-              onerror="this.style.display='none'"
-            />
+            {member.photo && (
+              <img
+                src={member.photo}
+                alt={member.name}
+                class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.style.display='none'"
+              />
+            )}
           </div>
           <h3 class="font-bold text-lg" style="color: var(--theme-text-about-name);">
             {member.name}

@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
 import { getCollection, render } from 'astro:content';
+import PageHero from '../ui/PageHero.astro';
 
 interface Props {
   lang: Locale;
@@ -14,18 +15,31 @@ const entry = privacyEntries.find((e) => e.data.locale === lang)
 const { Content } = await render(entry!);
 ---
 
-<section class="pt-32 pb-20 lg:pb-28">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-8">
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight" style="color: var(--theme-text-privacy-title);">
-        {entry!.data.title}
-      </h1>
-      <p class="mt-4 text-sm uppercase tracking-wider" style="color: var(--theme-text-privacy-meta);">
+<PageHero
+  eyebrow={t(lang, 'privacy.title')}
+  title={entry!.data.title}
+  subtitle={t(lang, 'privacy.effective')}
+  compact
+/>
+
+<section class="relative -mt-12 pb-20 lg:pb-28 px-4 sm:px-6 lg:px-8">
+  <div
+    class="max-w-4xl mx-auto rounded-2xl border shadow-xl p-6 sm:p-10 lg:p-14"
+    style="background-color: var(--theme-bg-card); border-color: var(--theme-border-navbar);"
+  >
+    <div class="flex items-center gap-3 pb-7 mb-8 border-b" style="border-color: var(--theme-border-navbar);">
+      <span class="w-10 h-10 rounded-full bg-brand-purple-100 dark:bg-brand-purple-900/30 flex items-center justify-center text-brand-purple-700 dark:text-brand-purple-300" aria-hidden="true">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+      </span>
+      <p class="text-xs sm:text-sm uppercase tracking-wider font-semibold" style="color: var(--theme-text-privacy-meta);">
         {t(lang, 'privacy.effective')}
       </p>
     </div>
 
-    <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-a:underline dark:prose-invert" style="color: var(--theme-text-privacy-body);">
+    <div class="prose prose-lg prose-slate max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-purple-600 prose-a:underline dark:prose-invert" style="color: var(--theme-text-privacy-body);">
       <Content />
     </div>
   </div>

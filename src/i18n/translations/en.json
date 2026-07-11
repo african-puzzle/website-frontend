@@ -1,7 +1,6 @@
 {
   "site_name": "African Puzzle",
   "site_tagline": "WORKS",
-
   "nav": {
     "home": "Home",
     "features": "Features",
@@ -9,59 +8,54 @@
     "contact": "Contact",
     "media": "Media",
     "download": "Download",
-    "language": "Language"
+    "language": "Language",
+    "notify": "Contact us"
   },
-
   "hero": {
-    "title": "The app to get organized easily and remember everything",
-    "subtitle": "The personal assistant for artisans, tailors, creatives and entrepreneurs",
-    "cta": "Download on Google Play",
-    "learn_more": "Learn more"
+    "title": "Voice notes and photos to remember everything, effortlessly",
+    "subtitle": "The app that organizes daily life for artisans, tailors, creatives and entrepreneurs: clients, measurements, appointments and payments, all in one place.",
+    "cta_video": "See the app in action",
+    "cta_notify": "Contact us",
+    "launch_badge": "Coming autumn 2026"
   },
-
-  "intro": {
-    "title": "African Puzzle works",
-    "subtitle": "The personal assistant that revolutionizes the organization of",
-    "audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS"
-  },
-
   "features": {
     "label": "Features",
-    "title": "Everything you need",
-    "subtitle": "African Puzzle WORKS helps you manage your projects, clients and appointments in one place",
-    "projects_title": "Programs / Projects",
-    "projects_desc": "Centralize your project details and easily track their progress",
-    "clients_title": "Clients",
-    "clients_desc": "Manage your client descriptions and information with one click",
-    "album_title": "Album",
-    "album_desc": "Group your creations by theme to present them to your clients",
+    "title": "Your whole workshop in your pocket",
+    "subtitle": "Manage your orders, clients, measurements and appointments with photos and audio.",
+    "programmes_title": "Programmes",
+    "programmes_desc": "Track every order: photos, notes, price, deposits and balance due, at a glance",
+    "contacts_title": "Contacts",
+    "contacts_desc": "Your client book: photos, voice notes, files and each person's full history",
+    "measurements_title": "Measurements",
+    "measurements_desc": "Record each client's measurements with a touch ruler, in centimeters or inches",
+    "albums_title": "Albums",
+    "albums_desc": "Show off your creations and remember what each client liked",
     "appointments_title": "Appointments",
-    "appointments_desc": "Never miss a commitment thanks to notifications"
+    "appointments_desc": "A calendar with reminders and notifications: never miss a commitment again",
+    "collab_title": "Collaboration",
+    "collab_desc": "Share a programme with a link or code, and choose who can view or edit"
   },
-
   "benefits": {
     "label": "Benefits",
     "title": "Why African Puzzle?",
     "happy_title": "Make your clients happy",
-    "happy_desc": "Offer a professional and organized service that builds client loyalty",
+    "happy_desc": "Organized, professional service that keeps them coming back",
     "time_title": "Save time",
-    "time_desc": "Automate your project management and focus on your creativity",
-    "efficient_title": "Be more efficient",
-    "efficient_desc": "Optimize your workflow and boost your daily productivity"
+    "time_desc": "Fewer notebooks and papers: more time for your craft",
+    "efficient_title": "Work with peace of mind",
+    "efficient_desc": "Everything is recorded, nothing is forgotten: every order goes as planned"
   },
-
   "reach": {
-    "label": "Global Reach",
-    "title": "Available in 70 countries",
-    "subtitle": "African Puzzle WORKS supports creatives around the world"
+    "label": "Where we are",
+    "title": "Made for Africa's artisans",
+    "subtitle": "And available everywhere in the world",
+    "more_countries": "and {count} more countries"
   },
-
   "cta": {
-    "title": "Join the test version",
-    "subtitle": "Download to test the first version of African Puzzle works.",
-    "button": "Download to test the app"
+    "title": "Coming soon to your phone",
+    "subtitle": "African Puzzle WORKS arrives this autumn. A question or a partnership? Write to us.",
+    "button": "Contact us"
   },
-
   "about": {
     "label": "About Us",
     "title": "Wealth for everyone",
@@ -71,7 +65,6 @@
     "mission": "African Puzzle WORKS is a mobile application designed to help artisans, tailors, creatives and entrepreneurs better organize their daily activities.",
     "team_title": "Our team"
   },
-
   "contact": {
     "label": "Contact",
     "title": "Contact African Puzzle",
@@ -83,7 +76,6 @@
     "email_label": "Email",
     "social_label": "Social networks"
   },
-
   "media": {
     "label": "Media",
     "title": "In the press",
@@ -92,39 +84,66 @@
     "filter_all": "All",
     "filter_press_release": "Press Release",
     "filter_videos": "Videos",
-    "load_more": "More"
+    "load_more": "More",
+    "filter_radio": "Radio & Podcasts",
+    "filter_articles": "Articles",
+    "filter_social": "Social mentions"
   },
-
   "privacy": {
     "title": "Privacy Policy",
     "effective": "Effective May 1, 2021"
   },
-
   "instagram": {
     "alt": "African Puzzle on Instagram"
   },
-
   "download": {
-    "banner_title": "Download to test the African Puzzle works app"
+    "banner_title": "African Puzzle WORKS, the artisan's assistant. Coming autumn 2026.",
+    "coming_soon": "Coming soon",
+    "play_badge_alt": "Coming soon on Google Play",
+    "app_badge_alt": "Coming soon on the App Store",
+    "app_badge_eyebrow": "Coming soon on the",
+    "app_badge_title": "App Store"
   },
-
   "theme": {
     "label": "Theme",
     "light": "Light theme",
     "system": "System theme",
     "dark": "Dark theme"
   },
-
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
     "made_with": "Made with",
-    "in": "in Paris"
+    "in": "in Paris",
+    "links_label": "Links"
   },
-
   "error": {
     "not_found": "Page not found",
     "not_found_description": "The page you're looking for doesn't exist. You'll be redirected to the homepage in a few seconds.",
     "back_home": "Back to homepage"
+  },
+  "audio_first": {
+    "title": "No reading or writing needed",
+    "body": "Every screen explains itself out loud. Record voice notes, take photos: the app takes care of the rest.",
+    "hint": "Audio explanations available in French, Pidgin and English"
+  },
+  "proof": {
+    "audio_title": "No reading needed",
+    "audio_body": "Every screen can explain itself aloud.",
+    "pricing_title": "Free to use",
+    "pricing_body": "No subscription and no lock-in.",
+    "audience_title": "Made for artisans",
+    "audience_body": "Simple enough for a busy workshop."
+  },
+  "pricing": {
+    "title": "Free to use. Never get locked in.",
+    "body": "No subscriptions. The app is free, and if you need more backup space, you pay a single time."
+  },
+  "partners": {
+    "label": "Partners",
+    "title": "Are you an organization?",
+    "body": "African Puzzle WORKS helps artisans and creatives structure their business. We work with associations, training schools and institutions that support craftspeople.",
+    "cta": "Let's talk",
+    "team_link": "Meet the team"
   }
 }

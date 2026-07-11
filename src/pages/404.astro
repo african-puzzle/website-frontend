@@ -1,25 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { t, locales, defaultLocale } from '../i18n/utils';
+import { t, defaultLocale } from '../i18n/utils';
 
 const lang = defaultLocale;
 ---
 
 <Layout title={t(lang, 'error.not_found')} lang={lang}>
-  <div class="flex flex-1 items-center justify-center px-6 py-24">
-    <div class="text-center max-w-md">
-      <p class="text-6xl font-bold text-brand-purple-600">404</p>
-      <h1 class="mt-4 text-2xl font-semibold text-gray-900">{t(lang, 'error.not_found')}</h1>
-      <p class="mt-4 text-gray-600">{t(lang, 'error.not_found_description')}</p>
+  <section
+    class="section-textured min-h-[78vh] flex items-center justify-center px-6 pt-24 pb-20 text-white"
+    style="background-color: var(--theme-bg-hero); background-image: url('/images/background-hero.webp'); background-blend-mode: multiply;"
+  >
+    <div class="text-center max-w-xl">
+      <p class="inline-flex px-4 py-1.5 rounded-full bg-brand-gold text-brand-ink-deep text-xs font-bold uppercase tracking-[.18em]">404</p>
+      <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold font-display">{t(lang, 'error.not_found')}</h1>
+      <p class="mt-5 text-base sm:text-lg text-white/80 leading-relaxed">{t(lang, 'error.not_found_description')}</p>
       <a
         id="back-home"
         href="/fr/"
-        class="mt-8 inline-block rounded-full bg-brand-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-purple-700 transition-colors"
+        class="mt-8 inline-block rounded-full bg-brand-gold px-7 py-3.5 text-sm font-bold text-brand-ink-deep shadow-lg hover:bg-brand-gold-soft transition-colors"
       >
         {t(lang, 'error.back_home')}
       </a>
     </div>
-  </div>
+  </section>
 </Layout>
 
 <script>
