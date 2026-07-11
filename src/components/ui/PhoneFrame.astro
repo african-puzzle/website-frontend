@@ -3,20 +3,29 @@ interface Props {
   src: string;
   alt: string;
   class?: string;
+  eager?: boolean;
 }
 
-const { src, alt, class: className = '' } = Astro.props;
+const { src, alt, class: className = '', eager = false } = Astro.props;
 ---
 
 <div class:list={['phone-frame', className]}>
-  <img src={src} alt={alt} class="phone-screen" loading="lazy" />
-  <img src="/images/phone-frame.svg" alt="" class="phone-bezel" aria-hidden="true" />
+  <img
+    src={src}
+    alt={alt}
+    class="phone-screen"
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    width="409"
+    height="855"
+  />
+  <img src="/images/phone-frame.svg" alt="" class="phone-bezel" aria-hidden="true" width="409" height="855" />
 </div>
 
 <style>
   .phone-frame {
     position: relative;
-    width: 220px;
+    width: var(--phone-width, 220px);
     aspect-ratio: 409 / 855;
     background: #000;
     border-radius: 2.5rem;

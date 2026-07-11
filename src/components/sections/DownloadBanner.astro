@@ -1,13 +1,11 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
-import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
 }
 
 const { lang } = Astro.props;
-const playStoreUrl = site.playStoreUrl;
 ---
 
 <section class="download-banner relative w-full overflow-hidden" style="background-color: var(--theme-bg-download-banner);">
@@ -16,13 +14,13 @@ const playStoreUrl = site.playStoreUrl;
     <div class="w-full md:w-1/2 md:order-2">
       <img
         src="/images/moussa-tailor.jpg"
-        alt="Tailor using African Puzzle app"
+        alt={t(lang, 'download.banner_title')}
         class="w-full h-auto block"
         loading="lazy"
       />
     </div>
 
-    <!-- Text + Badge (bottom on mobile, left on desktop) -->
+    <!-- Text + coming-soon badge (bottom on mobile, left on desktop) -->
     <div class="w-full md:w-1/2 md:order-1 flex flex-col items-center justify-center px-8 py-12">
       <h2
         class="text-center max-w-md font-semibold leading-tight mb-8"
@@ -30,13 +28,16 @@ const playStoreUrl = site.playStoreUrl;
       >
         {t(lang, 'download.banner_title')}
       </h2>
-      <a href={playStoreUrl} target="_blank" rel="noopener noreferrer">
+      <div class="relative inline-block" title={t(lang, 'download.coming_soon')}>
         <img
           src="/images/google-play-badge.svg"
-          alt="Get it on Google Play"
-          class="h-14 md:h-16 hover:opacity-80 transition-opacity"
+          alt={t(lang, 'download.play_badge_alt')}
+          class="h-14 md:h-16 opacity-60 grayscale"
         />
-      </a>
+        <span class="absolute -top-3 -right-6 rotate-6 px-3 py-1 rounded-full bg-brand-gold text-brand-ink-deep text-xs font-bold shadow">
+          {t(lang, 'download.coming_soon')}
+        </span>
+      </div>
     </div>
   </div>
 </section>

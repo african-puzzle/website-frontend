@@ -15,49 +15,46 @@ const features = featureEntries
   .map(entry => ({
     title: t(lang, entry.data.titleKey as any),
     desc: t(lang, entry.data.descKey as any),
-    gif: entry.data.gif,
+    screen: entry.data.screen,
     cardBg: entry.data.cardBg,
   }));
 ---
 
 <section
   id="fonctionnalites"
-  class="py-20 lg:py-28 overflow-hidden"
-  style="background-color: var(--theme-bg-features); background-image: url('/images/features-texture.svg'); background-size: cover;"
+  class="section-textured py-20 lg:py-28 overflow-hidden"
+  style="background-color: var(--theme-bg-features); background-image: url('/images/features-texture.svg');"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-white/70 font-semibold text-sm uppercase tracking-wider">
-        {t(lang, 'features.label')}
-      </span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-bold font-display text-white">
+      <h2 class="text-4xl sm:text-5xl font-bold font-display text-white">
         {t(lang, 'features.title')}
       </h2>
-      <p class="mt-4 text-lg text-white/80">
+      <p class="mt-4 text-lg text-white/85">
         {t(lang, 'features.subtitle')}
       </p>
     </div>
 
     <!-- Feature cards with phone mockups -->
-    <div class="space-y-28 lg:space-y-32">
+    <div class="space-y-20 lg:space-y-24">
       {features.map((feature, index) => (
-        <div class={`${feature.cardBg} rounded-2xl overflow-visible relative`}>
-          <div class={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}>
+        <div class={`${feature.cardBg} rounded-2xl relative reveal`}>
+          <div class={`grid grid-cols-1 ${index % 2 === 1 ? 'lg:grid-cols-[auto_1fr]' : 'lg:grid-cols-[1fr_auto]'} items-center gap-4 lg:gap-8`}>
             <!-- Text side -->
-            <div class="flex-1 px-6 py-4 lg:py-5 lg:px-12">
-              <h3 class="text-3xl lg:text-5xl font-bold font-display text-slate-900 uppercase mb-2">
+            <div class={`px-6 py-8 lg:py-10 lg:px-12 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <h3 class="text-3xl lg:text-5xl font-bold font-display text-slate-900 mb-3">
                 {feature.title}
               </h3>
-              <p class="text-xl lg:text-2xl text-slate-700 leading-relaxed max-w-md">
+              <p class="text-xl lg:text-2xl text-slate-800 leading-relaxed max-w-md">
                 {feature.desc}
               </p>
             </div>
 
-            <!-- Phone mockup side — vertically centered, protruding equally top & bottom -->
-            <div class="relative flex-shrink-0 px-8 lg:px-12 my-4 lg:my-0 lg:-top-0">
-              <div class="lg:my-[-4rem]">
-                <PhoneFrame src={feature.gif} alt={feature.title} />
+            <!-- Phone mockup side -->
+            <div class={`flex justify-center px-8 pb-8 lg:py-8 lg:px-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="phone-pop" style="--phone-width: min(230px, 56vw);">
+                <PhoneFrame src={feature.screen} alt={feature.title} />
               </div>
             </div>
           </div>
@@ -66,3 +63,39 @@ const features = featureEntries
     </div>
   </div>
 </section>
+
+<style>
+  .phone-pop {
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.25));
+  }
+  @media (min-width: 1024px) {
+    /* Frame rises out of the card without magic-number margins on the card itself */
+    .phone-pop {
+      transform: translateY(-2.5rem);
+    }
+  }
+</style>
+
+<script>
+  // Scroll reveal: arm only when JS runs; content is visible by default.
+  const els = document.querySelectorAll('.reveal');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('reveal-in');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -10% 0px' }
+    );
+    for (const el of els) {
+      el.classList.add('reveal-armed');
+      io.observe(el);
+    }
+    // Safety: never leave content hidden if IO stalls (headless renderers, prerender)
+    setTimeout(() => els.forEach((el) => el.classList.add('reveal-in')), 2500);
+  }
+</script>

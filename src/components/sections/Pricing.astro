@@ -1,0 +1,20 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="py-16 lg:py-20" style="background-color: var(--theme-bg-pricing);">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold font-display" style="color: var(--theme-text-pricing-title);">
+      {t(lang, 'pricing.title')}
+    </h2>
+    <p class="mt-4 text-lg sm:text-xl leading-relaxed" style="color: var(--theme-text-pricing-body);">
+      {t(lang, 'pricing.body')}
+    </p>
+  </div>
+</section>

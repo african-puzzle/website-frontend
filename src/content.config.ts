@@ -29,7 +29,7 @@ const features = defineCollection({
   schema: z.object({
     titleKey: z.string(),
     descKey: z.string(),
-    gif: z.string(),
+    screen: z.string(),
     cardBg: z.string(),
     order: z.number(),
   }),

@@ -1,7 +1,6 @@
 {
   "site_name": "African Puzzle",
   "site_tagline": "WORKS",
-
   "nav": {
     "home": "Home",
     "features": "Wetin E Fit Do",
@@ -11,57 +10,51 @@
     "download": "Download",
     "language": "Language"
   },
-
   "hero": {
-    "title": "Di app wey go help you organize well-well and remember everything",
-    "subtitle": "Personal assistant for tailors, artisans, creative people and business people dem",
-    "cta": "Download for Google Play",
-    "learn_more": "Learn more"
+    "title": "Voice notes and photos wey go make you remember everything, no stress",
+    "subtitle": "Di app wey dey arrange work for artisans, tailors, creatives and business people: clients, measurements, appointments and payments, everything for one place.",
+    "cta_video": "See how di app dey work",
+    "cta_notify": "Make we tell you when e don land",
+    "launch_badge": "E dey come dis autumn 2026"
   },
-
-  "intro": {
-    "title": "African Puzzle works",
-    "subtitle": "Di personal assistant wey dey change how people organize",
-    "audiences": "ARTISANS · TAILORS · CREATIVES · ENTREPRENEURS"
-  },
-
   "features": {
-    "label": "Wetin E Fit Do",
-    "title": "Everything wey you need",
-    "subtitle": "African Puzzle WORKS go help you manage your projects, clients and appointments for one place",
-    "projects_title": "Programs / Projects",
-    "projects_desc": "Put all your project details for one place and track how e dey go",
-    "clients_title": "Clients",
-    "clients_desc": "Manage your client information with just one click",
-    "album_title": "Album",
-    "album_desc": "Group your work by theme so you fit show your clients",
+    "label": "Wetin e fit do",
+    "title": "Your whole workshop inside your pocket",
+    "subtitle": "Manage your orders, clients, measurements and appointments with photos and audio.",
+    "programmes_title": "Programmes",
+    "programmes_desc": "Follow every order: photos, notes, price, deposit and balance wey remain, one look",
+    "contacts_title": "Contacts",
+    "contacts_desc": "Your client book: photos, voice notes, files and everything about each person",
+    "measurements_title": "Measurements",
+    "measurements_desc": "Save each client measurement with touch ruler, for centimeter or inch",
+    "albums_title": "Albums",
+    "albums_desc": "Show your work make people see, and remember wetin each client like",
     "appointments_title": "Appointments",
-    "appointments_desc": "You no go miss any appointment again because of notifications"
+    "appointments_desc": "Calendar with reminders and notifications: you no go ever miss appointment again",
+    "collab_title": "Collaboration",
+    "collab_desc": "Share programme with link or code, and choose who fit see or change am"
   },
-
   "benefits": {
-    "label": "Why E Good",
+    "label": "Why e good",
     "title": "Why African Puzzle?",
     "happy_title": "Make your clients happy",
-    "happy_desc": "Give professional service wey go make your clients come back",
+    "happy_desc": "Correct, professional service wey go make dem come back",
     "time_title": "Save time",
-    "time_desc": "Make your project management automatic so you fit focus on your creativity",
-    "efficient_title": "Work beta",
-    "efficient_desc": "Make your work flow beta and increase how much you dey do every day"
+    "time_desc": "No more plenty notebooks and papers: more time for your work",
+    "efficient_title": "Work with free mind",
+    "efficient_desc": "Everything don save, nothing go loss: every order go waka as e suppose"
   },
-
   "reach": {
-    "label": "For Whole World",
-    "title": "E dey available for 70 countries",
-    "subtitle": "African Puzzle WORKS dey support creative people around the world"
+    "label": "Where we dey",
+    "title": "Na for Africa artisans we build am",
+    "subtitle": "And e dey available everywhere for di world",
+    "more_countries": "and {count} other countries"
   },
-
   "cta": {
-    "title": "Join di test version",
-    "subtitle": "Download am to test di first version of African Puzzle works.",
-    "button": "Download to test di app"
+    "title": "E dey come soon for your phone",
+    "subtitle": "African Puzzle WORKS go land dis autumn. Drop your contact make you be one of di first people to try am.",
+    "button": "Make we tell you when e don land"
   },
-
   "about": {
     "label": "About Us",
     "title": "Wealth for everybody",
@@ -71,7 +64,6 @@
     "mission": "African Puzzle WORKS na mobile app wey dem design to help tailors, artisans, creative people and entrepreneurs organize their daily work beta.",
     "team_title": "Our team"
   },
-
   "contact": {
     "label": "Contact",
     "title": "Contact African Puzzle",
@@ -83,7 +75,6 @@
     "email_label": "Email",
     "social_label": "Social networks"
   },
-
   "media": {
     "label": "Media",
     "title": "For di press",
@@ -94,37 +85,49 @@
     "filter_videos": "Videos",
     "load_more": "More"
   },
-
   "privacy": {
     "title": "Privacy Policy",
     "effective": "E start from May 1, 2021"
   },
-
   "instagram": {
     "alt": "African Puzzle for Instagram"
   },
-
   "download": {
-    "banner_title": "Download to test di African Puzzle works app"
+    "banner_title": "African Puzzle WORKS, di artisan assistant. E dey come dis autumn 2026.",
+    "coming_soon": "E dey come soon",
+    "play_badge_alt": "E dey come soon for Google Play"
   },
-
   "theme": {
     "label": "Theme",
     "light": "Light theme",
     "system": "System theme",
     "dark": "Dark theme"
   },
-
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
     "made_with": "Dem make am with",
     "in": "for Paris"
   },
-
   "error": {
     "not_found": "Dis page no dey",
     "not_found_description": "Di page wey you dey find no exist. We go carry you go homepage in small time.",
     "back_home": "Go back to homepage"
+  },
+  "audio_first": {
+    "title": "You no need read or write",
+    "body": "Every screen fit explain itself with voice. Record voice notes, snap photos: di app go do di rest.",
+    "hint": "Audio explanation dey for French, Pidgin and English"
+  },
+  "pricing": {
+    "title": "Pay one time. Nothing dey renew.",
+    "body": "No subscription. Di app free, and if you need more backup space, na one time you go pay."
+  },
+  "partners": {
+    "label": "Partners",
+    "title": "You be organization?",
+    "body": "African Puzzle WORKS dey help artisans and creatives arrange their business well. We dey work with associations, training schools and institutions wey dey support craftspeople.",
+    "cta": "Make we talk",
+    "team_link": "Meet di team"
   }
 }

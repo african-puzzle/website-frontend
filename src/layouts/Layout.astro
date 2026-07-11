@@ -13,6 +13,27 @@ interface Props {
 
 const { title, description = '', lang } = Astro.props;
 const fullTitle = `${title} | African Puzzle`;
+
+const SITE = 'https://africanpuzzle.com';
+const canonical = `${SITE}${Astro.url.pathname}`;
+// Locale-prefixed pages get hreflang alternates; assumes parallel paths per locale
+const LOCALES: Locale[] = ['fr', 'en', 'pcm'];
+const pathMatch = Astro.url.pathname.match(/^\/(fr|en|pcm)(\/.*)?$/);
+// FR uses translated slugs; map shared pages across locales
+const SLUG_MAP: Record<string, Record<string, string>> = {
+  fr: { '/a-propos/': '/about/', '/confidentialite/': '/privacy/', '/medias/': '/media/' },
+};
+function localePath(target: Locale): string | null {
+  if (!pathMatch) return null;
+  const [, cur, rest = '/'] = pathMatch;
+  let slug = rest;
+  if (cur === 'fr' && target !== 'fr') slug = SLUG_MAP.fr[rest] ?? rest;
+  if (cur !== 'fr' && target === 'fr') {
+    const inv = Object.entries(SLUG_MAP.fr).find(([, v]) => v === rest);
+    slug = inv ? inv[0] : rest;
+  }
+  return `${SITE}/${target}${slug}`;
+}
 ---
 
 <!doctype html>
@@ -33,11 +54,18 @@ const fullTitle = `${title} | African Puzzle`;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- SEO -->
+    <link rel="canonical" href={canonical} />
+    {pathMatch && LOCALES.map((l) => <link rel="alternate" hreflang={l} href={localePath(l)} />)}
+    {pathMatch && <link rel="alternate" hreflang="x-default" href={localePath('fr')} />}
+
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="African Puzzle" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${SITE}/images/og-image.png`} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

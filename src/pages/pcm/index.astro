@@ -1,10 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/sections/Hero.astro';
-import Intro from '../../components/sections/Intro.astro';
+import AudioFirst from '../../components/sections/AudioFirst.astro';
 import Features from '../../components/sections/Features.astro';
 import Benefits from '../../components/sections/Benefits.astro';
+import Pricing from '../../components/sections/Pricing.astro';
 import Reach from '../../components/sections/Reach.astro';
+import Partners from '../../components/sections/Partners.astro';
 import CTA from '../../components/sections/CTA.astro';
 import DownloadBanner from '../../components/sections/DownloadBanner.astro';
 
@@ -13,14 +15,16 @@ const lang = 'pcm';
 
 <Layout
   title="Home"
-  description="African Puzzle WORKS - Di app wey go help you organize well-well and remember everything. Personal assistant for tailors, artisans, creative people and business people dem."
+  description="African Puzzle WORKS — di app wey dey arrange work for artisans, tailors, creatives and business people: clients, measurements, appointments and payments."
   lang={lang}
 >
   <Hero lang={lang} />
-  <Intro lang={lang} />
+  <AudioFirst lang={lang} />
   <Features lang={lang} />
   <Benefits lang={lang} />
+  <Pricing lang={lang} />
   <CTA lang={lang} />
   <Reach lang={lang} />
+  <Partners lang={lang} />
   <DownloadBanner lang={lang} />
 </Layout>

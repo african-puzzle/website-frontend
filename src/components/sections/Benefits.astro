@@ -8,22 +8,27 @@ interface Props {
 const { lang } = Astro.props;
 
 const benefits = [
-  t(lang, 'benefits.efficient_title'),
-  t(lang, 'benefits.time_title'),
-  t(lang, 'benefits.happy_title'),
+  { title: t(lang, 'benefits.efficient_title'), desc: t(lang, 'benefits.efficient_desc') },
+  { title: t(lang, 'benefits.time_title'), desc: t(lang, 'benefits.time_desc') },
+  { title: t(lang, 'benefits.happy_title'), desc: t(lang, 'benefits.happy_desc') },
 ];
 ---
 
 <section
-  class="py-24 lg:py-36"
-  style="background-color: var(--theme-bg-benefits); background-image: url('/images/speckled-block.png'); background-size: cover; background-position: center;"
+  class="section-textured py-24 lg:py-32"
+  style="background-color: var(--theme-bg-benefits); background-image: url('/images/speckled-block.png');"
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div class="flex flex-col gap-6 sm:gap-8">
-      {benefits.map((text) => (
-        <p class="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase text-white leading-relaxed font-display">
-          {text}
-        </p>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-14 sm:gap-16">
+      {benefits.map((b) => (
+        <div class="text-center">
+          <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-display">
+            {b.title}
+          </h3>
+          <p class="mt-3 text-lg sm:text-xl text-brand-purple-100 leading-relaxed max-w-2xl mx-auto">
+            {b.desc}
+          </p>
+        </div>
       ))}
     </div>
   </div>
