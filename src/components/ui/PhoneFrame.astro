@@ -16,36 +16,29 @@ const { src, alt, class: className = '', eager = false } = Astro.props;
     class="phone-screen"
     loading={eager ? 'eager' : 'lazy'}
     decoding="async"
-    width="409"
-    height="855"
+    width="720"
+    height="1565"
   />
-  <img src="/images/phone-frame.svg" alt="" class="phone-bezel" aria-hidden="true" width="409" height="855" />
 </div>
 
 <style>
   .phone-frame {
-    position: relative;
     width: var(--phone-width, 220px);
-    aspect-ratio: 409 / 855;
-    background: #000;
-    border-radius: 2.5rem;
+    aspect-ratio: 720 / 1565;
+    padding: clamp(5px, 1.8%, 8px);
+    background: #09080c;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: clamp(1.6rem, 11%, 2.4rem);
+    box-shadow:
+      0 2px 0 rgba(255, 255, 255, 0.14) inset,
+      0 28px 56px rgba(20, 12, 34, 0.32);
   }
 
   .phone-screen {
-    position: absolute;
-    top: 5.5%;
-    left: 5.5%;
-    width: 90%;
-    height: 88%;
-    object-fit: cover;
-    border-radius: 2rem;
-  }
-
-  .phone-bezel {
-    position: relative;
+    display: block;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    pointer-events: none;
+    object-fit: cover;
+    border-radius: clamp(1.25rem, 9.5%, 2rem);
   }
 </style>

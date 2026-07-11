@@ -9,13 +9,22 @@ interface Props {
 
 const { lang } = Astro.props;
 
+const englishScreens: Record<string, string> = {
+  '/images/app/programmes-tab.webp': '/images/app/en/programmes-tab.webp',
+  '/images/app/contacts-tab.webp': '/images/app/en/contacts-tab.webp',
+  '/images/app/measurements.webp': '/images/app/en/measurements.webp',
+  '/images/app/albums-tab.webp': '/images/app/en/albums-tab.webp',
+  '/images/app/rendez-vous-tab.webp': '/images/app/en/rendez-vous-tab.webp',
+  '/images/app/collaborators.webp': '/images/app/en/collaborators.webp',
+};
+
 const featureEntries = await getCollection('features');
 const features = featureEntries
   .sort((a, b) => a.data.order - b.data.order)
   .map(entry => ({
     title: t(lang, entry.data.titleKey as any),
     desc: t(lang, entry.data.descKey as any),
-    screen: entry.data.screen,
+    screen: lang === 'en' ? (englishScreens[entry.data.screen] ?? entry.data.screen) : entry.data.screen,
     cardBg: entry.data.cardBg,
   }));
 ---
@@ -37,9 +46,9 @@ const features = featureEntries
     </div>
 
     <!-- Feature cards with phone mockups -->
-    <div class="space-y-20 lg:space-y-24 lg:pt-10 max-w-5xl mx-auto">
+    <div class="space-y-20 lg:space-y-36 lg:py-14 max-w-5xl mx-auto">
       {features.map((feature, index) => (
-        <div class={`${feature.cardBg} dark:brightness-[.92] rounded-2xl relative reveal`}>
+        <div class={`${feature.cardBg} dark:brightness-[.92] rounded-2xl relative overflow-visible reveal`}>
           <div class={`grid grid-cols-1 ${index % 2 === 1 ? 'lg:grid-cols-[auto_1fr]' : 'lg:grid-cols-[1fr_auto]'} items-center gap-4 lg:gap-8`}>
             <!-- Text side -->
             <div class={`px-6 py-8 lg:py-10 lg:px-12 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
@@ -52,8 +61,8 @@ const features = featureEntries
             </div>
 
             <!-- Phone mockup side -->
-            <div class={`flex justify-center px-8 pb-8 lg:py-8 lg:px-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-              <div class="phone-pop" style="--phone-width: min(230px, 56vw);">
+            <div class={`relative flex justify-center px-8 pb-8 lg:px-12 lg:py-0 lg:my-[-4.5rem] ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="phone-pop" style="--phone-width: min(250px, 58vw);">
                 <PhoneFrame src={feature.screen} alt={feature.title} />
               </div>
             </div>
@@ -67,12 +76,6 @@ const features = featureEntries
 <style>
   .phone-pop {
     filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.25));
-  }
-  @media (min-width: 1024px) {
-    /* Frame rises out of the card without magic-number margins on the card itself */
-    .phone-pop {
-      transform: translateY(-2.5rem);
-    }
   }
 </style>
 

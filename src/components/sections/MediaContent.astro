@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
+import PageHero from '../ui/PageHero.astro';
 
 interface Props {
   lang: Locale;
@@ -9,11 +10,11 @@ interface Props {
 const { lang } = Astro.props;
 
 const categories = [
-  { key: 'radio', label: 'Radio & Podcasts' },
+  { key: 'radio', label: t(lang, 'media.filter_radio') },
   { key: 'press-release', label: t(lang, 'media.filter_press_release') },
-  { key: 'articles', label: 'Articles' },
+  { key: 'articles', label: t(lang, 'media.filter_articles') },
   { key: 'videos', label: t(lang, 'media.filter_videos') },
-  { key: 'social', label: 'Social Mention' },
+  { key: 'social', label: t(lang, 'media.filter_social') },
 ];
 
 const mediaEntries = await getCollection('media');
@@ -22,11 +23,11 @@ const mediaItems = mediaEntries
   .map(entry => entry.data);
 
 const categoryLabels: Record<string, string> = {
-  radio: 'Radio & Podcasts',
+  radio: t(lang, 'media.filter_radio'),
   'press-release': t(lang, 'media.filter_press_release'),
-  articles: 'Articles',
+  articles: t(lang, 'media.filter_articles'),
   videos: t(lang, 'media.filter_videos'),
-  social: 'Social Mention',
+  social: t(lang, 'media.filter_social'),
 };
 
 function formatDate(dateStr: string, locale: string): string {
@@ -42,18 +43,15 @@ function formatDate(dateStr: string, locale: string): string {
 const ITEMS_PER_PAGE = 9;
 ---
 
-<section class="pt-32 pb-20 lg:pb-28">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
-        {t(lang, 'media.title')}
-      </h1>
-      <p class="mt-4 text-lg text-slate-600">
-        {t(lang, 'media.subtitle')}
-      </p>
-    </div>
+<PageHero
+  eyebrow={t(lang, 'media.label')}
+  title={t(lang, 'media.title')}
+  subtitle={t(lang, 'media.subtitle')}
+  compact
+/>
 
+<section class="py-16 lg:py-24" style="background-color: var(--theme-bg-partners);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Category Filters -->
     <div class="flex flex-wrap justify-center gap-3 mb-14" id="media-filters">
       <button
@@ -82,11 +80,12 @@ const ITEMS_PER_PAGE = 9;
           data-category={item.category}
           data-index={index}
           class:list={[
-            'media-card group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
+            'media-card group rounded-2xl overflow-hidden border hover:shadow-xl transition-all duration-300 hover:-translate-y-1',
             index >= ITEMS_PER_PAGE && 'hidden',
           ]}
+          style="background-color: var(--theme-bg-card); border-color: var(--theme-border-navbar);"
         >
-          <div class="aspect-[4/3] overflow-hidden bg-slate-100">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800">
             <img
               src={item.image}
               alt={item.title}
@@ -98,11 +97,11 @@ const ITEMS_PER_PAGE = 9;
             <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-purple-600 mb-2">
               {categoryLabels[item.category]}
             </span>
-            <h3 class="font-bold text-slate-900 leading-snug group-hover:text-brand-purple-700 transition-colors">
+            <h3 class="font-bold leading-snug group-hover:text-brand-purple-700 dark:group-hover:text-brand-purple-300 transition-colors" style="color: var(--theme-text-heading);">
               {item.title}
             </h3>
             {item.description && (
-              <p class="mt-3 text-sm text-slate-500 line-clamp-3">
+              <p class="mt-3 text-sm line-clamp-3" style="color: var(--theme-text-primary);">
                 {item.description}
               </p>
             )}

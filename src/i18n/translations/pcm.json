@@ -9,13 +9,13 @@
     "media": "Media",
     "download": "Download",
     "language": "Language",
-    "notify": "Make we tell you"
+    "notify": "Contact us"
   },
   "hero": {
     "title": "Voice notes and photos wey go make you remember everything, no stress",
     "subtitle": "Di app wey dey arrange work for artisans, tailors, creatives and business people: clients, measurements, appointments and payments, everything for one place.",
     "cta_video": "See how di app dey work",
-    "cta_notify": "Make we tell you when e don land",
+    "cta_notify": "Contact us",
     "launch_badge": "E dey come dis autumn 2026"
   },
   "features": {
@@ -53,8 +53,8 @@
   },
   "cta": {
     "title": "E dey come soon for your phone",
-    "subtitle": "African Puzzle WORKS go land dis autumn. Drop your contact make you be one of di first people to try am.",
-    "button": "Make we tell you when e don land"
+    "subtitle": "African Puzzle WORKS go land dis autumn. You get question or you wan partner? Write us.",
+    "button": "Contact us"
   },
   "about": {
     "label": "About Us",
@@ -84,7 +84,10 @@
     "filter_all": "All",
     "filter_press_release": "Press Release",
     "filter_videos": "Videos",
-    "load_more": "More"
+    "load_more": "More",
+    "filter_radio": "Radio & Podcasts",
+    "filter_articles": "Articles",
+    "filter_social": "Social mentions"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -96,7 +99,10 @@
   "download": {
     "banner_title": "African Puzzle WORKS, di artisan assistant. E dey come dis autumn 2026.",
     "coming_soon": "E dey come soon",
-    "play_badge_alt": "E dey come soon for Google Play"
+    "play_badge_alt": "E dey come soon for Google Play",
+    "app_badge_alt": "E dey come soon for App Store",
+    "app_badge_eyebrow": "E dey come soon for",
+    "app_badge_title": "App Store"
   },
   "theme": {
     "label": "Theme",
@@ -121,8 +127,16 @@
     "body": "Every screen fit explain itself with voice. Record voice notes, snap photos: di app go do di rest.",
     "hint": "Audio explanation dey for French, Pidgin and English"
   },
+  "proof": {
+    "audio_title": "You no need read",
+    "audio_body": "Every screen fit explain itself with voice.",
+    "pricing_title": "Use am free",
+    "pricing_body": "No subscription and nothing go lock you in.",
+    "audience_title": "Made for artisans",
+    "audience_body": "E simple enough for busy workshop."
+  },
   "pricing": {
-    "title": "Pay one time. Nothing dey renew.",
+    "title": "Use am free. Nothing go lock you in.",
     "body": "No subscription. Di app free, and if you need more backup space, na one time you go pay."
   },
   "partners": {

@@ -9,13 +9,13 @@
     "media": "Media",
     "download": "Download",
     "language": "Language",
-    "notify": "Get notified"
+    "notify": "Contact us"
   },
   "hero": {
     "title": "Voice notes and photos to remember everything, effortlessly",
     "subtitle": "The app that organizes daily life for artisans, tailors, creatives and entrepreneurs: clients, measurements, appointments and payments, all in one place.",
     "cta_video": "See the app in action",
-    "cta_notify": "Get notified at launch",
+    "cta_notify": "Contact us",
     "launch_badge": "Coming autumn 2026"
   },
   "features": {
@@ -53,8 +53,8 @@
   },
   "cta": {
     "title": "Coming soon to your phone",
-    "subtitle": "African Puzzle WORKS arrives this autumn. Leave us your contact and be among the first to try it.",
-    "button": "Get notified at launch"
+    "subtitle": "African Puzzle WORKS arrives this autumn. A question or a partnership? Write to us.",
+    "button": "Contact us"
   },
   "about": {
     "label": "About Us",
@@ -84,7 +84,10 @@
     "filter_all": "All",
     "filter_press_release": "Press Release",
     "filter_videos": "Videos",
-    "load_more": "More"
+    "load_more": "More",
+    "filter_radio": "Radio & Podcasts",
+    "filter_articles": "Articles",
+    "filter_social": "Social mentions"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -96,7 +99,10 @@
   "download": {
     "banner_title": "African Puzzle WORKS, the artisan's assistant. Coming autumn 2026.",
     "coming_soon": "Coming soon",
-    "play_badge_alt": "Coming soon on Google Play"
+    "play_badge_alt": "Coming soon on Google Play",
+    "app_badge_alt": "Coming soon on the App Store",
+    "app_badge_eyebrow": "Coming soon on the",
+    "app_badge_title": "App Store"
   },
   "theme": {
     "label": "Theme",
@@ -121,8 +127,16 @@
     "body": "Every screen explains itself out loud. Record voice notes, take photos: the app takes care of the rest.",
     "hint": "Audio explanations available in French, Pidgin and English"
   },
+  "proof": {
+    "audio_title": "No reading needed",
+    "audio_body": "Every screen can explain itself aloud.",
+    "pricing_title": "Free to use",
+    "pricing_body": "No subscription and no lock-in.",
+    "audience_title": "Made for artisans",
+    "audience_body": "Simple enough for a busy workshop."
+  },
   "pricing": {
-    "title": "Pay once. Nothing renews.",
+    "title": "Free to use. Never get locked in.",
     "body": "No subscriptions. The app is free, and if you need more backup space, you pay a single time."
   },
   "partners": {

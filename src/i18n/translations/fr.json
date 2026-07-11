@@ -9,13 +9,13 @@
     "media": "Médias",
     "download": "Télécharger",
     "language": "Langue",
-    "notify": "Être prévenu"
+    "notify": "Nous contacter"
   },
   "hero": {
     "title": "Des notes vocales et des photos pour tout retenir, sans effort",
     "subtitle": "L'application qui organise le quotidien des artisans, couturiers, créatifs et entrepreneurs : clients, mesures, rendez-vous et paiements, au même endroit.",
     "cta_video": "Voir l'application en action",
-    "cta_notify": "Être prévenu au lancement",
+    "cta_notify": "Nous contacter",
     "launch_badge": "Disponible cet automne 2026"
   },
   "features": {
@@ -53,8 +53,8 @@
   },
   "cta": {
     "title": "Bientôt sur vos téléphones",
-    "subtitle": "African Puzzle WORKS arrive cet automne. Laissez-nous votre contact et soyez parmi les premiers à l'essayer.",
-    "button": "Être prévenu au lancement"
+    "subtitle": "African Puzzle WORKS arrive cet automne. Une question, un partenariat ? Écrivez-nous.",
+    "button": "Nous contacter"
   },
   "about": {
     "label": "À propos",
@@ -84,7 +84,10 @@
     "filter_all": "Tous",
     "filter_press_release": "Communiqué de presse",
     "filter_videos": "Vidéos",
-    "load_more": "Plus"
+    "load_more": "Plus",
+    "filter_radio": "Radio et podcasts",
+    "filter_articles": "Articles",
+    "filter_social": "Réseaux sociaux"
   },
   "privacy": {
     "title": "Politique de confidentialité",
@@ -93,7 +96,10 @@
   "download": {
     "banner_title": "African Puzzle WORKS, l'assistant des artisans. Disponible cet automne 2026.",
     "coming_soon": "Bientôt disponible",
-    "play_badge_alt": "Bientôt sur Google Play"
+    "play_badge_alt": "Bientôt sur Google Play",
+    "app_badge_alt": "Bientôt sur l'App Store",
+    "app_badge_eyebrow": "Bientôt sur",
+    "app_badge_title": "l'App Store"
   },
   "footer": {
     "rights": "Tous droits réservés",
@@ -121,8 +127,16 @@
     "body": "Chaque écran s'explique à voix haute. Enregistrez des notes vocales, prenez des photos : l'application se charge du reste.",
     "hint": "Explications audio disponibles en français, en pidgin et en anglais"
   },
+  "proof": {
+    "audio_title": "Pas besoin de lire",
+    "audio_body": "Chaque écran peut s'expliquer à voix haute.",
+    "pricing_title": "Gratuite à utiliser",
+    "pricing_body": "Sans abonnement et sans engagement.",
+    "audience_title": "Pensée pour les artisans",
+    "audience_body": "Assez simple pour un atelier bien rempli."
+  },
   "pricing": {
-    "title": "Payez une fois. Rien ne se renouvelle.",
+    "title": "Gratuite à utiliser. Sans engagement.",
     "body": "Pas d'abonnement. L'application est gratuite, et si vous avez besoin de plus de sauvegarde, vous payez une seule fois."
   },
   "partners": {

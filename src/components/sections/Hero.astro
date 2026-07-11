@@ -10,6 +10,7 @@ interface Props {
 const { lang } = Astro.props;
 const VIDEO_URL = `https://www.youtube.com/embed/${site.youtubeVideoId}`;
 const contactPath = `/${lang}/contact/`;
+const heroScreen = lang === 'en' ? '/images/app/en/programmes-tab.webp' : '/images/app/programmes-tab.webp';
 ---
 
 <section
@@ -50,7 +51,7 @@ const contactPath = `/${lang}/contact/`;
     <!-- Right: real app screen in device frame -->
     <div class="lg:w-2/5 flex justify-center">
       <div style="--phone-width: min(260px, 62vw); filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));">
-        <PhoneFrame src="/images/app/programmes-tab.webp" alt={t(lang, 'features.programmes_title')} eager />
+        <PhoneFrame src={heroScreen} alt={t(lang, 'features.programmes_title')} eager />
       </div>
     </div>
   </div>
