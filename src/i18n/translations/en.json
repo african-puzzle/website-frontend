@@ -8,7 +8,8 @@
     "contact": "Contact",
     "media": "Media",
     "download": "Download",
-    "language": "Language"
+    "language": "Language",
+    "notify": "Get notified"
   },
   "hero": {
     "title": "Voice notes and photos to remember everything, effortlessly",
@@ -107,7 +108,8 @@
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
     "made_with": "Made with",
-    "in": "in Paris"
+    "in": "in Paris",
+    "links_label": "Links"
   },
   "error": {
     "not_found": "Page not found",

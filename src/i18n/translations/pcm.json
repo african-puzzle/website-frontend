@@ -8,7 +8,8 @@
     "contact": "Contact",
     "media": "Media",
     "download": "Download",
-    "language": "Language"
+    "language": "Language",
+    "notify": "Make we tell you"
   },
   "hero": {
     "title": "Voice notes and photos wey go make you remember everything, no stress",
@@ -107,7 +108,8 @@
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
     "made_with": "Dem make am with",
-    "in": "for Paris"
+    "in": "for Paris",
+    "links_label": "Links"
   },
   "error": {
     "not_found": "Dis page no dey",

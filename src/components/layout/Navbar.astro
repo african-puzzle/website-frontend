@@ -1,6 +1,5 @@
 ---
 import { t, localePaths, localeNames, locales, getEquivalentPath, type Locale } from '../../i18n/utils';
-import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
@@ -9,7 +8,7 @@ interface Props {
 const { lang } = Astro.props;
 const currentPath = Astro.url.pathname;
 const paths = localePaths[lang];
-const PLAY_STORE = site.playStoreUrl;
+const notifyPath = paths.contact;
 
 const navLinks = [
   { href: `${paths.home}#fonctionnalites`, label: t(lang, 'nav.features') },
@@ -77,12 +76,10 @@ const localeFlags: Record<Locale, string> = {
         </div>
 
         <a
-          href={PLAY_STORE}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={notifyPath}
           class="inline-flex items-center px-5 py-2.5 bg-brand-purple-600 text-white text-sm font-semibold rounded-full hover:bg-brand-purple-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
         >
-          {t(lang, 'nav.download')}
+          {t(lang, 'nav.notify')}
         </a>
       </div>
 
@@ -128,12 +125,10 @@ const localeFlags: Record<Locale, string> = {
         ))}
       </div>
       <a
-        href={PLAY_STORE}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={notifyPath}
         class="block text-center px-5 py-3 bg-brand-purple-600 text-white font-semibold rounded-full hover:bg-brand-purple-700 transition-colors"
       >
-        {t(lang, 'nav.download')}
+        {t(lang, 'nav.notify')}
       </a>
     </div>
   </div>

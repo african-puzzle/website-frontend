@@ -1,5 +1,25 @@
 @import 'tailwindcss';
+
+/* ── Self-hosted fonts (latin subsets) ── */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/montserrat-latin-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122;
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/nunito-latin-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122;
+}
 @plugin '@tailwindcss/typography';
+@source not "../../.claude";
+@source not "../../.github";
 
 @theme {
   --color-brand-purple-50: #f3e8ff;
@@ -40,7 +60,7 @@
   --theme-bg-audio: #1a7a6d;
   --theme-bg-features: #2a1a47;
   --theme-bg-benefits: #340975;
-  --theme-bg-pricing: #fff1c2;
+  --theme-bg-pricing: #ffc94d;
   --theme-bg-cta: #eae0ab;
   --theme-bg-partners: #f6f3fb;
   --theme-bg-footer: #2D1B4E;
@@ -55,7 +75,7 @@
   --theme-text-cta-title: #3d2664;
   --theme-text-cta-body: #1e293b;
   --theme-text-pricing-title: #3d2664;
-  --theme-text-pricing-body: #4a3d2a;
+  --theme-text-pricing-body: #43310f;
   --theme-text-reach-country: #334155;
   --theme-text-about-name: #340975;
   --theme-text-about-role: #4b5563;
@@ -97,7 +117,7 @@
   --theme-bg-audio: #0f3d36;
   --theme-bg-features: #171028;
   --theme-bg-benefits: #130535;
-  --theme-bg-pricing: #241d0e;
+  --theme-bg-pricing: #2a2210;
   --theme-bg-cta: #1c1a0e;
   --theme-bg-partners: #131022;
   --theme-bg-footer: #0a0618;

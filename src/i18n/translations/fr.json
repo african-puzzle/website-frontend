@@ -8,7 +8,8 @@
     "contact": "Contact",
     "media": "Médias",
     "download": "Télécharger",
-    "language": "Langue"
+    "language": "Langue",
+    "notify": "Être prévenu"
   },
   "hero": {
     "title": "Des notes vocales et des photos pour tout retenir, sans effort",
@@ -98,7 +99,8 @@
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
     "made_with": "Fait avec",
-    "in": "à Paris"
+    "in": "à Paris",
+    "links_label": "Liens"
   },
   "error": {
     "not_found": "Page introuvable",

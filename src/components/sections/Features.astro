@@ -37,9 +37,9 @@ const features = featureEntries
     </div>
 
     <!-- Feature cards with phone mockups -->
-    <div class="space-y-20 lg:space-y-24">
+    <div class="space-y-20 lg:space-y-24 lg:pt-10 max-w-5xl mx-auto">
       {features.map((feature, index) => (
-        <div class={`${feature.cardBg} rounded-2xl relative reveal`}>
+        <div class={`${feature.cardBg} dark:brightness-[.92] rounded-2xl relative reveal`}>
           <div class={`grid grid-cols-1 ${index % 2 === 1 ? 'lg:grid-cols-[auto_1fr]' : 'lg:grid-cols-[1fr_auto]'} items-center gap-4 lg:gap-8`}>
             <!-- Text side -->
             <div class={`px-6 py-8 lg:py-10 lg:px-12 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
@@ -97,5 +97,10 @@ const features = featureEntries
     }
     // Safety: never leave content hidden if IO stalls (headless renderers, prerender)
     setTimeout(() => els.forEach((el) => el.classList.add('reveal-in')), 2500);
+    // Anchor jumps (e.g. nav "Fonctionnalités") should not catch cards mid-fade
+    document.addEventListener('click', (ev) => {
+      const a = (ev.target as Element).closest?.('a[href*="#"]');
+      if (a) els.forEach((el) => el.classList.add('reveal-in'));
+    });
   }
 </script>
