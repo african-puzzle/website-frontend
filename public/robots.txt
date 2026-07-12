@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow:
+
+User-agent: GPTBot
+Allow: /
+Disallow:
+
+User-agent: ClaudeBot
+Allow: /
+Disallow:
+
+User-agent: PerplexityBot
+Allow: /
+Disallow:
+
+User-agent: Google-Extended
+Allow: /
+Disallow:
+
+Sitemap: https://africanpuzzle.com/sitemap-index.xml

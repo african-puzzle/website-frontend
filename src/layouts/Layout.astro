@@ -9,9 +9,18 @@ interface Props {
   title: string;
   description?: string;
   lang: Locale;
+  schemaType?: string; // WebPage-family type, e.g. AboutPage, ContactPage
 }
 
-const { title, description = '', lang } = Astro.props;
+// Per-locale fallback so no page ships an empty meta description
+const DEFAULT_DESCRIPTIONS: Record<Locale, string> = {
+  fr: "African Puzzle : l'application mobile de puzzles qui célèbre l'art et la culture africaine. Découvrez des œuvres d'artistes africains en jouant.",
+  en: 'African Puzzle: the mobile puzzle app celebrating African art and culture. Discover works by African artists while you play.',
+  pcm: 'African Puzzle: mobile puzzle app wey dey celebrate African art and culture. Play and discover work from African artists.',
+};
+
+const { title, description: descriptionProp, lang, schemaType = 'WebPage' } = Astro.props;
+const description = descriptionProp || DEFAULT_DESCRIPTIONS[lang];
 const fullTitle = `${title} | African Puzzle`;
 
 const SITE = 'https://africanpuzzle.com';
@@ -34,6 +43,40 @@ function localePath(target: Locale): string | null {
   }
   return `${SITE}/${target}${slug}`;
 }
+
+const OG_LOCALES: Record<Locale, string> = { fr: 'fr_FR', en: 'en_US', pcm: 'pcm_NG' };
+const ogLocale = OG_LOCALES[lang];
+const ogAlternates = LOCALES.filter((l) => l !== lang).map((l) => OG_LOCALES[l]);
+
+// JSON-LD for AI/agent + search visibility
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      name: 'African Puzzle',
+      url: SITE,
+      logo: `${SITE}/images/og-image.png`,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}/#website`,
+      name: 'African Puzzle',
+      url: SITE,
+      inLanguage: lang,
+      publisher: { '@id': `${SITE}/#organization` },
+    },
+    {
+      '@type': schemaType,
+      name: fullTitle,
+      description,
+      inLanguage: lang,
+      url: canonical,
+      isPartOf: { '@id': `${SITE}/#website` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -66,6 +109,17 @@ function localePath(target: Locale): string | null {
     <meta property="og:site_name" content="African Puzzle" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={`${SITE}/images/og-image.png`} />
+    <meta property="og:locale" content={ogLocale} />
+    {ogAlternates.map((l) => <meta property="og:locale:alternate" content={l} />)}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE}/images/og-image.png`} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Fonts: self-hosted (see global.css @font-face) -->
     <link rel="preload" href="/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin />
