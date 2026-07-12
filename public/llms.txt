@@ -21,3 +21,10 @@
 - [Confidentialité](https://africanpuzzle.com/fr/confidentialite/)
 - [Médias](https://africanpuzzle.com/fr/medias/)
 - [Contact](https://africanpuzzle.com/fr/contact/)
+
+## Nigerian Pidgin pages
+
+- [About](https://africanpuzzle.com/pcm/about/)
+- [Contact](https://africanpuzzle.com/pcm/contact/)
+- [Media](https://africanpuzzle.com/pcm/media/)
+- [Privacy](https://africanpuzzle.com/pcm/privacy/)
