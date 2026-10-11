@@ -14,11 +14,13 @@
 - [Contact](https://africanpuzzle.com/en/contact/)
 - [Media](https://africanpuzzle.com/en/media/)
 - [Privacy](https://africanpuzzle.com/en/privacy/)
+- [Terms](https://africanpuzzle.com/en/terms/)
 
 ## French pages
 
 - [À propos](https://africanpuzzle.com/fr/a-propos/)
 - [Confidentialité](https://africanpuzzle.com/fr/confidentialite/)
+- [Conditions générales](https://africanpuzzle.com/fr/conditions-generales/)
 - [Médias](https://africanpuzzle.com/fr/medias/)
 - [Contact](https://africanpuzzle.com/fr/contact/)
 
@@ -28,3 +30,4 @@
 - [Contact](https://africanpuzzle.com/pcm/contact/)
 - [Media](https://africanpuzzle.com/pcm/media/)
 - [Privacy](https://africanpuzzle.com/pcm/privacy/)
+- [Terms](https://africanpuzzle.com/pcm/terms/)

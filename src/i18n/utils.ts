@@ -59,6 +59,7 @@ export const localePaths: Record<Locale, Record<string, string>> = {
     contact: '/fr/contact',
     media: '/fr/medias',
     privacy: '/fr/confidentialite',
+    terms: '/fr/conditions-generales',
   },
   en: {
     home: '/en',
@@ -66,6 +67,7 @@ export const localePaths: Record<Locale, Record<string, string>> = {
     contact: '/en/contact',
     media: '/en/media',
     privacy: '/en/privacy',
+    terms: '/en/terms',
   },
   pcm: {
     home: '/pcm',
@@ -73,6 +75,7 @@ export const localePaths: Record<Locale, Record<string, string>> = {
     contact: '/pcm/contact',
     media: '/pcm/media',
     privacy: '/pcm/privacy',
+    terms: '/pcm/terms',
   },
 };
 

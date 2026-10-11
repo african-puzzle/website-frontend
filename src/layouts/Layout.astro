@@ -30,7 +30,7 @@ const LOCALES: Locale[] = ['fr', 'en', 'pcm'];
 const pathMatch = Astro.url.pathname.match(/^\/(fr|en|pcm)(\/.*)?$/);
 // FR uses translated slugs; map shared pages across locales
 const SLUG_MAP: Record<string, Record<string, string>> = {
-  fr: { '/a-propos/': '/about/', '/confidentialite/': '/privacy/', '/medias/': '/media/' },
+  fr: { '/a-propos/': '/about/', '/confidentialite/': '/privacy/', '/conditions-generales/': '/terms/', '/medias/': '/media/' },
 };
 function localePath(target: Locale): string | null {
   if (!pathMatch) return null;
