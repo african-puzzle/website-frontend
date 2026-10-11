@@ -1,6 +1,6 @@
 /**
  * SVG path data for social platform icons (Simple Icons style, 24x24 viewBox).
- * Keyed by platform name matching the `platform` field in social-links.json.
+ * Keyed by platform name; use `iconPath` to look up by the `icon` value in contact.json.
  */
 export const socialIcons: Record<string, string> = {
   WhatsApp:
@@ -18,3 +18,6 @@ export const socialIcons: Record<string, string> = {
   YouTube:
     'M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z M9.545 15.568V8.432L15.818 12z',
 };
+
+export const iconPath = (icon: string): string =>
+  Object.entries(socialIcons).find(([name]) => name.toLowerCase() === icon)?.[1] ?? '';
