@@ -1,7 +1,7 @@
 ---
 interface Props {
-  src: string;
-  alt: string;
+  src?: string; // omit when passing slides via the default slot
+  alt?: string;
   class?: string;
   eager?: boolean;
 }
@@ -10,15 +10,19 @@ const { src, alt, class: className = '', eager = false } = Astro.props;
 ---
 
 <div class:list={['phone-frame', className]}>
-  <img
-    src={src}
-    alt={alt}
-    class="phone-screen"
-    loading={eager ? 'eager' : 'lazy'}
-    decoding="async"
-    width="720"
-    height="1565"
-  />
+  {Astro.slots.has('default') ? (
+    <div class="phone-screen" style="position: relative; overflow: hidden;"><slot /></div>
+  ) : (
+    <img
+      src={src}
+      alt={alt}
+      class="phone-screen"
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      width="720"
+      height="1565"
+    />
+  )}
 </div>
 
 <style>

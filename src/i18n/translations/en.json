@@ -12,9 +12,10 @@
     "notify": "Contact us"
   },
   "hero": {
-    "title": "Voice notes and photos to remember everything, effortlessly",
-    "subtitle": "The app that organizes daily life for artisans, tailors, creatives and entrepreneurs: clients, measurements, appointments and payments, all in one place.",
-    "cta_video": "See the app in action",
+    "title": "Everything you need to remember for your work, all in one place.",
+    "subtitle": "Photos, voice notes, clients, enquiries, appointments and payments: African Puzzle WORKS helps you keep track of everything and find things easily.",
+    "cta_how": "Find out how it works",
+    "cta_download": "Download the app",
     "cta_notify": "Contact us",
     "launch_badge": "Coming autumn 2026"
   },

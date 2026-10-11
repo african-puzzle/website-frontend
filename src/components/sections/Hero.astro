@@ -8,9 +8,19 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const VIDEO_URL = `https://www.youtube.com/embed/${site.youtubeVideoId}`;
 const contactPath = `/${lang}/contact/`;
-const heroScreen = lang === 'en' ? '/images/app/en/programmes-tab.webp' : '/images/app/programmes-tab.webp';
+const dir = lang === 'en' ? '/images/app/en' : '/images/app';
+
+// Placeholder slides, one per profession; swap in the CEO's screens later.
+// The keyframes below assume 5 slides; update their percentages if the count changes.
+const slides = [
+  `${dir}/programmes-tab.webp`, // dressmaking
+  `${dir}/contacts-tab.webp`, // hairdressing
+  `${dir}/albums-tab.webp`, // car mechanic
+  `${dir}/rendez-vous-tab.webp`, // building work
+  `${dir}/measurements.webp`, // mixed (covers from other fields)
+];
+const SLIDE_SECONDS = 4.5;
 ---
 
 <section
@@ -30,29 +40,94 @@ const heroScreen = lang === 'en' ? '/images/app/en/programmes-tab.webp' : '/imag
         {t(lang, 'hero.subtitle')}
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
-        <button
-          data-video-url={VIDEO_URL}
-          class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-gold text-brand-ink-deep font-bold rounded-full shadow-lg hover:bg-brand-gold-soft hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          {t(lang, 'hero.cta_video')}
-        </button>
         <a
-          href={contactPath}
-          class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold rounded-full hover:border-white/80 hover:bg-white/10 transition-all duration-300"
+          href="#proof"
+          class="inline-flex items-center justify-center px-8 py-4 bg-brand-gold text-brand-ink-deep font-bold rounded-full shadow-lg hover:bg-brand-gold-soft hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
         >
-          {t(lang, 'hero.cta_notify')}
+          {t(lang, 'hero.cta_how')}
         </a>
+        {site.launched ? (
+          <div class="flex flex-col sm:flex-row items-center gap-3">
+            <span class="text-white font-semibold">{t(lang, 'hero.cta_download')}</span>
+            <a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer">
+              <img src="/images/google-play-badge.svg" alt={t(lang, 'hero.cta_download')} class="h-14" />
+            </a>
+          </div>
+        ) : (
+          <a
+            href={contactPath}
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold rounded-full hover:border-white/80 hover:bg-white/10 transition-all duration-300"
+          >
+            {t(lang, 'hero.cta_notify')}
+          </a>
+        )}
       </div>
     </div>
 
     <!-- Right: real app screen in device frame -->
     <div class="lg:w-2/5 flex justify-center">
       <div style="--phone-width: min(260px, 62vw); filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));">
-        <PhoneFrame src={heroScreen} alt={t(lang, 'features.programmes_title')} eager />
+        <PhoneFrame>
+          <div class="slides" style={`--n: ${slides.length}; --dur: ${SLIDE_SECONDS}s;`}>
+            {slides.map((src, i) => (
+              <img
+                src={src}
+                alt={i === 0 ? t(lang, 'features.programmes_title') : ''}
+                aria-hidden={i === 0 ? undefined : 'true'}
+                class:list={['slide', { 'slide-first': i === 0 }]}
+                style={`--i: ${i};`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchpriority={i === 0 ? 'high' : 'low'}
+                decoding="async"
+                width="720"
+                height="1565"
+              />
+            ))}
+          </div>
+        </PhoneFrame>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .slides {
+    position: absolute;
+    inset: 0;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+  }
+  .slide-first {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .slide {
+      animation: slide-fade calc(var(--n) * var(--dur)) infinite;
+      animation-delay: calc(var(--i) * var(--dur));
+    }
+    .slide-first {
+      animation-name: slide-fade-first;
+      animation-delay: 0s;
+    }
+    .slides:hover .slide {
+      animation-play-state: paused;
+    }
+  }
+  /* 5 slides: each visible 20% of the cycle, 4% crossfade overlap */
+  @keyframes slide-fade {
+    0% { opacity: 0; }
+    4%, 20% { opacity: 1; }
+    24%, 100% { opacity: 0; }
+  }
+  @keyframes slide-fade-first {
+    0%, 20% { opacity: 1; }
+    24%, 96% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+</style>

@@ -12,9 +12,10 @@
     "notify": "Nous contacter"
   },
   "hero": {
-    "title": "Des notes vocales et des photos pour tout retenir, sans effort",
-    "subtitle": "L'application qui organise le quotidien des artisans, couturiers, créatifs et entrepreneurs : clients, mesures, rendez-vous et paiements, au même endroit.",
-    "cta_video": "Voir l'application en action",
+    "title": "Tout ce qu'il faut retenir pour votre travail, au même endroit.",
+    "subtitle": "Photos, notes vocales, clients, demandes, rendez-vous et paiements : African Puzzle WORKS vous aide à tout garder et retrouver facilement.",
+    "cta_how": "Découvrir comment ça marche",
+    "cta_download": "Télécharger l'application",
     "cta_notify": "Nous contacter",
     "launch_badge": "Disponible cet automne 2026"
   },
