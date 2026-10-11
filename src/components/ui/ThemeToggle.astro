@@ -123,7 +123,7 @@ const { lang } = Astro.props;
       buttons.forEach((btn) => {
         btn.setAttribute('aria-checked', btn.dataset.theme === theme ? 'true' : 'false');
       });
-      indicator.setAttribute('data-pos', String(idx));
+      indicator?.setAttribute('data-pos', String(idx));
     }
 
     function setTheme(theme: string) {

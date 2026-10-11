@@ -86,8 +86,8 @@ const jsonLd = {
     <!-- Anti-FOWT: apply theme before first paint -->
     <script is:inline>
       (function() {
-        var s = localStorage.getItem('theme');
-        var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const s = localStorage.getItem('theme');
+        const d = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (s === 'dark' || (s !== 'light' && d)) {
           document.documentElement.classList.add('dark');
         }
