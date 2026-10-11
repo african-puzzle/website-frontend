@@ -94,6 +94,9 @@
     "title": "Privacy Policy",
     "effective": "Effective May 1, 2021"
   },
+  "terms": {
+    "title": "Terms"
+  },
   "instagram": {
     "alt": "African Puzzle on Instagram"
   },
@@ -114,6 +117,7 @@
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
     "made_with": "Made with",
     "in": "in Paris",
     "links_label": "Links"
