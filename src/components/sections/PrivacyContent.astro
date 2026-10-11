@@ -5,20 +5,25 @@ import PageHero from '../ui/PageHero.astro';
 
 interface Props {
   lang: Locale;
+  collection?: 'privacy' | 'terms';
 }
 
-const { lang } = Astro.props;
+const { lang, collection = 'privacy' } = Astro.props;
 
-const privacyEntries = await getCollection('privacy');
+const privacyEntries = collection === 'terms' ? await getCollection('terms') : await getCollection('privacy');
 const entry = privacyEntries.find((e) => e.data.locale === lang)
   ?? privacyEntries.find((e) => e.data.locale === 'fr');
+// Terms have no i18n keys; eyebrow and date line come from the entry itself
+const isTerms = collection === 'terms';
+const eyebrow = isTerms ? entry!.data.effectiveDate : t(lang, 'privacy.title');
+const dateLine = isTerms ? entry!.data.effectiveDate : t(lang, 'privacy.effective');
 const { Content } = await render(entry!);
 ---
 
 <PageHero
-  eyebrow={t(lang, 'privacy.title')}
+  eyebrow={eyebrow}
   title={entry!.data.title}
-  subtitle={t(lang, 'privacy.effective')}
+  subtitle={isTerms ? undefined : dateLine}
   compact
 />
 
@@ -35,7 +40,7 @@ const { Content } = await render(entry!);
         </svg>
       </span>
       <p class="text-xs sm:text-sm uppercase tracking-wider font-semibold" style="color: var(--theme-text-privacy-meta);">
-        {t(lang, 'privacy.effective')}
+        {dateLine}
       </p>
     </div>
 
