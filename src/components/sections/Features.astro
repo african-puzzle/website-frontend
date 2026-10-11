@@ -1,5 +1,5 @@
 ---
-import { t, type Locale } from '../../i18n/utils';
+import { t, type Locale, type TranslationKey } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
 import PhoneFrame from '../ui/PhoneFrame.astro';
 
@@ -22,8 +22,8 @@ const featureEntries = await getCollection('features');
 const features = featureEntries
   .sort((a, b) => a.data.order - b.data.order)
   .map(entry => ({
-    title: t(lang, entry.data.titleKey as any),
-    desc: t(lang, entry.data.descKey as any),
+    title: t(lang, entry.data.titleKey as TranslationKey),
+    desc: t(lang, entry.data.descKey as TranslationKey),
     screen: lang === 'en' ? (englishScreens[entry.data.screen] ?? entry.data.screen) : entry.data.screen,
     cardBg: entry.data.cardBg,
   }));
