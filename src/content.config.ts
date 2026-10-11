@@ -45,14 +45,15 @@ const countries = defineCollection({
   }),
 });
 
-const socialLinks = defineCollection({
-  loader: file('src/content/settings/social-links.json'),
+const contact = defineCollection({
+  loader: file('src/content/contact/contact.json', {
+    parser: (text) => JSON.parse(text).contact_methods.map((m: { icon: string }) => ({ id: m.icon, ...m })),
+  }),
   schema: z.object({
-    platform: z.string(),
-    url: z.string(),
-    handle: z.string().default(''),
-    showInFooter: z.boolean().default(false),
-    showInContact: z.boolean().default(false),
+    label: z.string(),
+    icon: z.enum(['whatsapp', 'facebook', 'instagram', 'telegram', 'twitter', 'linkedin', 'youtube', 'email', 'phone', 'address', 'website']),
+    value: z.string(),
+    url: z.string().default(''),
     order: z.number(),
   }),
 });
@@ -75,4 +76,4 @@ const privacy = defineCollection({
   }),
 });
 
-export const collections = { team, media, features, countries, socialLinks, instagram, privacy };
+export const collections = { team, media, features, countries, contact, instagram, privacy };

@@ -1,10 +1,9 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
 import { getCollection } from 'astro:content';
-import { socialIcons } from '../../lib/social-icons';
+import { iconPath } from '../../lib/social-icons';
 import DownloadBanner from './DownloadBanner.astro';
 import InstagramFeed from './InstagramFeed.astro';
-import site from '../../content/settings/site.json';
 import PageHero from '../ui/PageHero.astro';
 
 interface Props {
@@ -13,11 +12,12 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const allSocial = await getCollection('socialLinks');
-const channels = allSocial
-  .filter((s) => s.data.showInContact)
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((s) => ({ name: s.data.platform, value: s.data.handle, href: s.data.url, icon: socialIcons[s.data.platform] ?? '' }));
+const methods = (await getCollection('contact')).map((m) => m.data).sort((a, b) => a.order - b.order);
+// Cards: every method except email (shown in the address card) and youtube (footer only).
+const channels = methods
+  .filter((m) => m.icon !== 'email' && m.icon !== 'youtube')
+  .map((m) => ({ name: m.label, value: m.value, href: m.url, icon: iconPath(m.icon) }));
+const email = methods.find((m) => m.icon === 'email')?.value ?? '';
 ---
 
 <PageHero
@@ -57,8 +57,8 @@ const channels = allSocial
             <p class="mt-1 text-sm leading-relaxed" style="color: var(--theme-text-primary);">
               {t(lang, 'contact.address_street')}<br />{t(lang, 'contact.address_city')}
             </p>
-            <a href={`mailto:${site.contactEmail}`} class="inline-block mt-3 text-sm font-semibold underline hover:no-underline" style="color: var(--theme-text-contact);">
-              {site.contactEmail}
+            <a href={`mailto:${email}`} class="inline-block mt-3 text-sm font-semibold underline hover:no-underline" style="color: var(--theme-text-contact);">
+              {email}
             </a>
           </div>
     </div>
