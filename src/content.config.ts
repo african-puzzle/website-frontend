@@ -55,6 +55,8 @@ const contact = defineCollection({
     value: z.string(),
     url: z.string().default(''),
     order: z.number(),
+    showInFooter: z.boolean().default(false),
+    showInContact: z.boolean().default(false),
   }),
 });
 
