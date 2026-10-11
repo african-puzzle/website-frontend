@@ -13,9 +13,9 @@ interface Props {
 const { lang } = Astro.props;
 
 const methods = (await getCollection('contact')).map((m) => m.data).sort((a, b) => a.order - b.order);
-// Cards: every method except email (shown in the address card) and youtube (footer only).
+// Cards: every method with a link and a known icon, except email (shown in the address card) and youtube (footer only).
 const channels = methods
-  .filter((m) => m.icon !== 'email' && m.icon !== 'youtube')
+  .filter((m) => m.icon !== 'email' && m.icon !== 'youtube' && m.url && iconPath(m.icon))
   .map((m) => ({ name: m.label, value: m.value, href: m.url, icon: iconPath(m.icon) }));
 const email = methods.find((m) => m.icon === 'email')?.value ?? '';
 ---

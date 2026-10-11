@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
 const footerIcons = ['facebook', 'instagram', 'linkedin', 'youtube'];
 const socialLinks = (await getCollection('contact'))
   .map((m) => m.data)
-  .filter((m) => footerIcons.includes(m.icon))
+  .filter((m) => footerIcons.includes(m.icon) && m.url)
   .sort((a, b) => a.order - b.order)
   .map((m) => ({ name: m.label, href: m.url, icon: iconPath(m.icon) }));
 ---

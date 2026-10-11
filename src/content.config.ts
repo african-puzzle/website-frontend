@@ -47,7 +47,7 @@ const countries = defineCollection({
 
 const contact = defineCollection({
   loader: file('src/content/contact/contact.json', {
-    parser: (text) => JSON.parse(text).contact_methods.map((m: { icon: string }) => ({ id: m.icon, ...m })),
+    parser: (text) => JSON.parse(text).contact_methods.map((m: { icon: string }, i: number) => ({ id: `${m.icon}-${i}`, ...m })),
   }),
   schema: z.object({
     label: z.string(),
