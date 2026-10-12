@@ -6,6 +6,7 @@ Marketing site for the African Puzzle WORKS mobile app: static Astro + Tailwind 
 - npm is the package manager; CI runs `npm ci`.
 - Done means `npm run check && npm run build` pass. `/verify` also confirms every locale route built.
 - A merge to `main` deploys to production (`.github/workflows/deploy.yml`).
+- A `Deploy failed:` issue means `main` is broken: fix the content, push, close the issue.
 
 ## CMS contract
 Sveltia CMS lives in `african-puzzle/website-cms` (admin.africanpuzzle.com) and commits straight into this repo: the content folders and settings files under `src/content/`, and all three files in `src/i18n/translations/`. Its `config.yml` is the list. When you rename or move a file, folder, field, or translation key the CMS edits, open a matching issue in `website-cms` so the CMS keeps working.

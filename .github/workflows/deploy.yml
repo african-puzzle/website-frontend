@@ -32,6 +32,8 @@ jobs:
 
   deploy:
     needs: build
+    # The github-pages environment only accepts main; on other refs skip instead of failing.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -39,3 +41,51 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  report-failure:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+    steps:
+      - name: Open a "Deploy failed:" issue unless one is already open
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          ACTOR: ${{ github.actor }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          open=$(gh issue list --state open --limit 200 --json number,title \
+            --jq '[.[] | select(.title | startswith("Deploy failed:"))][0].number // empty')
+          if [ -n "$open" ]; then
+            echo "Deploy-failure issue #$open is already open; not opening another."
+            exit 0
+          fi
+          message=$(gh api "repos/$GH_REPO/commits/$SHA" --jq .commit.message)
+          # shellcheck disable=SC2016  # $j / $s below are jq variables, not shell
+          failed=$(gh run view "$RUN_ID" --json jobs --jq '
+            [.jobs[] | select(.conclusion == "failure") | . as $j
+             | ($j.steps | map(select(.conclusion == "failure")) | first) as $s
+             | if $s then "- \($j.name) / \($s.name): \($j.url)#step:\($s.number):1"
+               else "- \($j.name): \($j.url)" end] | join("\n")')
+          body="The deploy workflow failed, so the live site was not updated and \`main\` is broken until this is fixed.
+
+          - Run: $RUN_URL
+          - Commit: $SHA by $ACTOR
+
+          Failing step:
+          $failed
+
+          Commit message:
+
+          \`\`\`
+          $message
+          \`\`\`
+
+          Fix the content on \`main\`, push, check that the deploy goes green, then close this issue."
+          gh issue create --title "Deploy failed: $SHA" --label bug --body "$body"
