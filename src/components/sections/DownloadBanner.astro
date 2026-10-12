@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import site from '../../content/settings/site.json';
 
 interface Props {
   lang: Locale;
@@ -14,7 +15,7 @@ const { lang } = Astro.props;
     <div class="w-full md:w-1/2 md:order-2">
       <img
         src="/images/moussa-tailor.webp"
-        alt={t(lang, 'download.banner_title')}
+        alt={t(lang, site.launched ? 'download.banner_title_live' : 'download.banner_title')}
         class="w-full h-auto block dark:brightness-[.8] dark:saturate-[.85]"
         loading="lazy"
       />
@@ -26,38 +27,50 @@ const { lang } = Astro.props;
         class="text-center max-w-md font-semibold leading-tight mb-8"
         style="color: var(--theme-text-download-banner); font-size: clamp(1.75rem, 4vw, 2.4rem);"
       >
-        {t(lang, 'download.banner_title')}
+        {t(lang, site.launched ? 'download.banner_title_live' : 'download.banner_title')}
       </h2>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3" title={t(lang, 'download.coming_soon')}>
-        <div class="relative">
-          <div
-            role="img"
-            aria-label={t(lang, 'download.app_badge_alt')}
-            class="h-14 md:h-16 min-w-[188px] px-4 rounded-lg bg-black border border-white/25 text-white flex items-center gap-3 opacity-65 grayscale"
-          >
-            <svg aria-hidden="true" class="w-8 h-8 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.1 12.6c0-2.8 2.3-4.2 2.4-4.3-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.4 1-4.3 1-.9 0-2.2-1-3.7-1-1.9 0-3.7 1.1-4.7 2.8-2 3.5-.5 8.7 1.4 11.5.9 1.4 2.1 2.9 3.6 2.8 1.4-.1 2-1 3.7-1s2.2 1 3.7 1c1.5 0 2.5-1.4 3.5-2.8 1.1-1.6 1.6-3.2 1.6-3.3-.1 0-3.1-1.2-3.1-4.5ZM14.3 4.3c.8-1 1.3-2.3 1.2-3.6-1.2.1-2.6.8-3.5 1.8-.7.8-1.4 2.2-1.2 3.4 1.3.1 2.7-.6 3.5-1.6Z"/>
-            </svg>
-            <span class="text-left leading-none">
-              <span class="block text-[10px] uppercase tracking-wide">{t(lang, 'download.app_badge_eyebrow')}</span>
-              <span class="block mt-1 text-xl font-semibold">{t(lang, 'download.app_badge_title')}</span>
-            </span>
-          </div>
-          <span class="absolute -top-2 -right-3 rotate-3 px-2.5 py-1 rounded-full bg-brand-gold text-brand-ink-deep text-[10px] font-bold shadow">
-            {t(lang, 'download.coming_soon')}
-          </span>
-        </div>
-        <div class="relative">
+      {site.launched ? (
+        <a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer">
           <img
             src="/images/google-play-badge.svg"
-            alt={t(lang, 'download.play_badge_alt')}
-            class="h-14 md:h-16 opacity-60 grayscale"
+            alt={t(lang, 'download.play_badge_live_alt')}
+            width="135"
+            height="40"
+            class="h-14 md:h-16 w-auto"
           />
-          <span class="absolute -top-2 -right-3 rotate-3 px-2.5 py-1 rounded-full bg-brand-gold text-brand-ink-deep text-[10px] font-bold shadow">
-            {t(lang, 'download.coming_soon')}
-          </span>
+        </a>
+      ) : (
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3" title={t(lang, 'download.coming_soon')}>
+          <div class="relative">
+            <div
+              role="img"
+              aria-label={t(lang, 'download.app_badge_alt')}
+              class="h-14 md:h-16 min-w-[188px] px-4 rounded-lg bg-black border border-white/25 text-white flex items-center gap-3 opacity-65 grayscale"
+            >
+              <svg aria-hidden="true" class="w-8 h-8 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.1 12.6c0-2.8 2.3-4.2 2.4-4.3-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.4 1-4.3 1-.9 0-2.2-1-3.7-1-1.9 0-3.7 1.1-4.7 2.8-2 3.5-.5 8.7 1.4 11.5.9 1.4 2.1 2.9 3.6 2.8 1.4-.1 2-1 3.7-1s2.2 1 3.7 1c1.5 0 2.5-1.4 3.5-2.8 1.1-1.6 1.6-3.2 1.6-3.3-.1 0-3.1-1.2-3.1-4.5ZM14.3 4.3c.8-1 1.3-2.3 1.2-3.6-1.2.1-2.6.8-3.5 1.8-.7.8-1.4 2.2-1.2 3.4 1.3.1 2.7-.6 3.5-1.6Z"/>
+              </svg>
+              <span class="text-left leading-none">
+                <span class="block text-[10px] uppercase tracking-wide">{t(lang, 'download.app_badge_eyebrow')}</span>
+                <span class="block mt-1 text-xl font-semibold">{t(lang, 'download.app_badge_title')}</span>
+              </span>
+            </div>
+            <span class="absolute -top-2 -right-3 rotate-3 px-2.5 py-1 rounded-full bg-brand-gold text-brand-ink-deep text-[10px] font-bold shadow">
+              {t(lang, 'download.coming_soon')}
+            </span>
+          </div>
+          <div class="relative">
+            <img
+              src="/images/google-play-badge.svg"
+              alt={t(lang, 'download.play_badge_alt')}
+              class="h-14 md:h-16 opacity-60 grayscale"
+            />
+            <span class="absolute -top-2 -right-3 rotate-3 px-2.5 py-1 rounded-full bg-brand-gold text-brand-ink-deep text-[10px] font-bold shadow">
+              {t(lang, 'download.coming_soon')}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   </div>
 </section>

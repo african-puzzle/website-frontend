@@ -54,7 +54,9 @@
   },
   "cta": {
     "title": "E dey come soon for your phone",
+    "title_live": "E don land for your phone",
     "subtitle": "African Puzzle WORKS go land dis autumn. You get question or you wan partner? Write us.",
+    "subtitle_live": "African Puzzle WORKS don dey for Google Play. You get question or you wan partner? Write us.",
     "button": "Contact us"
   },
   "about": {
@@ -99,8 +101,10 @@
   },
   "download": {
     "banner_title": "African Puzzle WORKS, di artisan assistant. E dey come dis autumn 2026.",
+    "banner_title_live": "African Puzzle WORKS, di artisan assistant. E dey available for Google Play.",
     "coming_soon": "E dey come soon",
     "play_badge_alt": "E dey come soon for Google Play",
+    "play_badge_live_alt": "Download am for Google Play",
     "app_badge_alt": "E dey come soon for App Store",
     "app_badge_eyebrow": "E dey come soon for",
     "app_badge_title": "App Store"

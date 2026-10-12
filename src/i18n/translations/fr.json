@@ -54,7 +54,9 @@
   },
   "cta": {
     "title": "Bientôt sur vos téléphones",
+    "title_live": "Disponible sur vos téléphones",
     "subtitle": "African Puzzle WORKS arrive cet automne. Une question, un partenariat ? Écrivez-nous.",
+    "subtitle_live": "African Puzzle WORKS est disponible sur Google Play. Une question, un partenariat ? Écrivez-nous.",
     "button": "Nous contacter"
   },
   "about": {
@@ -96,8 +98,10 @@
   },
   "download": {
     "banner_title": "African Puzzle WORKS, l'assistant des artisans. Disponible cet automne 2026.",
+    "banner_title_live": "African Puzzle WORKS, l'assistant des artisans. Disponible sur Google Play.",
     "coming_soon": "Bientôt disponible",
     "play_badge_alt": "Bientôt sur Google Play",
+    "play_badge_live_alt": "Disponible sur Google Play",
     "app_badge_alt": "Bientôt sur l'App Store",
     "app_badge_eyebrow": "Bientôt sur",
     "app_badge_title": "l'App Store"

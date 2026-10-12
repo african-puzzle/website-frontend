@@ -30,9 +30,11 @@ const SLIDE_SECONDS = 4.5;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
     <!-- Left: message + actions -->
     <div class="lg:w-3/5">
-      <p class="inline-block px-4 py-1.5 rounded-full bg-brand-gold text-brand-ink-deep text-sm font-bold">
-        {t(lang, 'hero.launch_badge')}
-      </p>
+      {!site.launched && (
+        <p class="inline-block px-4 py-1.5 rounded-full bg-brand-gold text-brand-ink-deep text-sm font-bold">
+          {t(lang, 'hero.launch_badge')}
+        </p>
+      )}
       <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-white leading-tight">
         {t(lang, 'hero.title')}
       </h1>
@@ -48,9 +50,9 @@ const SLIDE_SECONDS = 4.5;
         </a>
         {site.launched ? (
           <div class="flex flex-col sm:flex-row items-center gap-3">
-            <span class="text-white font-semibold">{t(lang, 'hero.cta_download')}</span>
+            <span aria-hidden="true" class="text-white font-semibold">{t(lang, 'hero.cta_download')}</span>
             <a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer">
-              <img src="/images/google-play-badge.svg" alt={t(lang, 'hero.cta_download')} class="h-14" />
+              <img src="/images/google-play-badge.svg" alt={t(lang, 'download.play_badge_live_alt')} width="135" height="40" class="h-14 w-auto" />
             </a>
           </div>
         ) : (
