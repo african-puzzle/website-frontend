@@ -24,7 +24,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: exit 1  # TEMP forced failure for branch test of #47
       - run: npm run check
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
