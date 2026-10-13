@@ -61,7 +61,10 @@ const contact = defineCollection({
 });
 
 const instagram = defineCollection({
-  loader: file('src/content/settings/instagram.json'),
+  // The CMS saves `{ "posts": [...] }`; accept the bare array too.
+  loader: file('src/content/settings/instagram.json', {
+    parser: (text) => { const d = JSON.parse(text); return Array.isArray(d) ? d : d.posts; },
+  }),
   schema: z.object({
     image: z.string(),
     link: z.string(),
