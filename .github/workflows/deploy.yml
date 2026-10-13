@@ -55,11 +55,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          REF: ${{ github.ref }}
           SHA: ${{ github.sha }}
           ACTOR: ${{ github.actor }}
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          if [ "$REF" != "refs/heads/main" ]; then
+            echo "Build failed on \`$REF\`; no issue opened, the alarm covers \`main\` only." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           open=$(gh issue list --state open --limit 200 --json number,title \
             --jq '[.[] | select(.title | startswith("Deploy failed:"))][0].number // empty')
           if [ -n "$open" ]; then
@@ -88,4 +93,4 @@ jobs:
           \`\`\`
 
           Fix the content on \`main\`, push, check that the deploy goes green, then close this issue."
-          gh issue create --title "Deploy failed: $SHA" --label bug --body "$body"
+          gh issue create --title "Deploy failed: ${SHA:0:7}" --label bug --body "$body"
