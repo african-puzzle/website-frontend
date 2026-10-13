@@ -30,6 +30,7 @@ const features = defineCollection({
     titleKey: z.string(),
     descKey: z.string(),
     screen: z.string(),
+    screenEn: z.string().optional(),
     cardBg: z.string(),
     order: z.number(),
   }),

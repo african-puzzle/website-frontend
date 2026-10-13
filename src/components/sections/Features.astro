@@ -24,7 +24,9 @@ const features = featureEntries
   .map(entry => ({
     title: t(lang, entry.data.titleKey as TranslationKey),
     desc: t(lang, entry.data.descKey as TranslationKey),
-    screen: lang === 'en' ? (englishScreens[entry.data.screen] ?? entry.data.screen) : entry.data.screen,
+    screen: lang === 'en'
+      ? (entry.data.screenEn ?? englishScreens[entry.data.screen] ?? entry.data.screen)
+      : entry.data.screen,
     cardBg: entry.data.cardBg,
   }));
 ---
