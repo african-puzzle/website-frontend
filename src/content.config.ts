@@ -17,7 +17,8 @@ const media = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().default(''),
-    date: z.string(),
+    // Pages CMS writes the date unquoted; YAML then reads it as a Date.
+    date: z.union([z.string(), z.date().transform((d) => d.toISOString().slice(0, 10))]),
     category: z.enum(['radio', 'press-release', 'articles', 'videos', 'social']),
     image: z.string(),
     link: z.string(),
