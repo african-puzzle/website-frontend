@@ -9,13 +9,11 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const englishScreens: Record<string, string> = {
-  '/images/app/programmes-tab.webp': '/images/app/en/programmes-tab.webp',
-  '/images/app/contacts-tab.webp': '/images/app/en/contacts-tab.webp',
-  '/images/app/measurements.webp': '/images/app/en/measurements.webp',
-  '/images/app/albums-tab.webp': '/images/app/en/albums-tab.webp',
-  '/images/app/rendez-vous-tab.webp': '/images/app/en/rendez-vous-tab.webp',
-  '/images/app/collaborators.webp': '/images/app/en/collaborators.webp',
+// The six bundled screenshots have a copy per locale in /images/app/<lang>/ (fr is the default folder).
+const bundledScreens = new Set(['programmes-tab', 'contacts-tab', 'measurements', 'albums-tab', 'rendez-vous-tab', 'collaborators']);
+const localScreen = (screen: string) => {
+  const name = screen.match(/^\/images\/app\/([^/]+)\.webp$/)?.[1];
+  return lang !== 'fr' && name && bundledScreens.has(name) ? `/images/app/${lang}/${name}.webp` : screen;
 };
 
 const featureEntries = await getCollection('features');
@@ -25,8 +23,8 @@ const features = featureEntries
     title: t(lang, entry.data.titleKey as TranslationKey),
     desc: t(lang, entry.data.descKey as TranslationKey),
     screen: lang === 'en'
-      ? (entry.data.screenEn ?? englishScreens[entry.data.screen] ?? entry.data.screen)
-      : entry.data.screen,
+      ? (entry.data.screenEn ?? localScreen(entry.data.screen))
+      : localScreen(entry.data.screen),
     cardBg: entry.data.cardBg,
   }));
 ---

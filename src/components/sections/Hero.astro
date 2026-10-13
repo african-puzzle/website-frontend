@@ -9,7 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const contactPath = `/${lang}/contact/`;
-const dir = lang === 'en' ? '/images/app/en' : '/images/app';
+const dir = lang === 'fr' ? '/images/app' : `/images/app/${lang}`;
 
 // Placeholder slides, one per profession; swap in the CEO's screens later.
 // The keyframes below assume 5 slides; update their percentages if the count changes.
