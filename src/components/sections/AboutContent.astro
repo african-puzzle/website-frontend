@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const phoneScreen = lang === 'en' ? '/images/app/en/programmes-tab.webp' : '/images/app/programmes-tab.webp';
+const phoneScreen = lang === 'fr' ? '/images/app/programmes-tab.webp' : `/images/app/${lang}/programmes-tab.webp`;
 
 const teamEntries = await getCollection('team');
 const team = teamEntries
