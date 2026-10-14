@@ -1,0 +1,677 @@
+# Pages CMS config (https://pagescms.org/docs/configuration/). A save is a commit
+# to the branch the editor selects: a save on main deploys production.
+# Field names must equal the JSON and frontmatter keys exactly.
+# Sveltia (african-puzzle/website-cms config.yml) edits the same files: change both.
+
+# merge: a save deep-merges the form into the existing file, so keys this
+# config does not list stay. Never remove it: without it, one save deletes them.
+settings:
+  content:
+    merge: true
+
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+
+# Translation sections. Each is used three times below (fr, en, pcm).
+components:
+  hero:
+    label: "Top of the page"
+    type: object
+    fields:
+      - { name: launch_badge, label: "Small yellow badge above the headline", type: string }
+      - { name: title, label: "Headline", type: text }
+      - { name: subtitle, label: "Text under the headline", type: text }
+      - { name: cta_how, label: "Button: how it works", type: string }
+      - { name: cta_notify, label: "Button: contact us (before launch)", type: string }
+      - { name: cta_download, label: "Button: download (after launch)", type: string }
+  proof:
+    label: "Three points under the top of the page"
+    type: object
+    fields:
+      - { name: audio_title, label: "Point 1: title", type: string }
+      - { name: audio_body, label: "Point 1: text", type: text }
+      - { name: pricing_title, label: "Point 2: title", type: string }
+      - { name: pricing_body, label: "Point 2: text", type: text }
+      - { name: audience_title, label: "Point 3: title", type: string }
+      - { name: audience_body, label: "Point 3: text", type: text }
+  audio_first:
+    label: "Audio section (purple, with the sound bars)"
+    type: object
+    fields:
+      - { name: title, label: "Headline", type: string }
+      - { name: body, label: "Text under the headline", type: text }
+      - { name: hint, label: "Small text at the bottom", type: string }
+  features:
+    label: "Features section"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the section (not shown on the site)", type: string }
+      - { name: title, label: "Section headline", type: string }
+      - { name: subtitle, label: "Text under the section headline", type: text }
+      - { name: programmes_title, label: "Card Programmes: title", type: string }
+      - { name: programmes_desc, label: "Card Programmes: text", type: text }
+      - { name: contacts_title, label: "Card Contacts: title", type: string }
+      - { name: contacts_desc, label: "Card Contacts: text", type: text }
+      - { name: measurements_title, label: "Card Measurements: title", type: string }
+      - { name: measurements_desc, label: "Card Measurements: text", type: text }
+      - { name: albums_title, label: "Card Albums: title", type: string }
+      - { name: albums_desc, label: "Card Albums: text", type: text }
+      - { name: appointments_title, label: "Card Appointments: title", type: string }
+      - { name: appointments_desc, label: "Card Appointments: text", type: text }
+      - { name: collab_title, label: "Card Sharing: title", type: string }
+      - { name: collab_desc, label: "Card Sharing: text", type: text }
+  benefits:
+    label: "Benefits: three points after the feature cards"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the section (not shown on the site)", type: string }
+      - { name: title, label: "Section headline (not shown on the site)", type: string }
+      - { name: efficient_title, label: "Point 1: title", type: string }
+      - { name: efficient_desc, label: "Point 1: text", type: text }
+      - { name: time_title, label: "Point 2: title", type: string }
+      - { name: time_desc, label: "Point 2: text", type: text }
+      - { name: happy_title, label: "Point 3: title", type: string }
+      - { name: happy_desc, label: "Point 3: text", type: text }
+  pricing:
+    label: "Pricing section"
+    type: object
+    fields:
+      - { name: title, label: "Headline", type: string }
+      - { name: body, label: "Text under the headline", type: text }
+  cta:
+    label: "Contact box after the pricing section"
+    type: object
+    fields:
+      - { name: title, label: "Headline (before launch)", type: string }
+      - { name: subtitle, label: "Text under the headline (before launch)", type: text }
+      - { name: title_live, label: "Headline (after launch)", type: string }
+      - { name: subtitle_live, label: "Text under the headline (after launch)", type: text }
+      - { name: button, label: "Button: contact us", type: string }
+  reach:
+    label: "Countries section"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the section (not shown on the site)", type: string }
+      - { name: title, label: "Headline", type: string }
+      - { name: subtitle, label: "Text under the headline", type: string }
+      - name: more_countries
+        label: "Link that opens the full country list"
+        description: "Keep {count}: the site replaces it with the number of countries."
+        type: string
+  partners:
+    label: "Partners section"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the section (not shown on the site)", type: string }
+      - { name: title, label: "Headline", type: string }
+      - { name: body, label: "Text under the headline", type: text }
+      - { name: cta, label: "Button: let's talk", type: string }
+      - { name: team_link, label: "Link: meet the team", type: string }
+  download:
+    label: "Download banner at the bottom of the page"
+    type: object
+    fields:
+      - { name: banner_title, label: "Banner text (before launch)", type: text }
+      - { name: banner_title_live, label: "Banner text (after launch)", type: text }
+      - { name: coming_soon, label: "\"Coming soon\" text under the store badges (before launch)", type: string }
+      - { name: play_badge_alt, label: "Google Play badge: description for screen readers (before launch)", type: string }
+      - { name: play_badge_live_alt, label: "Google Play badge: description for screen readers (after launch, also the top download button)", type: string }
+      - { name: app_badge_alt, label: "App Store badge: description for screen readers", type: string }
+      - { name: app_badge_eyebrow, label: "App Store badge: small text", type: string }
+      - { name: app_badge_title, label: "App Store badge: large text", type: string }
+  about:
+    label: "About page"
+    type: object
+    fields:
+      - { name: title, label: "Headline over the large image", type: string }
+      - { name: innovation, label: "Text under the headline", type: text }
+      - name: creative_statement
+        label: "Bold statement under the text"
+        description: "Keep the <strong> and </strong> tags: they make the text bold."
+        type: text
+      - { name: label, label: "Small label above the team", type: string }
+      - { name: team_title, label: "Team headline", type: string }
+      - { name: mission, label: "Text under the team headline (also in the footer of every page)", type: text }
+      - { name: subtitle, label: "Subtitle (not shown on the site)", type: string }
+  contact:
+    label: "Contact page"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the headline", type: string }
+      - { name: title, label: "Headline", type: string }
+      - { name: subtitle, label: "Text under the headline", type: text }
+      - { name: address_company, label: "Address card: company name", type: string }
+      - { name: address_street, label: "Address card: street", type: string }
+      - { name: address_city, label: "Address card: city", type: string }
+      - { name: social_label, label: "Social networks heading (also in the footer of every page)", type: string }
+      - { name: address_label, label: "Address heading (not shown on the site)", type: string }
+      - { name: email_label, label: "Email heading (not shown on the site)", type: string }
+  media:
+    label: "Media page"
+    type: object
+    fields:
+      - { name: label, label: "Small label above the headline", type: string }
+      - { name: title, label: "Headline", type: string }
+      - { name: subtitle, label: "Text under the headline", type: text }
+      - { name: filter_all, label: "Filter button: all", type: string }
+      - { name: filter_radio, label: "Filter button and tag: radio and podcasts", type: string }
+      - { name: filter_press_release, label: "Filter button and tag: press releases", type: string }
+      - { name: filter_articles, label: "Filter button and tag: articles", type: string }
+      - { name: filter_videos, label: "Filter button and tag: videos", type: string }
+      - { name: filter_social, label: "Filter button and tag: social mentions", type: string }
+      - { name: load_more, label: "Button at the bottom: show more", type: string }
+      - { name: press_article, label: "Press article (not shown on the site)", type: string }
+  privacy:
+    label: "Privacy page"
+    type: object
+    fields:
+      - { name: title, label: "Small label above the headline", type: string }
+      - { name: effective, label: "Date line under the headline", type: string }
+  nav:
+    label: "Menu at the top of every page"
+    type: object
+    fields:
+      - { name: features, label: "Link: features", type: string }
+      - { name: about, label: "Link: about us (also in the footer)", type: string }
+      - { name: contact, label: "Link: contact (also in the footer)", type: string }
+      - { name: media, label: "Link: media (also in the footer)", type: string }
+      - { name: notify, label: "Button: contact us", type: string }
+      - { name: language, label: "Language heading in the phone menu", type: string }
+      - { name: home, label: "Link: home (not shown on the site)", type: string }
+      - { name: download, label: "Link: download (not shown on the site)", type: string }
+  footer:
+    label: "Footer at the bottom of every page"
+    type: object
+    fields:
+      - { name: links_label, label: "Links heading", type: string }
+      - { name: privacy, label: "Link: privacy policy", type: string }
+      - { name: rights, label: "Copyright line: \"All rights reserved\"", type: string }
+      - { name: made_with, label: "\"Made with\" (not shown on the site)", type: string }
+      - { name: in, label: "\"in Paris\" (not shown on the site)", type: string }
+  theme:
+    label: "Light and dark mode switch (read by screen readers)"
+    type: object
+    fields:
+      - { name: label, label: "Switch name", type: string }
+      - { name: light, label: "Light button", type: string }
+      - { name: system, label: "System button", type: string }
+      - { name: dark, label: "Dark button", type: string }
+  error:
+    label: "Page not found (404)"
+    type: object
+    fields:
+      - { name: not_found, label: "Headline (also the browser tab title)", type: string }
+      - { name: not_found_description, label: "Text under the headline", type: text }
+      - { name: back_home, label: "Button: back to the homepage", type: string }
+  instagram:
+    label: "Instagram photos (contact page)"
+    type: object
+    fields:
+      - { name: alt, label: "Photo description for screen readers", type: string }
+
+content:
+  - name: homepage
+    label: Homepage
+    type: group
+    items:
+      - name: homepage-fr
+        label: Homepage text (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: hero, component: hero }
+          - { name: proof, component: proof }
+          - { name: audio_first, component: audio_first }
+          - { name: features, component: features }
+          - { name: benefits, component: benefits }
+          - { name: pricing, component: pricing }
+          - { name: cta, component: cta }
+          - { name: reach, component: reach }
+          - { name: partners, component: partners }
+          - { name: download, component: download }
+      - name: homepage-en
+        label: Homepage text (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: hero, component: hero }
+          - { name: proof, component: proof }
+          - { name: audio_first, component: audio_first }
+          - { name: features, component: features }
+          - { name: benefits, component: benefits }
+          - { name: pricing, component: pricing }
+          - { name: cta, component: cta }
+          - { name: reach, component: reach }
+          - { name: partners, component: partners }
+          - { name: download, component: download }
+      - name: homepage-pcm
+        label: Homepage text (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: hero, component: hero }
+          - { name: proof, component: proof }
+          - { name: audio_first, component: audio_first }
+          - { name: features, component: features }
+          - { name: benefits, component: benefits }
+          - { name: pricing, component: pricing }
+          - { name: cta, component: cta }
+          - { name: reach, component: reach }
+          - { name: partners, component: partners }
+          - { name: download, component: download }
+  - name: about-page
+    label: About page
+    type: group
+    items:
+      - name: about-page-fr
+        label: About page text (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: about, component: about }
+      - name: about-page-en
+        label: About page text (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: about, component: about }
+      - name: about-page-pcm
+        label: About page text (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: about, component: about }
+  - name: contact-page
+    label: Contact page
+    type: group
+    items:
+      - name: contact-page-fr
+        label: Contact page text (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: contact, component: contact }
+      - name: contact-page-en
+        label: Contact page text (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: contact, component: contact }
+      - name: contact-page-pcm
+        label: Contact page text (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: contact, component: contact }
+  - name: media-page
+    label: Media page
+    type: group
+    items:
+      - name: media-page-fr
+        label: Media page text (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: media, component: media }
+      - name: media-page-en
+        label: Media page text (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: media, component: media }
+      - name: media-page-pcm
+        label: Media page text (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: media, component: media }
+  - name: privacy-page
+    label: Privacy page
+    type: group
+    items:
+      - name: privacy-page-fr
+        label: Privacy page text (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: privacy, component: privacy }
+      - name: privacy-page-en
+        label: Privacy page text (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: privacy, component: privacy }
+      - name: privacy-page-pcm
+        label: Privacy page text (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: privacy, component: privacy }
+  - name: whole-site
+    label: Whole site
+    type: group
+    items:
+      - name: whole-site-fr
+        label: Menu, footer and other text on every page (French)
+        type: file
+        path: src/i18n/translations/fr.json
+        format: json
+        fields:
+          - { name: site_name, label: "Site name (not shown on the site)", type: string }
+          - { name: site_tagline, label: "Site tagline (not shown on the site)", type: string }
+          - { name: nav, component: nav }
+          - { name: footer, component: footer }
+          - { name: theme, component: theme }
+          - { name: error, component: error }
+          - { name: instagram, component: instagram }
+      - name: whole-site-en
+        label: Menu, footer and other text on every page (English)
+        type: file
+        path: src/i18n/translations/en.json
+        format: json
+        fields:
+          - { name: site_name, label: "Site name (not shown on the site)", type: string }
+          - { name: site_tagline, label: "Site tagline (not shown on the site)", type: string }
+          - { name: nav, component: nav }
+          - { name: footer, component: footer }
+          - { name: theme, component: theme }
+          - { name: error, component: error }
+          - { name: instagram, component: instagram }
+      - name: whole-site-pcm
+        label: Menu, footer and other text on every page (Pidgin)
+        type: file
+        path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: site_name, label: "Site name (not shown on the site)", type: string }
+          - { name: site_tagline, label: "Site tagline (not shown on the site)", type: string }
+          - { name: nav, component: nav }
+          - { name: footer, component: footer }
+          - { name: theme, component: theme }
+          - { name: error, component: error }
+          - { name: instagram, component: instagram }
+  - name: site-content
+    label: Site content
+    type: group
+    items:
+      - name: team
+        label: Team members
+        type: collection
+        path: src/content/team
+        format: yaml-frontmatter
+        view:
+          fields: [name, order]
+          primary: name
+          sort: [order, name]
+          default: { sort: order, order: asc }
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - name: role
+            label: Role
+            type: object
+            fields:
+              - { name: fr, label: French, type: string }
+              - { name: en, label: English, type: string }
+              - { name: pcm, label: Pidgin, type: string }
+          - name: linkedin
+            label: LinkedIn URL
+            description: "Full LinkedIn profile URL, for example https://linkedin.com/in/username. Can stay empty."
+            type: string
+            pattern:
+              regex: '^(https?://(www\.)?linkedin\.com/.*)?$'
+              message: Must be a LinkedIn URL or empty
+          - name: photo
+            label: Photo
+            type: image
+            options: { path: public/images/team }
+          - name: order
+            label: Display order
+            description: Lower numbers appear first on the page.
+            type: number
+            required: true
+
+      - name: media-coverage
+        label: Media coverage
+        type: collection
+        path: src/content/media
+        format: yaml-frontmatter
+        view:
+          fields: [title, category, date]
+          primary: title
+          sort: [date, title]
+          default: { sort: date, order: desc }
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: description, label: Description, type: text }
+          - name: date
+            label: Date
+            type: date
+            required: true
+            options: { format: yyyy-MM-dd }
+          - name: category
+            label: Category
+            type: select
+            required: true
+            options:
+              values:
+                - { value: radio, label: Radio & Podcasts }
+                - { value: press-release, label: Press Release }
+                - { value: articles, label: Articles }
+                - { value: videos, label: Videos }
+                - { value: social, label: Social Mention }
+          - name: image
+            label: Image
+            type: image
+            required: true
+            options: { path: public/images/media }
+          - name: link
+            label: Link
+            description: URL of the original article, video or media source.
+            type: string
+            required: true
+
+      - name: feature-cards
+        label: Feature cards (screenshots and order)
+        type: collection
+        path: src/content/features
+        format: yaml-frontmatter
+        view:
+          fields: [titleKey, order]
+          primary: titleKey
+          sort: [order]
+          default: { sort: order, order: asc }
+        fields:
+          - name: titleKey
+            label: Title (text key)
+            description: "Key of the card title in the homepage text, for example features.programmes_title."
+            type: string
+            required: true
+          - name: descKey
+            label: Description (text key)
+            description: "Key of the card text in the homepage text, for example features.programmes_desc."
+            type: string
+            required: true
+          - name: screen
+            label: Screenshot (French, default)
+            description: "Phone screenshot in the card (WebP). Used for fr and pcm, and for en when no English screenshot is set."
+            type: image
+            required: true
+            options: { path: public/images/app }
+          - name: screenEn
+            label: Screenshot (English, optional)
+            description: Leave empty to use the French screenshot.
+            type: image
+            options: { path: public/images/app/en }
+          - name: cardBg
+            label: Card background colour
+            type: select
+            required: true
+            options:
+              values:
+                - { value: bg-feature-programmes, label: Programmes }
+                - { value: bg-feature-contacts, label: Contacts }
+                - { value: bg-feature-measurements, label: Measurements }
+                - { value: bg-feature-album, label: Album }
+                - { value: bg-feature-appointments, label: Appointments }
+                - { value: bg-feature-collab, label: Collaborators }
+          - { name: order, label: Display order, type: number, required: true }
+
+      - name: privacy-policy
+        label: Privacy policy
+        type: collection
+        path: src/content/privacy
+        format: yaml-frontmatter
+        view:
+          fields: [title, locale]
+          primary: title
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: effectiveDate, label: Effective date, type: string, required: true }
+          - name: locale
+            label: Language
+            type: select
+            required: true
+            options:
+              values:
+                - { value: fr, label: French }
+                - { value: en, label: English }
+                - { value: pcm, label: Pidgin }
+          - name: body
+            label: Content
+            type: rich-text
+            options: { format: html }
+
+      - name: countries
+        label: Countries
+        type: file
+        path: src/content/countries/countries.json
+        format: json
+        fields:
+          - name: countries
+            label: Countries
+            type: object
+            list: true
+            fields:
+              - { name: id, label: ID, type: string, required: true }
+              - { name: emoji, label: Emoji flag, type: string, required: true }
+              - name: fr
+                label: French name
+                description: "The homepage highlights 8 countries by their French name. Renaming one of them removes the highlight."
+                type: string
+                required: true
+              - { name: en, label: English name, type: string, required: true }
+              - { name: pcm, label: Pidgin name, type: string, required: true }
+
+      - name: site-settings
+        label: Site settings
+        type: file
+        path: src/content/settings/site.json
+        format: json
+        fields:
+          - name: playStoreUrl
+            label: Play Store URL
+            type: string
+            required: true
+            pattern:
+              regex: '^https://play\.google\.com/store/apps/details\?id=.*$'
+              message: Must be a Google Play Store URL
+          - name: youtubeVideoId
+            label: YouTube video ID
+            description: "The 11-character ID from the YouTube URL, for example dQw4w9WgXcQ."
+            type: string
+            required: true
+          - name: launched
+            label: App launched
+            description: "On: the homepage shows the Google Play badge instead of \"Contact us\"."
+            type: boolean
+            default: false
+          - { name: instagramHandle, label: Instagram handle, type: string, required: true }
+          - { name: instagramUrl, label: Instagram URL, type: string, required: true }
+
+      - name: instagram-feed
+        label: Instagram feed (contact page)
+        type: file
+        path: src/content/settings/instagram.json
+        format: json
+        list: true
+        fields:
+          - { name: id, label: ID, type: string, required: true }
+          - name: image
+            label: Image
+            type: image
+            required: true
+            options: { path: public/images/instagram }
+          - { name: link, label: Instagram link, type: string, required: true }
+          - { name: order, label: Display order, type: number, required: true }
+
+      - name: about-page-image
+        label: About page image
+        type: file
+        path: src/content/settings/about-page.json
+        format: json
+        fields:
+          - name: heroImage
+            label: Hero image
+            description: The large background image at the top of the About page.
+            type: image
+            required: true
+
+      - name: contact-methods
+        label: Contact methods
+        type: file
+        path: src/content/contact/contact.json
+        format: json
+        fields:
+          - name: contact_methods
+            label: Contact methods
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Label, type: string, required: true }
+              - name: icon
+                label: Icon
+                type: select
+                required: true
+                options:
+                  values:
+                    - { value: whatsapp, label: WhatsApp }
+                    - { value: facebook, label: Facebook }
+                    - { value: instagram, label: Instagram }
+                    - { value: telegram, label: Telegram }
+                    - { value: twitter, label: Twitter }
+                    - { value: linkedin, label: LinkedIn }
+                    - { value: youtube, label: YouTube }
+                    - { value: email, label: Email }
+                    - { value: phone, label: Phone }
+                    - { value: address, label: Address }
+                    - { value: website, label: Website }
+              - name: value
+                label: Value
+                description: Phone number, handle, URL or address.
+                type: text
+                required: true
+              - name: url
+                label: Link URL
+                description: "Optional clickable link (tel:, mailto: or https://)."
+                type: string
+              - { name: order, label: Display order, type: number, required: true }
+              - { name: showInFooter, label: Show in footer, type: boolean, default: false }
+              - { name: showInContact, label: Show on contact page, type: boolean, default: false }
