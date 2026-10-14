@@ -1,7 +1,6 @@
 # Pages CMS config (https://pagescms.org/docs/configuration/). A save is a commit
 # to the branch the editor selects: a save on main deploys production.
 # Field names must equal the JSON and frontmatter keys exactly.
-# Sveltia (african-puzzle/website-cms config.yml) edits the same files: change both.
 
 # merge: a save deep-merges the form into the existing file, so keys this
 # config does not list stay. Never remove it: without it, one save deletes them.
