@@ -1,43 +1,25 @@
-# Astro Starter Kit: Minimal
+# African Puzzle website
+
+Marketing site for African Puzzle WORKS, a mobile app that helps artisans run their craft business, even if they do not read or write. The site is in French (default), English and Pidgin.
+
+It is static Astro and Tailwind. See `PRODUCT.md` for the audience and `DESIGN.md` for the visual system.
+
+## Run it locally
+
+Use Node 22.12 or later.
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci            # install the exact versions in package-lock.json
+npm run dev       # dev server at http://localhost:4321
+npm run build     # build the site into dist/
+npm run preview   # serve the built dist/ locally
+npm run check     # typecheck, lint and i18n key check
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Deploy
 
-## 🚀 Project Structure
+A merge to `main` deploys to production at africanpuzzle.com. `.github/workflows/deploy.yml` runs `npm ci`, `npm run check` and `npm run build` on Node 22, then publishes `dist/` to GitHub Pages. If the build fails on `main`, the workflow opens a `Deploy failed:` issue.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Edit content
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Editors use Pages CMS (pagescms.org). Its config is `.pages.yml` in this repo, and it covers `src/content/` and `src/i18n/translations/`. A CMS save is a commit, so a save on `main` deploys production. If you rename a file, folder, field or translation key that the CMS edits, change `.pages.yml` in the same PR.
