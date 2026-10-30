@@ -26,7 +26,8 @@ const team = teamEntries
       class="absolute inset-0 w-full h-full object-cover"
     />
     <div class="absolute inset-0 flex items-center">
-      <div class="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16">
+      {/* Logo stays on the left of the photo in Arabic too (the subject sits on the right). */}
+      <div class="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16" dir={lang === 'ar' ? 'ltr' : undefined}>
         <img
           src="/images/logo-white-full.svg"
           alt="African Puzzle — Find Africa everywhere"

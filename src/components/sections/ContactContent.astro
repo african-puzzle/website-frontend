@@ -43,7 +43,7 @@ const email = methods.find((m) => m.icon === 'email')?.value ?? '';
                 </svg>
               </span>
               <h2 class="font-bold text-lg mt-5" style="color: var(--theme-text-contact);">{channel.name}</h2>
-              <p class="mt-1 text-sm underline group-hover:no-underline" style="color: var(--theme-text-primary);">{channel.value}</p>
+              <p class="mt-1 text-sm underline group-hover:no-underline" style="color: var(--theme-text-primary);"><bdi>{channel.value}</bdi></p>
             </a>
           ))}
 
@@ -55,10 +55,10 @@ const email = methods.find((m) => m.icon === 'email')?.value ?? '';
             </span>
             <h2 class="font-bold text-lg mt-5" style="color: var(--theme-text-contact);">{t(lang, 'contact.address_company')}</h2>
             <p class="mt-1 text-sm leading-relaxed" style="color: var(--theme-text-primary);">
-              {t(lang, 'contact.address_street')}<br />{t(lang, 'contact.address_city')}
+              <bdi>{t(lang, 'contact.address_street')}</bdi><br /><bdi>{t(lang, 'contact.address_city')}</bdi>
             </p>
             <a href={`mailto:${email}`} class="inline-block mt-3 text-sm font-semibold underline hover:no-underline" style="color: var(--theme-text-contact);">
-              {email}
+              <bdi>{email}</bdi>
             </a>
           </div>
     </div>
