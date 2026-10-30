@@ -21,6 +21,8 @@ const localeFlags: Record<Locale, string> = {
   fr: '\u{1F1EB}\u{1F1F7}',
   en: '\u{1F1EC}\u{1F1E7}',
   pcm: '\u{1F1E8}\u{1F1F2}',
+  hi: '\u{1F1EE}\u{1F1F3}',
+  ar: '\u{1F1F8}\u{1F1E6}',
 };
 ---
 
@@ -58,7 +60,7 @@ const localeFlags: Record<Locale, string> = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="lang-dropdown" class="absolute right-0 top-full mt-2 w-36 rounded-xl shadow-lg border opacity-0 invisible transition-all duration-200 py-2" style="background-color: var(--theme-bg-card); border-color: var(--theme-border-navbar);">
+          <div id="lang-dropdown" class="absolute end-0 top-full mt-2 w-36 rounded-xl shadow-lg border opacity-0 invisible transition-all duration-200 py-2" style="background-color: var(--theme-bg-card); border-color: var(--theme-border-navbar);">
             {locales.map((loc) => (
               <a
                 href={getEquivalentPath(currentPath, loc)}

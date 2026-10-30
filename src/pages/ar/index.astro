@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import ProofStrip from '../../components/sections/ProofStrip.astro';
+import AudioFirst from '../../components/sections/AudioFirst.astro';
+import Features from '../../components/sections/Features.astro';
+import Benefits from '../../components/sections/Benefits.astro';
+import Pricing from '../../components/sections/Pricing.astro';
+import Reach from '../../components/sections/Reach.astro';
+import Partners from '../../components/sections/Partners.astro';
+import CTA from '../../components/sections/CTA.astro';
+import DownloadBanner from '../../components/sections/DownloadBanner.astro';
+
+const lang = 'ar';
+---
+
+<Layout
+  title="الرئيسية"
+  description="African Puzzle WORKS: تطبيق ينظّم عمل الحِرفيين والخياطين والمبدعين وأصحاب الأعمال: العملاء والقياسات والمواعيد والمدفوعات."
+  lang={lang}
+>
+  <Hero lang={lang} />
+  <ProofStrip lang={lang} />
+  <AudioFirst lang={lang} />
+  <Features lang={lang} />
+  <Benefits lang={lang} />
+  <Pricing lang={lang} />
+  <CTA lang={lang} />
+  <Reach lang={lang} />
+  <Partners lang={lang} />
+  <DownloadBanner lang={lang} />
+</Layout>

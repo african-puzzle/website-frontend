@@ -4,6 +4,8 @@ role:
   fr: ""
   en: ""
   pcm: ""
+  hi: ""
+  ar: ""
 linkedin: "https://www.linkedin.com/in/david-juillard-8666839/"
 photo: "/images/team/david-juillard.png"
 order: 8

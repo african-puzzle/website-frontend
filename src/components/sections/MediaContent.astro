@@ -32,7 +32,7 @@ const categoryLabels: Record<string, string> = {
 
 function formatDate(dateStr: string, locale: string): string {
   const date = new Date(dateStr + 'T00:00:00');
-  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', pcm: 'en-US' };
+  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', pcm: 'en-US', hi: 'hi-IN', ar: 'ar-u-nu-latn' };
   return date.toLocaleDateString(localeMap[locale] || 'fr-FR', {
     year: 'numeric',
     month: 'long',

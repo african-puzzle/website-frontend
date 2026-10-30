@@ -7,7 +7,7 @@ Run in order and report pass/fail per step. Stop at the first failing step and s
 
 1. `npm run check` (typecheck, lint, i18n parity).
 2. `npm run build`.
-3. Route coverage: for each locale in `localePaths` (`src/i18n/utils.ts`: fr, en, pcm) and each route key listed there (read the file; do not assume the list), confirm `dist<path>/index.html` exists. List any missing path.
+3. Route coverage: for each locale in `localePaths` (`src/i18n/utils.ts`: fr, en, pcm, hi, ar) and each route key listed there (read the file; do not assume the list), confirm `dist<path>/index.html` exists. List any missing path.
 
 Report:
 
