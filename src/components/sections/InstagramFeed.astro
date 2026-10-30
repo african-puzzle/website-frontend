@@ -24,7 +24,7 @@ const instaPosts = (await getCollection('instagram')).sort((a, b) => a.data.orde
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d={socialIcons.Instagram} />
         </svg>
-        <span class="text-lg font-semibold">{site.instagramHandle}</span>
+        <span class="text-lg font-semibold"><bdi>{site.instagramHandle}</bdi></span>
       </a>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">

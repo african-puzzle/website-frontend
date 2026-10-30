@@ -53,7 +53,7 @@ const email = methods.find((m) => m.icon === 'email')?.value ?? '';
                 <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7Zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5Z"/>
               </svg>
             </span>
-            <h2 class="font-bold text-lg mt-5" style="color: var(--theme-text-contact);">{t(lang, 'contact.address_company')}</h2>
+            <h2 class="font-bold text-lg mt-5" style="color: var(--theme-text-contact);"><bdi>{t(lang, 'contact.address_company')}</bdi></h2>
             <p class="mt-1 text-sm leading-relaxed" style="color: var(--theme-text-primary);">
               <bdi>{t(lang, 'contact.address_street')}</bdi><br /><bdi>{t(lang, 'contact.address_city')}</bdi>
             </p>

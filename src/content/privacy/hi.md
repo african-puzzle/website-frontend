@@ -1,5 +1,5 @@
 ---
-title: "African Puzzle गोपनीयता नीति"
+title: "African Puzzle की गोपनीयता नीति"
 effectiveDate: "EFFECTIVE UPDATE: May 01, 2021"
 locale: hi
 ---
