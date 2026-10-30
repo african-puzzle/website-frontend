@@ -1,12 +1,14 @@
 # African Puzzle
 
-> African Puzzle is a mobile app featuring puzzle games that celebrate African art, craft, and culture, with a marketing site available in three locales.
+> African Puzzle is a mobile app featuring puzzle games that celebrate African art, craft, and culture, with a marketing site available in five locales.
 
 ## Localized homepages
 
 - [Français](https://africanpuzzle.com/fr/)
 - [English](https://africanpuzzle.com/en/)
 - [Nigerian Pidgin](https://africanpuzzle.com/pcm/)
+- [हिन्दी (Hindi)](https://africanpuzzle.com/hi/)
+- [العربية (Arabic)](https://africanpuzzle.com/ar/)
 
 ## English pages
 
@@ -28,3 +30,17 @@
 - [Contact](https://africanpuzzle.com/pcm/contact/)
 - [Media](https://africanpuzzle.com/pcm/media/)
 - [Privacy](https://africanpuzzle.com/pcm/privacy/)
+
+## Hindi pages
+
+- [About](https://africanpuzzle.com/hi/about/)
+- [Contact](https://africanpuzzle.com/hi/contact/)
+- [Media](https://africanpuzzle.com/hi/media/)
+- [Privacy](https://africanpuzzle.com/hi/privacy/)
+
+## Arabic pages
+
+- [About](https://africanpuzzle.com/ar/about/)
+- [Contact](https://africanpuzzle.com/ar/contact/)
+- [Media](https://africanpuzzle.com/ar/media/)
+- [Privacy](https://africanpuzzle.com/ar/privacy/)

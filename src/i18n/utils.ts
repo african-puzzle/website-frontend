@@ -1,6 +1,8 @@
 import fr from './translations/fr.json';
 import en from './translations/en.json';
 import pcm from './translations/pcm.json';
+import hi from './translations/hi.json';
+import ar from './translations/ar.json';
 
 type Translations = typeof fr;
 
@@ -16,9 +18,9 @@ type NestedKeyOf<T, Prefix extends string = ''> = T extends object
 
 export type TranslationKey = NestedKeyOf<Translations>;
 
-const translations: Record<string, Translations> = { fr, en, pcm };
+const translations: Record<string, Translations> = { fr, en, pcm, hi, ar };
 
-export const locales = ['fr', 'en', 'pcm'] as const;
+export const locales = ['fr', 'en', 'pcm', 'hi', 'ar'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'fr';
 
@@ -50,6 +52,8 @@ export const localeNames: Record<Locale, string> = {
   fr: 'Français',
   en: 'English',
   pcm: 'Pidgin',
+  hi: 'हिन्दी',
+  ar: 'العربية',
 };
 
 export const localePaths: Record<Locale, Record<string, string>> = {
@@ -73,6 +77,20 @@ export const localePaths: Record<Locale, Record<string, string>> = {
     contact: '/pcm/contact',
     media: '/pcm/media',
     privacy: '/pcm/privacy',
+  },
+  hi: {
+    home: '/hi',
+    about: '/hi/about',
+    contact: '/hi/contact',
+    media: '/hi/media',
+    privacy: '/hi/privacy',
+  },
+  ar: {
+    home: '/ar',
+    about: '/ar/about',
+    contact: '/ar/contact',
+    media: '/ar/media',
+    privacy: '/ar/privacy',
   },
 };
 

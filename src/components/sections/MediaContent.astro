@@ -32,7 +32,7 @@ const categoryLabels: Record<string, string> = {
 
 function formatDate(dateStr: string, locale: string): string {
   const date = new Date(dateStr + 'T00:00:00');
-  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', pcm: 'en-US' };
+  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', pcm: 'en-US', hi: 'hi-IN', ar: 'ar-u-nu-latn' };
   return date.toLocaleDateString(localeMap[locale] || 'fr-FR', {
     year: 'numeric',
     month: 'long',
@@ -97,11 +97,11 @@ const ITEMS_PER_PAGE = 9;
             <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-purple-600 mb-2">
               {categoryLabels[item.category]}
             </span>
-            <h2 class="font-bold leading-snug group-hover:text-brand-purple-700 dark:group-hover:text-brand-purple-300 transition-colors" style="color: var(--theme-text-heading);">
+            <h2 dir="auto" class="font-bold leading-snug group-hover:text-brand-purple-700 dark:group-hover:text-brand-purple-300 transition-colors" style="color: var(--theme-text-heading);">
               {item.title}
             </h2>
             {item.description && (
-              <p class="mt-3 text-sm line-clamp-3" style="color: var(--theme-text-primary);">
+              <p dir="auto" class="mt-3 text-sm line-clamp-3" style="color: var(--theme-text-primary);">
                 {item.description}
               </p>
             )}

@@ -5,7 +5,7 @@ const team = defineCollection({
   loader: glob({ pattern: '*.md', base: 'src/content/team' }),
   schema: z.object({
     name: z.string(),
-    role: z.object({ fr: z.string(), en: z.string(), pcm: z.string() }),
+    role: z.object({ fr: z.string(), en: z.string(), pcm: z.string(), hi: z.string(), ar: z.string() }),
     linkedin: z.string().default(''),
     photo: z.string().default(''),
     order: z.number(),
@@ -44,6 +44,8 @@ const countries = defineCollection({
     fr: z.string(),
     en: z.string(),
     pcm: z.string(),
+    hi: z.string(),
+    ar: z.string(),
   }),
 });
 
@@ -79,7 +81,7 @@ const privacy = defineCollection({
   schema: z.object({
     title: z.string(),
     effectiveDate: z.string(),
-    locale: z.enum(['fr', 'en', 'pcm']),
+    locale: z.enum(['fr', 'en', 'pcm', 'hi', 'ar']),
   }),
 });
 

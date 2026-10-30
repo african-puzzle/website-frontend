@@ -1,4 +1,4 @@
-// Compares en/pcm against fr (source). Exit 1 on any problem.
+// Compares en/pcm/hi/ar against fr (source). Exit 1 on any problem.
 import { readFileSync } from 'node:fs';
 
 const load = (l) => JSON.parse(readFileSync(new URL(`../src/i18n/translations/${l}.json`, import.meta.url), 'utf8'));
@@ -20,7 +20,7 @@ function walk(locale, src, tgt, path) {
 }
 
 const fr = load('fr');
-for (const l of ['en', 'pcm']) walk(l, fr, load(l), '');
+for (const l of ['en', 'pcm', 'hi', 'ar']) walk(l, fr, load(l), '');
 problems.forEach((p) => console.error(p));
 if (problems.length) process.exit(1);
 console.log('i18n: ok');

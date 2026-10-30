@@ -13,6 +13,8 @@ const privacyEntries = await getCollection('privacy');
 const entry = privacyEntries.find((e) => e.data.locale === lang)
   ?? privacyEntries.find((e) => e.data.locale === 'fr');
 const { Content } = await render(entry!);
+// hi and ar carry the English policy text (no legal translation yet): mark it as English, left to right.
+const bodyIsEnglish = entry!.data.locale === 'hi' || entry!.data.locale === 'ar';
 ---
 
 <PageHero
@@ -39,7 +41,7 @@ const { Content } = await render(entry!);
       </p>
     </div>
 
-    <div class="prose prose-lg prose-slate max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-purple-600 prose-a:underline [&_li>p]:my-0 dark:prose-invert" style="color: var(--theme-text-privacy-body);">
+    <div class="prose prose-lg prose-slate max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-brand-purple-600 prose-a:underline [&_li>p]:my-0 dark:prose-invert" style="color: var(--theme-text-privacy-body);" lang={bodyIsEnglish ? 'en' : undefined} dir={bodyIsEnglish ? 'ltr' : undefined}>
       <Content />
     </div>
   </div>

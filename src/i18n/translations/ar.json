@@ -1,0 +1,154 @@
+{
+  "site_name": "African Puzzle",
+  "site_tagline": "WORKS",
+  "nav": {
+    "home": "الرئيسية",
+    "features": "المزايا",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "media": "الإعلام",
+    "download": "تنزيل",
+    "language": "اللغة",
+    "notify": "تواصل معنا"
+  },
+  "hero": {
+    "title": "كل ما تحتاج إلى تذكّره في عملك، في مكان واحد.",
+    "subtitle": "صور وملاحظات صوتية وعملاء واستفسارات ومواعيد ومدفوعات: يساعدك African Puzzle WORKS على متابعة كل شيء والعثور عليه بسهولة.",
+    "cta_how": "اكتشف كيف يعمل",
+    "cta_download": "نزّل التطبيق",
+    "cta_notify": "تواصل معنا",
+    "launch_badge": "قريبًا في خريف 2026"
+  },
+  "features": {
+    "label": "المزايا",
+    "title": "ورشتك كاملة في جيبك",
+    "subtitle": "أدر طلباتك وعملاءك وقياساتك ومواعيدك بالصور والصوت.",
+    "programmes_title": "المشاريع",
+    "programmes_desc": "تابع كل طلب: الصور والملاحظات والسعر والعربون والمبلغ المتبقي، في لمحة واحدة",
+    "contacts_title": "جهات الاتصال",
+    "contacts_desc": "دفتر عملائك: صور وملاحظات صوتية وملفات والسجل الكامل لكل شخص",
+    "measurements_title": "القياسات",
+    "measurements_desc": "سجّل قياسات كل عميل بمسطرة تعمل باللمس، بالسنتيمتر أو بالبوصة",
+    "albums_title": "الألبومات",
+    "albums_desc": "اعرض إبداعاتك وتذكّر ما أعجب كل عميل",
+    "appointments_title": "المواعيد",
+    "appointments_desc": "تقويم مع تذكيرات وإشعارات: لن يفوتك أي التزام بعد اليوم",
+    "collab_title": "التعاون",
+    "collab_desc": "شارك مشروعًا برابط أو برمز، وحدّد من يمكنه المشاهدة ومن يمكنه التعديل"
+  },
+  "benefits": {
+    "label": "الفوائد",
+    "title": "لماذا African Puzzle؟",
+    "happy_title": "أسعد عملاءك",
+    "happy_desc": "خدمة منظمة ومهنية تجعلهم يعودون إليك",
+    "time_title": "وفّر وقتك",
+    "time_desc": "دفاتر وأوراق أقل: وقت أكثر لحرفتك",
+    "efficient_title": "اعمل بطمأنينة",
+    "efficient_desc": "كل شيء مسجَّل ولا شيء يُنسى: كل طلب يسير كما خُطِّط له"
+  },
+  "reach": {
+    "label": "أين نحن",
+    "title": "صُنع لحِرفيي أفريقيا",
+    "subtitle": "ومتاح في كل أنحاء العالم",
+    "more_countries": "و{count} دولة أخرى"
+  },
+  "cta": {
+    "title": "قريبًا على هاتفك",
+    "title_live": "الآن على هاتفك",
+    "subtitle": "يصل African Puzzle WORKS هذا الخريف. هل لديك سؤال أو اقتراح شراكة؟ راسلنا.",
+    "subtitle_live": "African Puzzle WORKS متاح على Google Play. هل لديك سؤال أو اقتراح شراكة؟ راسلنا.",
+    "button": "تواصل معنا"
+  },
+  "about": {
+    "label": "من نحن",
+    "title": "ثروة للجميع",
+    "subtitle": "أفريقيا مبدعة، وصار للمبدعين الآن مساعدهم الشخصي!",
+    "innovation": "يبتكر African Puzzle بهذه الأداة البسيطة وسهلة الاستخدام، ويتيح لأكبر عدد ممكن من الناس أن يتقدموا.",
+    "creative_statement": "<strong>أفريقيا مبدعة، وصار للمبدعين الآن مساعدهم الشخصي!</strong>",
+    "mission": "African Puzzle WORKS تطبيق للهاتف المحمول صُمم لمساعدة الحِرفيين والخياطين والمبدعين ورواد الأعمال على تنظيم أنشطتهم اليومية بصورة أفضل.",
+    "team_title": "فريقنا"
+  },
+  "contact": {
+    "label": "اتصل بنا",
+    "title": "تواصل مع African Puzzle",
+    "subtitle": "لا تتردد في التواصل معنا لأي سؤال أو اقتراح",
+    "address_label": "العنوان",
+    "address_company": "African Puzzle, Inc.",
+    "address_street": "21 boulevard Haussmann",
+    "address_city": "75 009 Paris - France",
+    "email_label": "البريد الإلكتروني",
+    "social_label": "شبكات التواصل الاجتماعي"
+  },
+  "media": {
+    "label": "الإعلام",
+    "title": "في الصحافة",
+    "subtitle": "اطّلع على ما تقوله وسائل الإعلام عنا",
+    "press_article": "مقال صحفي",
+    "filter_all": "الكل",
+    "filter_press_release": "بيانات صحفية",
+    "filter_videos": "فيديوهات",
+    "load_more": "المزيد",
+    "filter_radio": "الإذاعة والبودكاست",
+    "filter_articles": "مقالات",
+    "filter_social": "شبكات التواصل الاجتماعي"
+  },
+  "privacy": {
+    "title": "سياسة الخصوصية",
+    "effective": "سارية اعتبارًا من 1 مايو 2021"
+  },
+  "instagram": {
+    "alt": "African Puzzle على Instagram"
+  },
+  "download": {
+    "banner_title": "African Puzzle WORKS، مساعد الحِرفيين. قريبًا في خريف 2026.",
+    "banner_title_live": "African Puzzle WORKS، مساعد الحِرفيين. متاح على Google Play.",
+    "coming_soon": "قريبًا",
+    "play_badge_alt": "قريبًا على Google Play",
+    "play_badge_live_alt": "احصل عليه من Google Play",
+    "app_badge_alt": "قريبًا على App Store",
+    "app_badge_eyebrow": "قريبًا على",
+    "app_badge_title": "App Store"
+  },
+  "theme": {
+    "label": "المظهر",
+    "light": "المظهر الفاتح",
+    "system": "مظهر النظام",
+    "dark": "المظهر الداكن"
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة",
+    "privacy": "سياسة الخصوصية",
+    "made_with": "صُنع بكل حب",
+    "in": "في باريس",
+    "links_label": "روابط"
+  },
+  "error": {
+    "not_found": "الصفحة غير موجودة",
+    "not_found_description": "الصفحة التي تبحث عنها غير موجودة. سيتم تحويلك إلى الصفحة الرئيسية خلال ثوانٍ.",
+    "back_home": "العودة إلى الصفحة الرئيسية"
+  },
+  "audio_first": {
+    "title": "لا حاجة إلى القراءة أو الكتابة",
+    "body": "كل شاشة تشرح نفسها بصوت مسموع. سجّل ملاحظات صوتية والتقط الصور: التطبيق يتولى الباقي.",
+    "hint": "الشروحات الصوتية متاحة بالفرنسية والبيدجن والإنجليزية"
+  },
+  "proof": {
+    "audio_title": "تحدّث بدل أن تكتب",
+    "audio_body": "سجّل ملاحظة صوتية بما تحتاج إلى تذكّره.",
+    "pricing_title": "كل شيء في مكان واحد",
+    "pricing_body": "للطلب الواحد، تُحفظ الصور والمواعيد والمدفوعات والمعلومات المفيدة معًا.",
+    "audience_title": "سهل الاستخدام",
+    "audience_body": "يرشدك التطبيق خطوة بخطوة. وتشرح أيقونة الصوت كل شاشة بصوت مسموع."
+  },
+  "pricing": {
+    "title": "مجاني الاستخدام. بلا أي التزام.",
+    "body": "لا اشتراكات. التطبيق مجاني، وإذا احتجت إلى مساحة أكبر للنسخ الاحتياطي فإنك تدفع مرة واحدة فقط."
+  },
+  "partners": {
+    "label": "الشركاء",
+    "title": "هل تمثّل منظمة؟",
+    "body": "يساعد African Puzzle WORKS الحِرفيين والمبدعين على تنظيم أعمالهم. نعمل مع الجمعيات ومدارس التدريب والمؤسسات التي تدعم أصحاب الحِرف.",
+    "cta": "لنتحدث",
+    "team_link": "تعرّف على الفريق"
+  }
+}

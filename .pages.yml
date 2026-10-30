@@ -14,7 +14,7 @@ media:
     input: public/images
     output: /images
 
-# Translation sections. Each is used three times below (fr, en, pcm).
+# Translation sections. Each is used five times below (fr, en, pcm, hi, ar).
 components:
   hero:
     label: "Top of the page"
@@ -264,6 +264,38 @@ content:
           - { name: reach, component: reach }
           - { name: partners, component: partners }
           - { name: download, component: download }
+      - name: homepage-hi
+        label: Homepage text (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: hero, component: hero }
+          - { name: proof, component: proof }
+          - { name: audio_first, component: audio_first }
+          - { name: features, component: features }
+          - { name: benefits, component: benefits }
+          - { name: pricing, component: pricing }
+          - { name: cta, component: cta }
+          - { name: reach, component: reach }
+          - { name: partners, component: partners }
+          - { name: download, component: download }
+      - name: homepage-ar
+        label: Homepage text (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
+        format: json
+        fields:
+          - { name: hero, component: hero }
+          - { name: proof, component: proof }
+          - { name: audio_first, component: audio_first }
+          - { name: features, component: features }
+          - { name: benefits, component: benefits }
+          - { name: pricing, component: pricing }
+          - { name: cta, component: cta }
+          - { name: reach, component: reach }
+          - { name: partners, component: partners }
+          - { name: download, component: download }
   - name: about-page
     label: About page
     type: group
@@ -286,6 +318,20 @@ content:
         label: About page text (Pidgin)
         type: file
         path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: about, component: about }
+      - name: about-page-hi
+        label: About page text (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: about, component: about }
+      - name: about-page-ar
+        label: About page text (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
         format: json
         fields:
           - { name: about, component: about }
@@ -314,6 +360,20 @@ content:
         format: json
         fields:
           - { name: contact, component: contact }
+      - name: contact-page-hi
+        label: Contact page text (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: contact, component: contact }
+      - name: contact-page-ar
+        label: Contact page text (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
+        format: json
+        fields:
+          - { name: contact, component: contact }
   - name: media-page
     label: Media page
     type: group
@@ -339,6 +399,20 @@ content:
         format: json
         fields:
           - { name: media, component: media }
+      - name: media-page-hi
+        label: Media page text (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: media, component: media }
+      - name: media-page-ar
+        label: Media page text (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
+        format: json
+        fields:
+          - { name: media, component: media }
   - name: privacy-page
     label: Privacy page
     type: group
@@ -361,6 +435,20 @@ content:
         label: Privacy page text (Pidgin)
         type: file
         path: src/i18n/translations/pcm.json
+        format: json
+        fields:
+          - { name: privacy, component: privacy }
+      - name: privacy-page-hi
+        label: Privacy page text (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: privacy, component: privacy }
+      - name: privacy-page-ar
+        label: Privacy page text (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
         format: json
         fields:
           - { name: privacy, component: privacy }
@@ -407,6 +495,32 @@ content:
           - { name: theme, component: theme }
           - { name: error, component: error }
           - { name: instagram, component: instagram }
+      - name: whole-site-hi
+        label: Menu, footer and other text on every page (Hindi)
+        type: file
+        path: src/i18n/translations/hi.json
+        format: json
+        fields:
+          - { name: site_name, label: "Site name (not shown on the site)", type: string }
+          - { name: site_tagline, label: "Site tagline (not shown on the site)", type: string }
+          - { name: nav, component: nav }
+          - { name: footer, component: footer }
+          - { name: theme, component: theme }
+          - { name: error, component: error }
+          - { name: instagram, component: instagram }
+      - name: whole-site-ar
+        label: Menu, footer and other text on every page (Arabic)
+        type: file
+        path: src/i18n/translations/ar.json
+        format: json
+        fields:
+          - { name: site_name, label: "Site name (not shown on the site)", type: string }
+          - { name: site_tagline, label: "Site tagline (not shown on the site)", type: string }
+          - { name: nav, component: nav }
+          - { name: footer, component: footer }
+          - { name: theme, component: theme }
+          - { name: error, component: error }
+          - { name: instagram, component: instagram }
   - name: site-content
     label: Site content
     type: group
@@ -430,6 +544,8 @@ content:
               - { name: fr, label: French, type: string }
               - { name: en, label: English, type: string }
               - { name: pcm, label: Pidgin, type: string }
+              - { name: hi, label: Hindi, type: string }
+              - { name: ar, label: Arabic, type: string }
           - name: linkedin
             label: LinkedIn URL
             description: "Full LinkedIn profile URL, for example https://linkedin.com/in/username. Can stay empty."
@@ -553,6 +669,8 @@ content:
                 - { value: fr, label: French }
                 - { value: en, label: English }
                 - { value: pcm, label: Pidgin }
+                - { value: hi, label: Hindi }
+                - { value: ar, label: Arabic }
           - name: body
             label: Content
             type: rich-text
@@ -578,6 +696,8 @@ content:
                 required: true
               - { name: en, label: English name, type: string, required: true }
               - { name: pcm, label: Pidgin name, type: string, required: true }
+              - { name: hi, label: Hindi name, type: string, required: true }
+              - { name: ar, label: Arabic name, type: string, required: true }
 
       - name: site-settings
         label: Site settings

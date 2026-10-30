@@ -17,6 +17,8 @@ const DEFAULT_DESCRIPTIONS: Record<Locale, string> = {
   fr: "African Puzzle : l'application mobile de puzzles qui célèbre l'art et la culture africaine. Découvrez des œuvres d'artistes africains en jouant.",
   en: 'African Puzzle: the mobile puzzle app celebrating African art and culture. Discover works by African artists while you play.',
   pcm: 'African Puzzle: mobile puzzle app wey dey celebrate African art and culture. Play and discover work from African artists.',
+  hi: 'African Puzzle: एक मोबाइल पज़ल ऐप जो अफ़्रीकी कला और संस्कृति का उत्सव मनाता है। खेलते हुए अफ़्रीकी कलाकारों की कृतियाँ खोजें।',
+  ar: 'African Puzzle: تطبيق ألغاز للهاتف المحمول يحتفي بالفن والثقافة الأفريقية. اكتشف أعمال فنانين أفارقة وأنت تلعب.',
 };
 
 const { title, description: descriptionProp, lang, schemaType = 'WebPage' } = Astro.props;
@@ -26,8 +28,8 @@ const fullTitle = `${title} | African Puzzle`;
 const SITE = 'https://africanpuzzle.com';
 const canonical = `${SITE}${Astro.url.pathname}`;
 // Locale-prefixed pages get hreflang alternates; assumes parallel paths per locale
-const LOCALES: Locale[] = ['fr', 'en', 'pcm'];
-const pathMatch = Astro.url.pathname.match(/^\/(fr|en|pcm)(\/.*)?$/);
+const LOCALES: Locale[] = ['fr', 'en', 'pcm', 'hi', 'ar'];
+const pathMatch = Astro.url.pathname.match(/^\/(fr|en|pcm|hi|ar)(\/.*)?$/);
 // FR uses translated slugs; map shared pages across locales
 const SLUG_MAP: Record<string, Record<string, string>> = {
   fr: { '/a-propos/': '/about/', '/confidentialite/': '/privacy/', '/medias/': '/media/' },
@@ -44,7 +46,7 @@ function localePath(target: Locale): string | null {
   return `${SITE}/${target}${slug}`;
 }
 
-const OG_LOCALES: Record<Locale, string> = { fr: 'fr_FR', en: 'en_US', pcm: 'pcm_NG' };
+const OG_LOCALES: Record<Locale, string> = { fr: 'fr_FR', en: 'en_US', pcm: 'pcm_NG', hi: 'hi_IN', ar: 'ar_AR' };
 const ogLocale = OG_LOCALES[lang];
 const ogAlternates = LOCALES.filter((l) => l !== lang).map((l) => OG_LOCALES[l]);
 
@@ -80,7 +82,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : undefined} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <!-- Anti-FOWT: apply theme before first paint -->
