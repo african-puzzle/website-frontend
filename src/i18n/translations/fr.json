@@ -96,6 +96,9 @@
     "title": "Politique de confidentialité",
     "effective": "En vigueur depuis le 1er mai 2021"
   },
+  "terms": {
+    "title": "CGU"
+  },
   "download": {
     "banner_title": "African Puzzle WORKS, l'assistant des artisans. Disponible cet automne 2026.",
     "banner_title_live": "African Puzzle WORKS, l'assistant des artisans. Disponible sur Google Play.",
@@ -109,6 +112,7 @@
   "footer": {
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales d'utilisation",
     "made_with": "Fait avec",
     "in": "à Paris",
     "links_label": "Liens"

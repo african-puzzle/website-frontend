@@ -96,6 +96,9 @@
     "title": "Privacy Policy",
     "effective": "E start from May 1, 2021"
   },
+  "terms": {
+    "title": "Terms"
+  },
   "instagram": {
     "alt": "African Puzzle for Instagram"
   },
@@ -118,6 +121,7 @@
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
     "made_with": "Dem make am with",
     "in": "for Paris",
     "links_label": "Links"

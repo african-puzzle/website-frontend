@@ -83,4 +83,13 @@ const privacy = defineCollection({
   }),
 });
 
-export const collections = { team, media, features, countries, contact, instagram, privacy };
+const terms = defineCollection({
+  loader: glob({ pattern: '*.md', base: 'src/content/terms' }),
+  schema: z.object({
+    title: z.string(),
+    effectiveDate: z.string(),
+    locale: z.enum(['fr', 'en', 'pcm']),
+  }),
+});
+
+export const collections = { team, media, features, countries, contact, instagram, privacy, terms };
