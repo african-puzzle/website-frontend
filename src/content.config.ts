@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
+import { APP_SCREENS } from './lib/appScreens';
 
 const team = defineCollection({
   loader: glob({ pattern: '*.md', base: 'src/content/team' }),
@@ -30,8 +31,7 @@ const features = defineCollection({
   schema: z.object({
     titleKey: z.string(),
     descKey: z.string(),
-    screen: z.string(),
-    screenEn: z.string().optional().transform((v) => v || undefined),
+    screen: z.enum(APP_SCREENS),
     cardBg: z.string(),
     order: z.number(),
   }),

@@ -625,16 +625,18 @@ content:
             type: string
             required: true
           - name: screen
-            label: Screenshot (French, default)
-            description: "Phone screenshot in the card (WebP). Used for fr and pcm, and for en when no English screenshot is set."
-            type: image
+            label: Screenshot
+            description: "Which app screen the card shows. The site picks the language and the light or dark image itself."
+            type: select
             required: true
-            options: { path: public/images/app }
-          - name: screenEn
-            label: Screenshot (English, optional)
-            description: Leave empty to use the French screenshot.
-            type: image
-            options: { path: public/images/app/en }
+            options:
+              values:
+                - { value: programmes-tab, label: Programmes }
+                - { value: contacts-tab, label: Contacts }
+                - { value: measurements, label: Measurements }
+                - { value: albums-tab, label: Albums }
+                - { value: rendez-vous-tab, label: Appointments }
+                - { value: collaborators, label: Collaborators }
           - name: cardBg
             label: Card background colour
             type: select
