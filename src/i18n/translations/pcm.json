@@ -127,6 +127,10 @@
     "not_found_description": "Di page wey you dey find no exist. We go carry you go homepage in small time.",
     "back_home": "Go back to homepage"
   },
+  "checkout": {
+    "title": "Payment dey come soon",
+    "description": "Online payment dey come soon. Go back to di African Puzzle WORKS app."
+  },
   "audio_first": {
     "title": "You no need read or write",
     "body": "Every screen fit explain itself with voice. Record voice notes, snap photos: di app go do di rest.",
