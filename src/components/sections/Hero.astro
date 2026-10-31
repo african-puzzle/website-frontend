@@ -2,6 +2,8 @@
 import { t, type Locale } from '../../i18n/utils';
 import site from '../../content/settings/site.json';
 import PhoneFrame from '../ui/PhoneFrame.astro';
+import AppScreenImg from '../ui/AppScreenImg.astro';
+import type { AppScreen } from '../../lib/appScreens';
 
 interface Props {
   lang: Locale;
@@ -9,16 +11,15 @@ interface Props {
 
 const { lang } = Astro.props;
 const contactPath = `/${lang}/contact/`;
-const dir = lang === 'fr' ? '/images/app' : `/images/app/${lang}`;
 
 // Placeholder slides, one per profession; swap in the CEO's screens later.
 // The keyframes below assume 5 slides; update their percentages if the count changes.
-const slides = [
-  `${dir}/programmes-tab.webp`, // dressmaking
-  `${dir}/contacts-tab.webp`, // hairdressing
-  `${dir}/albums-tab.webp`, // car mechanic
-  `${dir}/rendez-vous-tab.webp`, // building work
-  `${dir}/measurements.webp`, // mixed (covers from other fields)
+const slides: AppScreen[] = [
+  'programmes-tab', // dressmaking
+  'contacts-tab', // hairdressing
+  'albums-tab', // car mechanic
+  'rendez-vous-tab', // building work
+  'measurements', // mixed (covers from other fields)
 ];
 const SLIDE_SECONDS = 4.5;
 ---
@@ -71,18 +72,14 @@ const SLIDE_SECONDS = 4.5;
       <div style="--phone-width: min(260px, 62vw); filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));">
         <PhoneFrame>
           <div class="slides" style={`--n: ${slides.length}; --dur: ${SLIDE_SECONDS}s;`}>
-            {slides.map((src, i) => (
-              <img
-                src={src}
+            {slides.map((name, i) => (
+              <AppScreenImg
+                lang={lang}
+                name={name}
                 alt={i === 0 ? t(lang, 'features.programmes_title') : ''}
-                aria-hidden={i === 0 ? undefined : 'true'}
-                class:list={['slide', { 'slide-first': i === 0 }]}
+                class={i === 0 ? 'slide slide-first' : 'slide'}
                 style={`--i: ${i};`}
-                loading={i === 0 ? 'eager' : 'lazy'}
-                fetchpriority={i === 0 ? 'high' : 'low'}
-                decoding="async"
-                width="720"
-                height="1565"
+                eager={i === 0}
               />
             ))}
           </div>
@@ -92,7 +89,7 @@ const SLIDE_SECONDS = 4.5;
   </div>
 </section>
 
-<style>
+<style is:global>
   .slides {
     position: absolute;
     inset: 0;

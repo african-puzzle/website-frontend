@@ -9,22 +9,13 @@ interface Props {
 
 const { lang } = Astro.props;
 
-// The six bundled screenshots have a copy per locale in /images/app/<lang>/ (fr is the default folder).
-const bundledScreens = new Set(['programmes-tab', 'contacts-tab', 'measurements', 'albums-tab', 'rendez-vous-tab', 'collaborators']);
-const localScreen = (screen: string) => {
-  const name = screen.match(/^\/images\/app\/([^/]+)\.webp$/)?.[1];
-  return lang !== 'fr' && name && bundledScreens.has(name) ? `/images/app/${lang}/${name}.webp` : screen;
-};
-
 const featureEntries = await getCollection('features');
 const features = featureEntries
   .sort((a, b) => a.data.order - b.data.order)
   .map(entry => ({
     title: t(lang, entry.data.titleKey as TranslationKey),
     desc: t(lang, entry.data.descKey as TranslationKey),
-    screen: lang === 'en'
-      ? (entry.data.screenEn ?? localScreen(entry.data.screen))
-      : localScreen(entry.data.screen),
+    screen: entry.data.screen,
     cardBg: entry.data.cardBg,
   }));
 ---
@@ -63,7 +54,7 @@ const features = featureEntries
             <!-- Phone mockup side -->
             <div class={`relative flex justify-center px-8 pb-8 lg:px-12 lg:py-0 lg:my-[-4.5rem] ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
               <div class="phone-pop" style="--phone-width: min(250px, 58vw);">
-                <PhoneFrame src={feature.screen} alt={feature.title} />
+                <PhoneFrame lang={lang} name={feature.screen} alt={feature.title} />
               </div>
             </div>
           </div>
