@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, defaultLocale } from '../i18n/utils';
+
+const lang = defaultLocale;
+const others = ['en', 'pcm', 'hi', 'ar'] as const;
+---
+
+<Layout title={t(lang, 'checkout.title')} lang={lang}>
+  <section
+    class="section-textured min-h-[78vh] flex items-center justify-center px-6 pt-24 pb-20 text-white"
+    style="background-color: var(--theme-bg-hero); background-image: url('/images/background-hero.webp'); background-blend-mode: multiply;"
+  >
+    <div class="text-center max-w-xl w-full">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display">{t(lang, 'checkout.title')}</h1>
+      <p class="mt-5 text-base sm:text-lg text-white/80 leading-relaxed">{t(lang, 'checkout.description')}</p>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 text-start">
+        {others.map((l) => (
+          <div lang={l} dir={l === 'ar' ? 'rtl' : undefined} class="rounded-2xl bg-white/10 p-5">
+            <h2 class="text-lg font-bold font-display">{t(l, 'checkout.title')}</h2>
+            <p class="mt-2 text-sm text-white/80 leading-relaxed">{t(l, 'checkout.description')}</p>
+          </div>
+        ))}
+      </div>
+      <a
+        href="/fr/"
+        class="mt-8 inline-block rounded-full bg-brand-gold px-7 py-3.5 text-sm font-bold text-brand-ink-deep shadow-lg hover:bg-brand-gold-soft transition-colors"
+      >
+        {t(lang, 'error.back_home')}
+      </a>
+    </div>
+  </section>
+</Layout>

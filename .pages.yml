@@ -205,6 +205,12 @@ components:
       - { name: not_found, label: "Headline (also the browser tab title)", type: string }
       - { name: not_found_description, label: "Text under the headline", type: text }
       - { name: back_home, label: "Button: back to the homepage", type: string }
+  checkout:
+    label: "Payment coming soon (/checkout)"
+    type: object
+    fields:
+      - { name: title, label: "Headline (also the browser tab title)", type: string }
+      - { name: description, label: "Text under the headline", type: text }
   instagram:
     label: "Instagram photos (contact page)"
     type: object
@@ -468,6 +474,7 @@ content:
           - { name: footer, component: footer }
           - { name: theme, component: theme }
           - { name: error, component: error }
+          - { name: checkout, component: checkout }
           - { name: instagram, component: instagram }
       - name: whole-site-en
         label: Menu, footer and other text on every page (English)
@@ -481,6 +488,7 @@ content:
           - { name: footer, component: footer }
           - { name: theme, component: theme }
           - { name: error, component: error }
+          - { name: checkout, component: checkout }
           - { name: instagram, component: instagram }
       - name: whole-site-pcm
         label: Menu, footer and other text on every page (Pidgin)
@@ -494,6 +502,7 @@ content:
           - { name: footer, component: footer }
           - { name: theme, component: theme }
           - { name: error, component: error }
+          - { name: checkout, component: checkout }
           - { name: instagram, component: instagram }
       - name: whole-site-hi
         label: Menu, footer and other text on every page (Hindi)
@@ -507,6 +516,7 @@ content:
           - { name: footer, component: footer }
           - { name: theme, component: theme }
           - { name: error, component: error }
+          - { name: checkout, component: checkout }
           - { name: instagram, component: instagram }
       - name: whole-site-ar
         label: Menu, footer and other text on every page (Arabic)
@@ -520,6 +530,7 @@ content:
           - { name: footer, component: footer }
           - { name: theme, component: theme }
           - { name: error, component: error }
+          - { name: checkout, component: checkout }
           - { name: instagram, component: instagram }
   - name: site-content
     label: Site content
