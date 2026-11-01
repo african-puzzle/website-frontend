@@ -1,0 +1,758 @@
+{
+  "_readme": "Fictional sample content for the website app screenshots. fr = source (app mocks/*.ts). Keys are the stable mock-* ids; the SQL patch updates rows by id. profile.albumTitle is not a SQLite row (user profile store).",
+  "programmes.title": {
+    "mock-prog-1": {
+      "fr": "Robe soirée – Aminata",
+      "en": "Evening dress – Aminata",
+      "pcm": "Evening dress – Aminata",
+      "hi": "शाम की पोशाक – अमिनाता",
+      "ar": "فستان سهرة – أميناتا"
+    },
+    "mock-prog-2": {
+      "fr": "Tailleur Tabaski – Coumba",
+      "en": "Tabaski suit – Coumba",
+      "pcm": "Tabaski suit – Coumba",
+      "hi": "बकरीद सूट – कुम्बा",
+      "ar": "تايور تابسكي – كومبا"
+    },
+    "mock-prog-3": {
+      "fr": "Ensemble boubou – Aïssatou",
+      "en": "Boubou set – Aïssatou",
+      "pcm": "Boubou set – Aïssatou",
+      "hi": "बूबू सेट – आइसातू",
+      "ar": "طقم بوبو – عيساتو"
+    },
+    "mock-prog-4": {
+      "fr": "Costume cérémonie – Ndiaye",
+      "en": "Ceremony suit – Ndiaye",
+      "pcm": "Ceremony suit – Ndiaye",
+      "hi": "समारोह सूट – न्दियाये",
+      "ar": "بدلة حفل – ندياي"
+    },
+    "mock-prog-5": {
+      "fr": "Robe de mariée – projet",
+      "en": "Wedding dress – project",
+      "pcm": "Wedding gown – project",
+      "hi": "दुल्हन की पोशाक – प्रोजेक्ट",
+      "ar": "فستان زفاف – مشروع"
+    },
+    "mock-prog-6": {
+      "fr": "Modèle africain – idée",
+      "en": "African design – idea",
+      "pcm": "African style – idea",
+      "hi": "अफ़्रीकी डिज़ाइन – विचार",
+      "ar": "تصميم أفريقي – فكرة"
+    },
+    "mock-prog-7": {
+      "fr": "Boubou grand standing – Ibrahima",
+      "en": "Premium boubou – Ibrahima",
+      "pcm": "Correct boubou – Ibrahima",
+      "hi": "शानदार बूबू – इब्राहिमा",
+      "ar": "بوبو فاخر – إبراهيما"
+    },
+    "mock-prog-8": {
+      "fr": "Caftan – Coumba",
+      "en": "Kaftan – Coumba",
+      "pcm": "Kaftan – Coumba",
+      "hi": "कफ़्तान – कुम्बा",
+      "ar": "قفطان – كومبا"
+    },
+    "mock-prog-9": {
+      "fr": "Tenue baptême – Ndiaye",
+      "en": "Naming-day outfit – Ndiaye",
+      "pcm": "Naming ceremony cloth – Ndiaye",
+      "hi": "नामकरण पोशाक – न्दियाये",
+      "ar": "ثوب تسمية – ندياي"
+    },
+    "mock-prog-10": {
+      "fr": "Robe ankara – ancienne commande",
+      "en": "Ankara dress – old order",
+      "pcm": "Ankara gown – old order",
+      "hi": "अंकारा ड्रेस – पुराना ऑर्डर",
+      "ar": "فستان أنكارا – طلب قديم"
+    },
+    "mock-prog-11": {
+      "fr": "Commande express – anonyme",
+      "en": "Express order – anonymous",
+      "pcm": "Express order – no name",
+      "hi": "एक्सप्रेस ऑर्डर – अनाम",
+      "ar": "طلب عاجل – مجهول"
+    },
+    "mock-prog-12": {
+      "fr": "Tenue complète – tout types",
+      "en": "Full outfit – all types",
+      "pcm": "Complete outfit – all kinds",
+      "hi": "पूरी पोशाक – सभी प्रकार",
+      "ar": "طقم كامل – كل الأنواع"
+    }
+  },
+  "programme_text_notes.text": {
+    "mock-ptn-1a": {
+      "fr": "<p>Tissu satin rouge cerise, dos nu avec découpe en V.</p>",
+      "en": "<p>Cherry red satin, open back with a V cut.</p>",
+      "pcm": "<p>Cherry red satin cloth, open back with V cut.</p>",
+      "hi": "<p>चेरी लाल साटन का कपड़ा, पीठ खुली और V कट।</p>",
+      "ar": "<p>قماش ساتان أحمر كرزي، ظهر مكشوف بقصة على شكل V.</p>"
+    },
+    "mock-ptn-3a": {
+      "fr": "<p>Grand boubou bazin riche blanc cassé, broderie argentée sur l'encolure.</p>",
+      "en": "<p>Large off-white bazin riche boubou, silver embroidery on the neckline.</p>",
+      "pcm": "<p>Big boubou, off-white bazin riche, silver embroidery for the neck.</p>",
+      "hi": "<p>ऑफ़-व्हाइट बाज़ीन रिश का बड़ा बूबू, गले पर चाँदी की कढ़ाई।</p>",
+      "ar": "<p>بوبو كبير من قماش البازان الريش بلون أبيض مكسور، وتطريز فضي عند فتحة الرقبة.</p>"
+    },
+    "mock-ptn-5a": {
+      "fr": "<p>Dentelle ivoire, traine de 2m. Essayage prévu en semaine 12.</p>",
+      "en": "<p>Ivory lace, 2 m train. Fitting planned for week 12.</p>",
+      "pcm": "<p>Ivory lace, 2 m train. Fitting dey for week 12.</p>",
+      "hi": "<p>आइवरी रंग की लेस, 2 मीटर की ट्रेन। फ़िटिंग सप्ताह 12 में तय है।</p>",
+      "ar": "<p>دانتيل عاجي، ذيل بطول 2 متر. البروفة مقررة في الأسبوع 12.</p>"
+    },
+    "mock-ptn-6a": {
+      "fr": "<p>Idée de modèle mixant wax et broderie traditionnelle.</p>",
+      "en": "<p>Design idea mixing wax print and traditional embroidery.</p>",
+      "pcm": "<p>Style idea wey mix wax and traditional embroidery.</p>",
+      "hi": "<p>वैक्स प्रिंट और पारंपरिक कढ़ाई को मिलाने वाले डिज़ाइन का विचार।</p>",
+      "ar": "<p>فكرة تصميم تجمع بين قماش الواكس والتطريز التقليدي.</p>"
+    },
+    "mock-ptn-9a": {
+      "fr": "<p>Livré en retard suite manque de tissu. Remise de 5% accordée.</p>",
+      "en": "<p>Delivered late because of a fabric shortage. 5% discount given.</p>",
+      "pcm": "<p>Delivery late because cloth no dey. We give 5% discount.</p>",
+      "hi": "<p>कपड़े की कमी के कारण देर से दिया गया। 5% की छूट दी गई।</p>",
+      "ar": "<p>سُلِّم متأخرًا بسبب نقص القماش. تم منح خصم 5%.</p>"
+    },
+    "mock-ptn-10a": {
+      "fr": "<p>Cliente n'a pas récupéré la commande. À relancer.</p>",
+      "en": "<p>Customer did not collect the order. Follow up.</p>",
+      "pcm": "<p>Customer no collect the order. Make we follow up.</p>",
+      "hi": "<p>ग्राहक ने ऑर्डर नहीं लिया। दोबारा संपर्क करना है।</p>",
+      "ar": "<p>لم تستلم الزبونة الطلب. يجب المتابعة معها.</p>"
+    },
+    "mock-ptn-12a": {
+      "fr": "<p>Robe + veste coordonnée + headwrap assorti. Tissu wax premium.</p>",
+      "en": "<p>Dress + matching jacket + matching headwrap. Premium wax fabric.</p>",
+      "pcm": "<p>Dress + matching jacket + matching headwrap. Premium wax cloth.</p>",
+      "hi": "<p>ड्रेस + मैचिंग जैकेट + मैचिंग हेडरैप। प्रीमियम वैक्स कपड़ा।</p>",
+      "ar": "<p>فستان + جاكيت متناسق + غطاء رأس متناسق. قماش واكس فاخر.</p>"
+    },
+    "mock-ptn-12b": {
+      "fr": "<p>Essayage 1 réalisé le 12/04. Quelques retouches sur les épaules.</p>",
+      "en": "<p>Fitting 1 done on 12 April. A few alterations on the shoulders.</p>",
+      "pcm": "<p>Fitting 1 don do for 12 April. Small adjustment for the shoulders.</p>",
+      "hi": "<p>पहली फ़िटिंग 12 अप्रैल को हुई। कंधों पर कुछ सुधार बाकी हैं।</p>",
+      "ar": "<p>تمت البروفة الأولى في 12 أبريل. بعض التعديلات على الكتفين.</p>"
+    }
+  },
+  "measurement_labels": {
+    "mock-meas-1a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-1b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-1c": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-meas-1d": {
+      "fr": "Épaules",
+      "en": "Shoulders",
+      "pcm": "Shoulder",
+      "hi": "कंधे",
+      "ar": "الأكتاف"
+    },
+    "mock-meas-2a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-2b": {
+      "fr": "Longueur robe",
+      "en": "Dress length",
+      "pcm": "Gown length",
+      "hi": "ड्रेस की लंबाई",
+      "ar": "طول الفستان"
+    },
+    "mock-meas-5a": {
+      "fr": "Tour de cou",
+      "en": "Neck",
+      "pcm": "Neck round",
+      "hi": "गर्दन का घेरा",
+      "ar": "محيط الرقبة"
+    },
+    "mock-meas-5b": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-5c": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-5d": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-meas-5e": {
+      "fr": "Longueur",
+      "en": "Length",
+      "pcm": "Length",
+      "hi": "लंबाई",
+      "ar": "الطول"
+    },
+    "mock-meas-7a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-7b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-9a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-9b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-9c": {
+      "fr": "Longueur boubou",
+      "en": "Boubou length",
+      "pcm": "Boubou length",
+      "hi": "बूबू की लंबाई",
+      "ar": "طول البوبو"
+    },
+    "mock-meas-11a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-11b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-11c": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-meas-15a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-15b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-15c": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-meas-15d": {
+      "fr": "Épaules",
+      "en": "Shoulders",
+      "pcm": "Shoulder",
+      "hi": "कंधे",
+      "ar": "الأكتاف"
+    },
+    "mock-meas-15e": {
+      "fr": "Longueur robe",
+      "en": "Dress length",
+      "pcm": "Gown length",
+      "hi": "ड्रेस की लंबाई",
+      "ar": "طول الفستان"
+    },
+    "mock-meas-16a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-16b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-18a": {
+      "fr": "Tour de cou",
+      "en": "Neck",
+      "pcm": "Neck round",
+      "hi": "गर्दन का घेरा",
+      "ar": "محيط الرقبة"
+    },
+    "mock-meas-18b": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-meas-18c": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-meas-18d": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-pm-2a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-pm-4a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-pm-4b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-pm-5a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-pm-5b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-pm-5c": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-pm-12a": {
+      "fr": "Poitrine",
+      "en": "Bust",
+      "pcm": "Chest",
+      "hi": "छाती",
+      "ar": "الصدر"
+    },
+    "mock-pm-12b": {
+      "fr": "Taille",
+      "en": "Waist",
+      "pcm": "Waist",
+      "hi": "कमर",
+      "ar": "الخصر"
+    },
+    "mock-pm-12c": {
+      "fr": "Hanches",
+      "en": "Hips",
+      "pcm": "Hip",
+      "hi": "हिप",
+      "ar": "الأرداف"
+    },
+    "mock-pm-12d": {
+      "fr": "Épaules",
+      "en": "Shoulders",
+      "pcm": "Shoulder",
+      "hi": "कंधे",
+      "ar": "الأكتاف"
+    },
+    "mock-pm-12e": {
+      "fr": "Longueur robe",
+      "en": "Dress length",
+      "pcm": "Gown length",
+      "hi": "ड्रेस की लंबाई",
+      "ar": "طول الفستان"
+    }
+  },
+  "album_groups.name": {
+    "mock-group-1": {
+      "fr": "Robes de soirée",
+      "en": "Evening dresses",
+      "pcm": "Evening dresses",
+      "hi": "शाम की पोशाकें",
+      "ar": "فساتين السهرة"
+    },
+    "mock-group-2": {
+      "fr": "Boubous",
+      "en": "Boubou outfits",
+      "pcm": "Boubou clothes",
+      "hi": "बूबू पोशाकें",
+      "ar": "ملابس البوبو"
+    },
+    "mock-group-3": {
+      "fr": "Tenues homme",
+      "en": "Menswear",
+      "pcm": "Men clothes",
+      "hi": "पुरुषों के कपड़े",
+      "ar": "أزياء رجالية"
+    }
+  },
+  "contacts": {
+    "mock-contact-1": {
+      "first_name": {
+        "fr": "Aminata",
+        "en": "Aminata",
+        "pcm": "Aminata",
+        "hi": "अमिनाता",
+        "ar": "أميناتا"
+      },
+      "last_name": {
+        "fr": "BALDE",
+        "en": "BALDE",
+        "pcm": "BALDE",
+        "hi": "बाल्दे",
+        "ar": "بالدي"
+      }
+    },
+    "mock-contact-2": {
+      "first_name": {
+        "fr": "Coumba",
+        "en": "Coumba",
+        "pcm": "Coumba",
+        "hi": "कुम्बा",
+        "ar": "كومبا"
+      },
+      "last_name": {
+        "fr": "DIALLO",
+        "en": "DIALLO",
+        "pcm": "DIALLO",
+        "hi": "दियालो",
+        "ar": "ديالو"
+      }
+    },
+    "mock-contact-3": {
+      "first_name": {
+        "fr": "Djeneba",
+        "en": "Djeneba",
+        "pcm": "Djeneba",
+        "hi": "जेनेबा",
+        "ar": "جينيبا"
+      },
+      "last_name": {
+        "fr": "COULIBALY",
+        "en": "COULIBALY",
+        "pcm": "COULIBALY",
+        "hi": "कुलिबाली",
+        "ar": "كوليبالي"
+      }
+    },
+    "mock-contact-4": {
+      "first_name": {
+        "fr": "Fatoumata",
+        "en": "Fatoumata",
+        "pcm": "Fatoumata",
+        "hi": "फातूमाता",
+        "ar": "فاتوماتا"
+      },
+      "last_name": {
+        "fr": "DIOP",
+        "en": "DIOP",
+        "pcm": "DIOP",
+        "hi": "दियोप",
+        "ar": "ديوب"
+      }
+    },
+    "mock-contact-5": {
+      "first_name": {
+        "fr": "Ibrahima",
+        "en": "Ibrahima",
+        "pcm": "Ibrahima",
+        "hi": "इब्राहिमा",
+        "ar": "إبراهيما"
+      },
+      "last_name": {
+        "fr": "FALL",
+        "en": "FALL",
+        "pcm": "FALL",
+        "hi": "फाल",
+        "ar": "فال"
+      }
+    },
+    "mock-contact-6": {
+      "first_name": {
+        "fr": "Kadiatou",
+        "en": "Kadiatou",
+        "pcm": "Kadiatou",
+        "hi": "कादियातू",
+        "ar": "كادياتو"
+      },
+      "last_name": {
+        "fr": "KEITA",
+        "en": "KEITA",
+        "pcm": "KEITA",
+        "hi": "केता",
+        "ar": "كيتا"
+      }
+    },
+    "mock-contact-7": {
+      "first_name": {
+        "fr": "Lamine",
+        "en": "Lamine",
+        "pcm": "Lamine",
+        "hi": "लामिन",
+        "ar": "لامين"
+      },
+      "last_name": {
+        "fr": "KONÉ",
+        "en": "KONÉ",
+        "pcm": "KONÉ",
+        "hi": "कोने",
+        "ar": "كوني"
+      }
+    },
+    "mock-contact-8": {
+      "first_name": {
+        "fr": "Marème",
+        "en": "Marème",
+        "pcm": "Marème",
+        "hi": "मारेम",
+        "ar": "ماريم"
+      },
+      "last_name": {
+        "fr": "LY",
+        "en": "LY",
+        "pcm": "LY",
+        "hi": "ली",
+        "ar": "لي"
+      }
+    },
+    "mock-contact-9": {
+      "first_name": {
+        "fr": "Ndiaye",
+        "en": "Ndiaye",
+        "pcm": "Ndiaye",
+        "hi": "न्दियाये",
+        "ar": "ندياي"
+      },
+      "last_name": {
+        "fr": "MBAYE",
+        "en": "MBAYE",
+        "pcm": "MBAYE",
+        "hi": "म्बाये",
+        "ar": "مباي"
+      }
+    },
+    "mock-contact-10": {
+      "first_name": {
+        "fr": "Oumou",
+        "en": "Oumou",
+        "pcm": "Oumou",
+        "hi": "ऊमू",
+        "ar": "أومو"
+      },
+      "last_name": {
+        "fr": "NDIAYE",
+        "en": "NDIAYE",
+        "pcm": "NDIAYE",
+        "hi": "न्दियाये",
+        "ar": "ندياي"
+      }
+    },
+    "mock-contact-11": {
+      "first_name": {
+        "fr": "Penda",
+        "en": "Penda",
+        "pcm": "Penda",
+        "hi": "पेंडा",
+        "ar": "بيندا"
+      },
+      "last_name": {
+        "fr": "SALL",
+        "en": "SALL",
+        "pcm": "SALL",
+        "hi": "साल",
+        "ar": "سال"
+      }
+    },
+    "mock-contact-12": {
+      "first_name": {
+        "fr": "Rokhaya",
+        "en": "Rokhaya",
+        "pcm": "Rokhaya",
+        "hi": "रोखाया",
+        "ar": "روخايا"
+      },
+      "last_name": {
+        "fr": "SARR",
+        "en": "SARR",
+        "pcm": "SARR",
+        "hi": "सार",
+        "ar": "سار"
+      }
+    },
+    "mock-contact-13": {
+      "first_name": {
+        "fr": "Safiatou",
+        "en": "Safiatou",
+        "pcm": "Safiatou",
+        "hi": "सफ़ियातू",
+        "ar": "صافياتو"
+      },
+      "last_name": {
+        "fr": "SECK",
+        "en": "SECK",
+        "pcm": "SECK",
+        "hi": "सेक",
+        "ar": "سيك"
+      }
+    },
+    "mock-contact-14": {
+      "first_name": {
+        "fr": "Thierno",
+        "en": "Thierno",
+        "pcm": "Thierno",
+        "hi": "तिएर्नो",
+        "ar": "تيرنو"
+      },
+      "last_name": {
+        "fr": "SOW",
+        "en": "SOW",
+        "pcm": "SOW",
+        "hi": "सो",
+        "ar": "سو"
+      }
+    },
+    "mock-contact-15": {
+      "first_name": {
+        "fr": "Aïssatou",
+        "en": "Aïssatou",
+        "pcm": "Aïssatou",
+        "hi": "आइसातू",
+        "ar": "عيساتو"
+      },
+      "last_name": {
+        "fr": "SY",
+        "en": "SY",
+        "pcm": "SY",
+        "hi": "सी",
+        "ar": "سي"
+      }
+    },
+    "mock-contact-16": {
+      "first_name": {
+        "fr": "Bineta",
+        "en": "Bineta",
+        "pcm": "Bineta",
+        "hi": "बिनेता",
+        "ar": "بينيتا"
+      },
+      "last_name": {
+        "fr": "TALL",
+        "en": "TALL",
+        "pcm": "TALL",
+        "hi": "ताल",
+        "ar": "تال"
+      }
+    },
+    "mock-contact-17": {
+      "first_name": {
+        "fr": "Mariama",
+        "en": "Mariama",
+        "pcm": "Mariama",
+        "hi": "मरियमा",
+        "ar": "مرياما"
+      },
+      "last_name": {
+        "fr": "TOURE",
+        "en": "TOURE",
+        "pcm": "TOURE",
+        "hi": "तूरे",
+        "ar": "توري"
+      }
+    },
+    "mock-contact-18": {
+      "first_name": {
+        "fr": "Alioune",
+        "en": "Alioune",
+        "pcm": "Alioune",
+        "hi": "अलियून",
+        "ar": "أليون"
+      },
+      "last_name": {
+        "fr": "WADE",
+        "en": "WADE",
+        "pcm": "WADE",
+        "hi": "वाद",
+        "ar": "واد"
+      }
+    }
+  },
+  "profile": {
+    "albumTitle": {
+      "fr": "Atelier Awa Couture",
+      "en": "Awa Couture Studio",
+      "pcm": "Awa Couture Shop",
+      "hi": "आवा कूचर स्टूडियो",
+      "ar": "أتيليه أوا كوتور"
+    }
+  }
+}

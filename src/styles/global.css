@@ -272,3 +272,21 @@
     transform: none;
   }
 }
+
+/* ── App screenshots: a light and a dark image per screen, switched by <html class="dark"> ── */
+.app-shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(1.25rem, 9.5%, 2rem);
+}
+.screen-dark {
+  display: none;
+}
+.dark .screen-light {
+  display: none;
+}
+.dark .screen-dark {
+  display: block;
+}

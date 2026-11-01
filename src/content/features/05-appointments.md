@@ -1,7 +1,7 @@
 ---
 titleKey: "features.appointments_title"
 descKey: "features.appointments_desc"
-screen: "/images/app/rendez-vous-tab.webp"
+screen: "rendez-vous-tab"
 cardBg: "bg-feature-appointments"
 order: 5
 ---

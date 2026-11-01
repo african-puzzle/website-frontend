@@ -1,27 +1,24 @@
 ---
+import type { Locale } from '../../i18n/utils';
+import type { AppScreen } from '../../lib/appScreens';
+import AppScreenImg from './AppScreenImg.astro';
+
 interface Props {
-  src?: string; // omit when passing slides via the default slot
+  lang?: Locale; // lang + name render the screen; omit both when passing slides via the default slot
+  name?: AppScreen;
   alt?: string;
   class?: string;
   eager?: boolean;
 }
 
-const { src, alt, class: className = '', eager = false } = Astro.props;
+const { lang, name, alt = '', class: className = '', eager = false } = Astro.props;
 ---
 
 <div class:list={['phone-frame', className]}>
   {Astro.slots.has('default') ? (
     <div class="phone-screen" style="position: relative; overflow: hidden;"><slot /></div>
   ) : (
-    <img
-      src={src}
-      alt={alt}
-      class="phone-screen"
-      loading={eager ? 'eager' : 'lazy'}
-      decoding="async"
-      width="720"
-      height="1565"
-    />
+    <AppScreenImg lang={lang!} name={name!} alt={alt} eager={eager} />
   )}
 </div>
 

@@ -9,7 +9,6 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const phoneScreen = lang === 'fr' ? '/images/app/programmes-tab.webp' : `/images/app/${lang}/programmes-tab.webp`;
 
 const teamEntries = await getCollection('team');
 const team = teamEntries
@@ -60,7 +59,7 @@ const team = teamEntries
         <div class="relative flex-shrink-0 px-8 lg:px-12 my-4 lg:my-0">
           <div class="lg:my-[-4rem]">
             <div style="--phone-width: min(18rem, 64vw);">
-              <PhoneFrame src={phoneScreen} alt="African Puzzle WORKS app" />
+              <PhoneFrame lang={lang} name="programmes-tab" alt="African Puzzle WORKS app" />
             </div>
           </div>
         </div>

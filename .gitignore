@@ -26,3 +26,6 @@ pnpm-debug.log*
 # npm is the package manager; keep other lockfiles out
 pnpm-lock.yaml
 yarn.lock
+
+# raw simulator captures (only the WebP files are committed)
+scripts/app-screenshots/raw/
