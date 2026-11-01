@@ -19,6 +19,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/checkout'),
       i18n: {
         defaultLocale: 'fr',
         locales: {

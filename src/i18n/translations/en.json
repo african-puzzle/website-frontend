@@ -127,6 +127,10 @@
     "not_found_description": "The page you're looking for doesn't exist. You'll be redirected to the homepage in a few seconds.",
     "back_home": "Back to homepage"
   },
+  "checkout": {
+    "title": "Payment coming soon",
+    "description": "Online payment is coming soon. Go back to the African Puzzle WORKS app."
+  },
   "audio_first": {
     "title": "No reading or writing needed",
     "body": "Every screen explains itself out loud. Record voice notes, take photos: the app takes care of the rest.",

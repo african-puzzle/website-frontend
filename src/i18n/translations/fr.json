@@ -118,6 +118,10 @@
     "not_found_description": "La page que vous cherchez n'existe pas. Vous serez redirigé vers l'accueil dans quelques secondes.",
     "back_home": "Retour à l'accueil"
   },
+  "checkout": {
+    "title": "Paiement bientôt disponible",
+    "description": "Le paiement en ligne arrive bientôt. Revenez dans l'application African Puzzle WORKS."
+  },
   "instagram": {
     "alt": "African Puzzle sur Instagram"
   },
