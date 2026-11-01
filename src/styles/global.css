@@ -78,6 +78,8 @@
 :lang(ar) {
   --font-sans: 'Noto Sans Arabic', 'Montserrat', system-ui, sans-serif;
   --font-display: 'Noto Sans Arabic', 'Nunito', system-ui, sans-serif;
+  /* An Arabic block inside a page of another language inherits that page's resolved font-family */
+  font-family: var(--font-sans);
 }
 /* Tall scripts need more line height than Latin headings */
 :lang(hi),

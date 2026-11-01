@@ -4,6 +4,8 @@ import { t, defaultLocale } from '../i18n/utils';
 
 const lang = defaultLocale;
 const others = ['en', 'pcm', 'hi', 'ar'] as const;
+// The Latin brand name is isolated so the full stop stays at the end of an Arabic sentence
+const brand = 'African Puzzle WORKS';
 ---
 
 <Layout title={t(lang, 'checkout.title')} lang={lang}>
@@ -18,7 +20,7 @@ const others = ['en', 'pcm', 'hi', 'ar'] as const;
         {others.map((l) => (
           <div lang={l} dir={l === 'ar' ? 'rtl' : undefined} class="rounded-2xl bg-white/10 p-5">
             <h2 class="text-lg font-bold font-display">{t(l, 'checkout.title')}</h2>
-            <p class="mt-2 text-sm text-white/80 leading-relaxed">{t(l, 'checkout.description')}</p>
+            <p class="mt-2 text-sm text-white/80 leading-relaxed rtl:[&_bdi]:whitespace-nowrap" set:html={t(l, 'checkout.description').replace(brand, `<bdi>${brand}</bdi>`)} />
           </div>
         ))}
       </div>
